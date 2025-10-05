@@ -1,0 +1,36 @@
+﻿@model GeminiDataParsingTestProject.Models.PdfAnalysisResult
+
+@{
+    ViewBag.Title = "Analysis Result";
+}
+
+<h2>Gemini Analysis Result</h2>
+
+@if (Model?.Assignments != null && Model.Assignments.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Assignment</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Assignments.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Assignments[i]</td>
+                    <td>@Model.DueDates[i]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No assignments found.</p>
+}
+
+<a asp-action="Index" asp-controller="Pdf">Upload another file</a>
+
+
