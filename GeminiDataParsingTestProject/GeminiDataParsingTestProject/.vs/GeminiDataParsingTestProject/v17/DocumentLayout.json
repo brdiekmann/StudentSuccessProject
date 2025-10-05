@@ -1,0 +1,301 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\source\\repos\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\geminidataparsingtestproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 304,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 91,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T03:01:23.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Program.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Program.cs",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Program.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T02:34:33.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-05T02:28:21.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Result.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T02:27:34.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T02:23:34.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PdfController.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAqwCkAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T02:17:39.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GeminiService.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Services\\GeminiService.cs",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Services\\GeminiService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T02:13:34.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PdfAnalysisResult.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T02:11:36.91Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T02:23:03.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-05T03:33:02.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T02:34:31.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T02:34:32.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T02:52:36.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T02:54:43.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GeminiDataParsingTestProject.csproj",
+              "DocumentMoniker": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "ToolTip": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-05T02:12:52.181Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 21,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
