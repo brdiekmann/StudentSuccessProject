@@ -36,6 +36,50 @@ namespace GeminiDataParsingTestProject.Controllers
                 textContent = string.Join("\n", pdf.GetPages().Select(p => p.Text));
             }
 
+            // Call Gemini API
+            var geminiResponse = await _geminiService.AnalyzePdfTextAsync(textContent);
+
+            // Parse Gemini API response
+            var doc = JsonDocument.Parse(geminiResponse);
+            var candidateText = doc.RootElement
+                .GetProperty("candidates")[0]
+                .GetProperty("content")
+                .GetProperty("parts")[0]
+                .GetProperty("text")
+                .GetString();
+
+            // Remove markdown code fences if present
+            candidateText = candidateText?.Trim();
+            if (candidateText.StartsWith("```json"))
+                candidateText = candidateText.Substring(7).Trim();
+            if (candidateText.EndsWith("```"))
+                candidateText = candidateText.Substring(0, candidateText.Length - 3).Trim();
+
+            // Deserialize into your PdfAnalysisResult
+            var analysisResult = JsonSerializer.Deserialize<PdfAnalysisResult>(candidateText, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            return View("Result", analysisResult);
+        }
+
+
+        /* Working code below, as long as you change PdfAnalysisResult Model to be seperate from Assignment model
+         * Commenting out to try new approach
+        [HttpPost]
+        public async Task<IActionResult> Analyze(IFormFile pdfFile)
+        {
+            if (pdfFile == null || pdfFile.Length == 0)
+                return BadRequest("Please upload a PDF file.");
+
+            string textContent;
+            using (var stream = pdfFile.OpenReadStream())
+            using (var pdf = PdfDocument.Open(stream))
+            {
+                textContent = string.Join("\n", pdf.GetPages().Select(p => p.Text));
+            }
+
             // Use valid model name
             var geminiResponse = await _geminiService.AnalyzePdfTextAsync(textContent);
 
@@ -44,6 +88,7 @@ namespace GeminiDataParsingTestProject.Controllers
             return View("Result");
             
         }
+        */
     }
 
 }

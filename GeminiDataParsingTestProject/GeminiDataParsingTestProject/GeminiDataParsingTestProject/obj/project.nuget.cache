@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BlqPyNCF+MA=",
+  "dgSpecHash": "0rq4DPuxT4k=",
   "success": true,
-  "projectFilePath": "C:\\Users\\steel\\source\\repos\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+  "projectFilePath": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steel\\.nuget\\packages\\microsoft.aspnetcore.http\\2.3.0\\microsoft.aspnetcore.http.2.3.0.nupkg.sha512",
     "C:\\Users\\steel\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
