@@ -46,7 +46,7 @@ namespace GeminiDataParsingTestProject.Services
                             role = "user",
                             parts = new[]
                             {
-                                new { text = $"Extract all assignments and their due dates from this text. Return only valid JSON in this format:\n\n{{ \"assignments\": [{{ \"name\": \"...\", \"dueDate\": \"YYYY-MM-DD\" }}] }}\n\nText:\n{pdfText}" }
+                                new { text = $"Extract the course name, meeting times (start and end), and assignments and their due dates from this text. Return only valid JSON in this format:\n\n{{ \"courses\": [{{\"name\": \"...\", \"startTime\": \"...\", \"endTime\": \"...\",}}]\"assignments\"}}] [{{ \"name\": \"...\", \"dueDate\": \"YYYY-MM-DD\" }}] }}\n\nText:\n{pdfText}" }
 
                                 /*
                                  * Commenting out for to test new approach

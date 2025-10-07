@@ -6,6 +6,8 @@
 
 <h2>Gemini Analysis Result</h2>
 
+<h3>Assignments</h3>
+
 @if (Model?.Assignments != null && Model.Assignments.Any())
 {
     <table class="table table-striped">
@@ -21,6 +23,35 @@
                 <tr>
                     <td>@assignment.Name</td>
                     <td>@assignment.DueDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No assignments found.</p>
+}
+
+<h3>Courses</h3>
+
+@if (Model?.Courses != null && Model.Courses.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.Courses)
+            {
+                <tr>
+                    <td>@course.Name</td>
+                    <td>@course.StartTime</td>
+                    <td>@course.EndTime</td>
                 </tr>
             }
         </tbody>
