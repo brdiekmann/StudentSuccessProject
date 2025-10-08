@@ -212,7 +212,6 @@ C:\Users\steel\CS483\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDa
 C:\Users\steel\CS483\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\obj\Debug\net9.0\GeminiDataParsingTestProject.genruntimeconfig.cache
 C:\Users\steel\CS483\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\obj\Debug\net9.0\ref\GeminiDataParsingTestProject.dll
 C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\bin\Debug\net9.0\appsettings.Development.json
-C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\bin\Debug\net9.0\appsettings.json
 C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\bin\Debug\net9.0\GeminiDataParsingTestProject.staticwebassets.runtime.json
 C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\bin\Debug\net9.0\GeminiDataParsingTestProject.staticwebassets.endpoints.json
 C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\bin\Debug\net9.0\GeminiDataParsingTestProject.exe
@@ -323,3 +322,5 @@ C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject
 C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\obj\Debug\net9.0\GeminiDataParsingTestProject.pdb
 C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\obj\Debug\net9.0\GeminiDataParsingTestProject.genruntimeconfig.cache
 C:\Users\Brandon\Source\Repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\obj\Debug\net9.0\ref\GeminiDataParsingTestProject.dll
+C:\Users\Brandon\source\repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\bin\Debug\net9.0\appsettings - Copy.Development.json
+C:\Users\Brandon\source\repos\StudentSuccessProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\GeminiDataParsingTestProject\bin\Debug\net9.0\appsettings.json

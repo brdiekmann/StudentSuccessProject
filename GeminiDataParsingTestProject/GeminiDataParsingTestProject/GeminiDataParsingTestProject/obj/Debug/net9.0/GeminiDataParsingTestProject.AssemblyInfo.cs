@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("71349417-2974-44d9-9229-2bda8e18dba4")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("GeminiDataParsingTestProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a424b41e5be83ddbcb9384ca67b407168a94c75b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b0d2fbcb8d1339693bee6444a88d98a5fc99cd6")]
 [assembly: System.Reflection.AssemblyProductAttribute("GeminiDataParsingTestProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GeminiDataParsingTestProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

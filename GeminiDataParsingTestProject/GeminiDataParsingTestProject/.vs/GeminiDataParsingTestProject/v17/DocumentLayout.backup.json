@@ -47,10 +47,6 @@
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\brandon\\source\\repos\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\brandon\\source\\repos\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -96,7 +92,7 @@
         },
         {
           "DockedHeight": 91,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -132,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
@@ -176,8 +172,7 @@
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
               "ViewState": "AgIAACMAAAAAAAAAAAAwwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-05T02:27:34.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T02:27:34.907Z"
             },
             {
               "$type": "Document",
@@ -201,8 +196,7 @@
               "RelativeToolTip": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAuwEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:17:39.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T02:17:39.968Z"
             },
             {
               "$type": "Document",
@@ -214,8 +208,7 @@
               "RelativeToolTip": "GeminiDataParsingTestProject\\Services\\GeminiService.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAIwE8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:13:34.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T02:13:34.32Z"
             },
             {
               "$type": "Document",
@@ -227,8 +220,7 @@
               "RelativeToolTip": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:11:36.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T02:11:36.91Z"
             },
             {
               "$type": "Document",
@@ -240,24 +232,11 @@
               "RelativeToolTip": "GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:23:03.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T02:23:03.311Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
-              "RelativeToolTip": "GeminiDataParsingTestProject\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-05T03:33:02.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
@@ -269,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
@@ -302,16 +281,15 @@
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABYAAAAAAAAAAAAswDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-05T02:54:43.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T02:54:43.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "GeminiDataParsingTestProject.csproj",
-              "DocumentMoniker": "C:\\Users\\Brandon\\Source\\Repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
-              "ToolTip": "C:\\Users\\Brandon\\Source\\Repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "ToolTip": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
               "RelativeToolTip": "GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
