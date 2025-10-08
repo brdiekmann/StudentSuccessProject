@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Brandon\\Source\\Repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj": {}
+    "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Brandon\\Source\\Repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj": {
+    "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Brandon\\Source\\Repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+        "projectUniqueName": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
         "projectName": "GeminiDataParsingTestProject",
-        "projectPath": "C:\\Users\\Brandon\\Source\\Repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+        "projectPath": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
         "packagesPath": "C:\\Users\\Brandon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Brandon\\Source\\Repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\obj\\",
+        "outputPath": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

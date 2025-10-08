@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\brandon\\source\\repos\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\brandon\\source\\repos\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,10 +55,6 @@
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\brandon\\source\\repos\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\brandon\\source\\repos\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -96,7 +96,7 @@
         },
         {
           "DockedHeight": 91,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -120,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Assignment.cs",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\Assignment.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Models\\Assignment.cs",
@@ -132,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
@@ -144,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Program.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Program.cs",
@@ -156,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\appsettings.json",
@@ -168,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Result.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
@@ -181,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
@@ -193,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PdfController.cs",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
@@ -206,20 +206,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GeminiService.cs",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Services\\GeminiService.cs",
               "ToolTip": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Services\\GeminiService.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAwwE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAIwE8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T02:13:34.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PdfAnalysisResult.cs",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
@@ -232,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
@@ -245,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\appsettings.Development.json",
@@ -281,19 +281,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwBIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-05T02:52:36.15Z"
+              "WhenOpened": "2025-10-05T02:52:36.15Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Brandon\\source\\repos\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
