@@ -1,2 +1,4 @@
 #Ignore Migration Files
 FinalProject/FinalProject/Migrations/*
+#Ignore Appsettings.json FIles
+GeminiDataParsingTestProject/GeminiDataParsingTestProject/appsettings.json
