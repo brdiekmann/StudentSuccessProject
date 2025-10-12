@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DxO8URl1kEY=",
+  "dgSpecHash": "HWg4r66k0Ws=",
   "success": true,
   "projectFilePath": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\FinalProject.csproj",
   "expectedPackageFiles": [
@@ -134,6 +134,7 @@
     "C:\\Users\\steel\\.nuget\\packages\\nuget.projectmodel\\6.11.0\\nuget.projectmodel.6.11.0.nupkg.sha512",
     "C:\\Users\\steel\\.nuget\\packages\\nuget.protocol\\6.11.0\\nuget.protocol.6.11.0.nupkg.sha512",
     "C:\\Users\\steel\\.nuget\\packages\\nuget.versioning\\6.11.0\\nuget.versioning.6.11.0.nupkg.sha512",
+    "C:\\Users\\steel\\.nuget\\packages\\pdfpig\\0.1.11\\pdfpig.0.1.11.nupkg.sha512",
     "C:\\Users\\steel\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\steel\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\steel\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",

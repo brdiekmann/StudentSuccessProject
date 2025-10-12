@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-namespace GeminiDataParsingTestProject.Services
+namespace FinalProject.Services
 {
     public class GeminiService
     {
@@ -46,12 +46,16 @@ namespace GeminiDataParsingTestProject.Services
                             role = "user",
                             parts = new[]
                             {
+                                //Test this new prompt it is looking to extract assignments and courses as well as meeding times so that it will be able to populate class meeting times as Events 
+                                new { text = $@"Extract all assignments (with due dates) AND all course meeting schedules from this syllabus text. Return ONLY valid JSON in this format:
+
+                                    {{ 
+                                        ""assignments"": [ {{ ""name"": ""..."", ""dueDate"": ""YYYY-MM-DD"" }}],
+                                        ""courses"": [{{""courseName"": ""..."",""courseDescription"": ""..."",""startDate"": ""YYYY-MM-DD"",""endDate"": ""YYYY-MM-DD"",""meetingDays"": ""Monday,Wednesday"",""startTime"": ""15:00"",""endTime"": ""16:15"",""location"": ""...""}}]}}Text:{pdfText}"
+                                    }
+
+                                /* Commenting this out to test new prompt
                                 new { text = $"Extract all assignments and their due dates from this text. Return only valid JSON in this format:\n\n{{ \"assignments\": [{{ \"name\": \"...\", \"dueDate\": \"YYYY-MM-DD\" }}] }}\n\nText:\n{pdfText}" }
-
-                                /*
-                                 * Commenting out for to test new approach
-                                new { text = $"Extract all assignments and due dates from this PDF text and return results in JSON format:\n\n{pdfText}" }
-
                                 */
                             }
                     }
