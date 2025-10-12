@@ -83,6 +83,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "PdfPig": {
+              "target": "Package",
+              "version": "[0.1.11, )"
             }
           },
           "imports": [

@@ -11,10 +11,17 @@ namespace FinalProject.Models.Entities
         public string CourseName { get; set; }
         [Required(ErrorMessage = "Course description is required"), MaxLength(200, ErrorMessage = "Course descriptions must be less than 200 characters")]
         public string CourseDescription { get; set; }
-        [Required(ErrorMessage = "Start date and time is required")]
+        [Required(ErrorMessage = "Start date is required")]
         public DateOnly StartDate { get; set; }
-        [Required(ErrorMessage = "End date and time is required")]
+        [Required(ErrorMessage = "End date is required")]
         public DateOnly EndDate { get; set; }
+        [Required(ErrorMessage = "Class meeting days are required"), MaxLength(50, ErrorMessage = "Class meeting days must be less than 50 characters")]
+        public string ClassMeetingDays { get; set; }
+        [Required(ErrorMessage = "Class start time is required")]
+        public TimeOnly ClassStartTime { get; set; }
+        [Required(ErrorMessage = "Class end time is required")]
+        public TimeOnly ClassEndTime { get; set; }
+        public string? Location { get; set; }
         [Required]
         bool IsActive { get; set; } = true;
         [Required (ErrorMessage = "Course color is required"), MinLength(6, ErrorMessage = "RGB Hex Code must be at least 6 digits"), MaxLength(8, ErrorMessage = "RGB Hex Code can not be larger than 8 digits")]
