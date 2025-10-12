@@ -11,55 +11,47 @@ using System.Net.NetworkInformation;
 
 namespace FinalProject.Controllers
 {
-    // This is not currently completed and still needs to be connected to views and edited to meet project requirements
+    /* This contoller is used to manage user profiles, including viewing and editing profile details.
+     * The users should be able to view their own profile information and update fields like FirstName, LastName, and TimeZone.
+     */
     [Authorize]
     public class UsersController : Controller
     {
-        private readonly ApplicationDbContext dbContext;
         private readonly UserManager<User> _userManager;
-        public UsersController(ApplicationDbContext dbContext, UserManager<User> userManager)
+
+        public UsersController(UserManager<User> userManager)
         {
-            this.dbContext = dbContext;
-            this._userManager = userManager;
-        }
-        public IActionResult Index()
-        {
-            return View();
-        }
-        [HttpGet]
-        public IActionResult Add()
-        {
-            return View();
+            _userManager = userManager;
         }
 
+        // Show logged-in user's profile
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return NotFound();
+
+            return View(currentUser);
+        }
+
+        // Edit profile details (not password or roles)
         [HttpPost]
-        public async Task<IActionResult> Add(User userViewModel)
+        public async Task<IActionResult> Profile(User userViewModel)
         {
             if (!ModelState.IsValid) return View(userViewModel);
 
-            var user = new User
-            {
-                FirstName = userViewModel.FirstName,
-                LastName = userViewModel.LastName,
-                Email = userViewModel.Email,
-                UserName = userViewModel.UserName,
-                TimeZone = userViewModel.TimeZone
-            };
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound();
 
-            var result = await _userManager.CreateAsync(user, "DefaultPassword123!");
+            user.FirstName = userViewModel.FirstName;
+            user.LastName = userViewModel.LastName;
+            user.TimeZone = userViewModel.TimeZone;
 
-            if (result.Succeeded)
-            {
-                TempData["SuccessMessage"] = $"User {user.FirstName} (ID: {user.Id}) added successfully!";
-                return RedirectToAction("List");
-            }
+            await _userManager.UpdateAsync(user);
+            TempData["SuccessMessage"] = "Profile updated successfully!";
 
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
-
-            return View(userViewModel);
+            return RedirectToAction("Profile");
         }
     }
+
 }
