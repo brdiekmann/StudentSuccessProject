@@ -1,0 +1,67 @@
+﻿@model GeminiDataParsingTestProject.Models.PdfAnalysisResult
+
+@{
+    ViewBag.Title = "Analysis Result";
+}
+
+<h2>Gemini Analysis Result</h2>
+
+<h3>Courses</h3>
+
+@if (Model?.Courses != null && Model.Courses.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.Courses)
+            {
+                <tr>
+                    <td>@course.Name</td>
+                    <td>@course.StartTime</td>
+                    <td>@course.EndTime</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No courses found.</p>
+}
+
+<h3>Assignments</h3>
+
+@if (Model?.Assignments != null && Model.Assignments.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Assignment</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assignment in Model.Assignments)
+            {
+                <tr>
+                    <td>@assignment.Name</td>
+                    <td>@assignment.DueDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No assignments found.</p>
+}
+
+<a asp-action="Index" asp-controller="Pdf">Upload another file</a>
+
+

@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "Upload PDF for Analysis";
+}
+
+<h2>Upload PDF</h2>
+
+<form id="pdfForm" method="post" enctype="multipart/form-data">
+    <div style="margin-bottom: 15px;">
+        <input type="file" name="pdfFile" accept=".pdf" id="pdfFile" />
+    </div>
+    <button type="submit" id="submitBtn">Analyze</button>
+</form>
+
+<div id="progressContainer" style="display:none; margin-top: 30px;">
+    <div style="width: 100%; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div id="progressBar" style="width: 0%; height: 40px; background: linear-gradient(90deg, #4CAF50, #45a049); transition: width 0.5s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px;">
+            0%
+        </div>
+    </div>
+    <p id="statusText" style="margin-top: 15px; font-size: 14px; color: #555;">Initializing...</p>
+</div>
+
+<div id="errorContainer" style="display:none; margin-top: 20px; padding: 15px; background-color: #ffebee; border-left: 4px solid #f44336; border-radius: 4px;">
+    <strong style="color: #c62828;">Error:</strong>
+    <span id="errorText" style="color: #c62828;"></span>
+</div>
+
+<style>
+    #pdfForm {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        max-width: 500px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+        button:hover:not(:disabled) {
+            background-color: #45a049;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+    input[type="file"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+    }
+</style>
+
+<script>
+    document.getElementById('pdfForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const fileInput = document.getElementById('pdfFile');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const statusText = document.getElementById('statusText');
+        const submitBtn = document.getElementById('submitBtn');
+        const errorContainer = document.getElementById('errorContainer');
+        const errorText = document.getElementById('errorText');
+
+        if (!fileInput.files[0]) {
+            alert('Please select a PDF file');
+            return;
+        }
+
+        // Reset and show progress
+        progressContainer.style.display = 'block';
+        errorContainer.style.display = 'none';
+        submitBtn.disabled = true;
+        progressBar.style.width = '0%';
+        progressBar.textContent = '0%';
+
+        const formData = new FormData();
+        formData.append('pdfFile', fileInput.files[0]);
+
+        try {
+            const response = await fetch('/Pdf/AnalyzeWithProgress', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Upload failed');
+            }
+
+            // Read the stream line by line
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+
+            while (true) {
+                const {done, value} = await reader.read();
+
+                if (done) break;
+
+                buffer += decoder.decode(value, {stream: true});
+
+                // Split by newlines to process complete JSON objects
+                const lines = buffer.split('\n');
+                buffer = lines.pop(); // Keep incomplete line in buffer
+
+                for (const line of lines) {
+                    if (line.trim()) {
+                        try {
+                            const update = JSON.parse(line);
+
+                            // Update progress bar
+                            progressBar.style.width = update.percentage + '%';
+                            progressBar.textContent = update.percentage + '%';
+                            statusText.textContent = update.status;
+
+                            if (update.status === 'complete' && update.data) {
+                                // Analysis complete - redirect to results page
+                                // Store result in sessionStorage temporarily
+                                sessionStorage.setItem('analysisResult', update.data);
+
+                                // Create a form and submit to Result view
+                                const resultForm = document.createElement('form');
+                                resultForm.method = 'POST';
+                                resultForm.action = '/Pdf/DisplayResult';
+
+                                const resultInput = document.createElement('input');
+                                resultInput.type = 'hidden';
+                                resultInput.name = 'resultJson';
+                                resultInput.value = update.data;
+
+                                resultForm.appendChild(resultInput);
+                                document.body.appendChild(resultForm);
+                                resultForm.submit();
+                            } else if (update.status === 'error') {
+                                errorContainer.style.display = 'block';
+                                errorText.textContent = update.data || 'An error occurred';
+                                progressBar.style.background = '#f44336';
+                                statusText.textContent = 'Failed';
+                            }
+                        } catch (e) {
+                            console.error('Failed to parse update:', e);
+                        }
+                    }
+                }
+            }
+
+        } catch (error) {
+            errorContainer.style.display = 'block';
+            errorText.textContent = error.message;
+            progressBar.style.background = '#f44336';
+            statusText.textContent = 'Failed';
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
+</script>
