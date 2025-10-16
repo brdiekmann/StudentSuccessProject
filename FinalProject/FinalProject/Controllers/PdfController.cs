@@ -6,11 +6,12 @@ using System.Text.Json;
 using System.IO;
 using System.Threading.Tasks;
 using UglyToad.PdfPig;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FinalProject.Controllers
 {
     //Currently not in working condition because views have not been created yet, but logic should work properly
-    public class PdfController
+    public class PdfController : Controller
     {
         private readonly GeminiService _geminiService;
 

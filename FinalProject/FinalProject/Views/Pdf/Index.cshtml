@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Upload PDF for Analysis";
+}
+
+<h2>Upload PDF</h2>
+
+<form asp-controller="Pdf" asp-action="Analyze" method="post" enctype="multipart/form-data">
+    <input type="file" name="pdfFile" accept=".pdf" />
+    <button type="submit">Analyze</button>
+</form>
+

@@ -19,7 +19,7 @@ namespace FinalProject.Data
         public async Task SeedDataAsync()
         {
             //Seed roles
-            var roles = new[] { "Admin", "User" };
+            var roles = new[] {"User" };
             foreach (var role in roles)
             {
                 if (!await _roleManager.RoleExistsAsync(role))
@@ -28,28 +28,7 @@ namespace FinalProject.Data
                 }
             }
 
-            //Seed user and admin
-            // Seed Admin user if not exists
-            var adminUser = await _userManager.FindByNameAsync("admin");
-            if (adminUser == null)
-            {
-                adminUser = new User
-                {
-                    UserName = "admin",
-                    FirstName = "Administrative",
-                    LastName = "User",
-                    Email = "admin@example.com",
-                    TimeZone = "Default TimeZone",
-                    EmailConfirmed = true
-                };
-
-                var result = await _userManager.CreateAsync(adminUser, "Admin@123");
-
-                if (result.Succeeded)
-                {
-                    await _userManager.AddToRoleAsync(adminUser, "Admin"); // Assign Admin role to the user
-                }
-            }
+            //Seed user
 
             var guestAccount = await _userManager.FindByNameAsync("user");
             if (guestAccount == null)
