@@ -1,0 +1,36 @@
+﻿@model FinalProject.Models.PdfAnalysisResult
+
+@{
+    ViewBag.Title = "Analysis Result";
+}
+
+<h2>Gemini Analysis Result</h2>
+
+@if (Model?.Assignments != null && Model.Assignments.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Assignment</th>
+                <th>Due Date</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assignment in Model.Assignments)
+            {
+                <tr>
+                    <td>@assignment.AssignmentName</td>
+                    <td>@assignment.DueDate.ToShortDateString()</td>
+                    <td>@assignment.course.CourseName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No assignments found.</p>
+}
+
+<a asp-action="Index" asp-controller="Pdf">Upload another file</a>

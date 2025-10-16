@@ -59,6 +59,17 @@ namespace FinalProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<TimeOnly>("ClassEndTime")
+                        .HasColumnType("time");
+
+                    b.Property<string>("ClassMeetingDays")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<TimeOnly>("ClassStartTime")
+                        .HasColumnType("time");
+
                     b.Property<string>("CourseColor")
                         .IsRequired()
                         .HasMaxLength(8)
@@ -74,14 +85,17 @@ namespace FinalProject.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("EndDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ScheduleId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("UserId")
                         .IsRequired()
