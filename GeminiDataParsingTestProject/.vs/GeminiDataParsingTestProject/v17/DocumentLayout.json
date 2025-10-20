@@ -1,69 +1,70 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\",
+  "WorkspaceRootPath": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\models\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\models\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\models\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\reaga\\source\\repos\\studentsuccessproject - hiddenapi\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\geminidataparsingtestproject\\geminidataparsingtestproject\\geminidataparsingtestproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A012D99C-5700-4E45-8F2F-FC53467301C4}|GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj|solutionrelative:geminidataparsingtestproject\\geminidataparsingtestproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GeminiDataParsingTestProject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -95,7 +96,7 @@
         },
         {
           "DockedHeight": 91,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -103,60 +104,49 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
-              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
-              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-05T02:23:34.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PdfController.cs",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
-              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
-              "RelativeToolTip": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:17:39.968Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "PdfAnalysisResult.cs",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
-              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
-              "RelativeToolTip": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Title": "PdfController.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Controllers\\PdfController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:11:36.91Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Assignment.cs",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\Assignment.cs",
-              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Models\\Assignment.cs",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\Assignment.cs",
-              "RelativeToolTip": "GeminiDataParsingTestProject\\Models\\Assignment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T19:37:10.905Z"
+              "WhenOpened": "2025-10-05T02:17:39.968Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "PdfAnalysisResult.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Models\\PdfAnalysisResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T02:11:36.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Assignment.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\Assignment.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Models\\Assignment.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Models\\Assignment.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Models\\Assignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T19:37:10.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -164,11 +154,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "GeminiService.cs",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Services\\GeminiService.cs",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Services\\GeminiService.cs",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Services\\GeminiService.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAgwCIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -176,11 +166,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Program.cs",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Program.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Program.cs",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T02:34:33.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Pdf\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T02:23:34.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -188,11 +203,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Result.cshtml",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Pdf\\Result.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -203,31 +218,19 @@
               "DocumentIndex": 15,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json",
+              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\appsettings.json",
               "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.json",
+              "RelativeToolTip": "GeminiDataParsingTestProject\\appsettings.json",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-10-05T02:28:21.845Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Program.cs",
-              "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Program.cs",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Program.cs",
-              "RelativeToolTip": "GeminiDataParsingTestProject\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:34:33.028Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
               "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\appsettings.Development.json",
               "RelativeToolTip": "GeminiDataParsingTestProject\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -237,9 +240,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Home\\Privacy.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -249,9 +252,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -261,9 +264,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -273,9 +276,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Reaga\\source\\repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "GeminiDataParsingTestProject\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -285,9 +288,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "GeminiDataParsingTestProject.csproj",
-              "DocumentMoniker": "C:\\Users\\Reaga\\Source\\Repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
               "RelativeDocumentMoniker": "GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
-              "ToolTip": "C:\\Users\\Reaga\\Source\\Repos\\StudentSuccessProject - HiddenAPI\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
               "RelativeToolTip": "GeminiDataParsingTestProject\\GeminiDataParsingTestProject.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
