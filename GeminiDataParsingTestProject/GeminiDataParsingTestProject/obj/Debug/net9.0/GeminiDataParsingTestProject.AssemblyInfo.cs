@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GeminiDataParsingTestProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b98561872105da1a48d70715e2841b5d324cc08")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb4e28c36a01f98f6955698155f17735a7bcccdb")]
 [assembly: System.Reflection.AssemblyProductAttribute("GeminiDataParsingTestProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GeminiDataParsingTestProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

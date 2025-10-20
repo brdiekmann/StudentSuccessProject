@@ -85,6 +85,13 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddSingleton<IEmailSender, DummyEmailSender>();
 
+// Register GeminiService in DI
+builder.Services.AddSingleton<GeminiService>(sp =>
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var apiKey = configuration["Gemini:ApiKey"];
+    return new GeminiService(apiKey);
+});
 
 var app = builder.Build();
 

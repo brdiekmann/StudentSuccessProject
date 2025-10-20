@@ -3,48 +3,84 @@
   "WorkspaceRootPath": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\assignmentsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\assignmentsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\services\\dummyemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\services\\dummyemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\assignmentsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\assignmentsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251020043759_TestMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FinalProject\\Migrations\\20251020043759_TestMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\pdfanalysisresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\eventsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\eventsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\coursesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\coursesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\services\\dummyemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\services\\dummyemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -75,28 +111,12 @@
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251016000247_Test Migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FinalProject\\Migrations\\20251016000247_Test Migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -107,32 +127,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FinalProject\\Migrations\\20251015234851_Test Migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\eventsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\eventsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\coursesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\coursesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\usersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -264,7 +264,7 @@
         },
         {
           "DockedHeight": 91,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -289,105 +289,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "GeminiService.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\GeminiService.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Services\\GeminiService.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\GeminiService.cs",
-              "RelativeToolTip": "FinalProject\\Services\\GeminiService.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAgwC0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T04:39:47.094Z",
+              "Title": "Result.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
+              "RelativeDocumentMoniker": "FinalProject\\Views\\Pdf\\Result.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
+              "RelativeToolTip": "FinalProject\\Views\\Pdf\\Result.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T22:00:31.433Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PdfController.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Controllers\\PdfController.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
-              "RelativeToolTip": "FinalProject\\Controllers\\PdfController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBcAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "FinalProject\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwDYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T19:43:44.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DummyEmailSender.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\DummyEmailSender.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Services\\DummyEmailSender.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\DummyEmailSender.cs",
-              "RelativeToolTip": "FinalProject\\Services\\DummyEmailSender.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:09:57.132Z",
+              "WhenOpened": "2025-09-29T03:10:11.359Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Assignment.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Assignment.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Assignment.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Assignment.cs",
+              "RelativeToolTip": "FinalProject\\Models\\Entities\\Assignment.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T21:37:45.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AssignmentsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\AssignmentsViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\AssignmentsViewModel.cs",
               "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\AssignmentsViewModel.cs",
               "RelativeToolTip": "FinalProject\\Models\\AssignmentsViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-28T21:44:23.527Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GeminiService.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\GeminiService.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Services\\GeminiService.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\GeminiService.cs",
+              "RelativeToolTip": "FinalProject\\Services\\GeminiService.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAgwFIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T04:39:47.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PdfAnalysisResult.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\PdfAnalysisResult.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\PdfAnalysisResult.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\PdfAnalysisResult.cs",
-              "RelativeToolTip": "FinalProject\\Models\\PdfAnalysisResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Course.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Course.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Course.cs",
+              "RelativeToolTip": "FinalProject\\Models\\Entities\\Course.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T19:27:11.608Z",
+              "WhenOpened": "2025-09-28T21:23:53.65Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Index.cshtml",
-              "RelativeDocumentMoniker": "FinalProject\\Views\\Pdf\\Index.cshtml",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Index.cshtml",
-              "RelativeToolTip": "FinalProject\\Views\\Pdf\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-15T22:00:45.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeDocumentMoniker": "FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeToolTip": "FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-16T00:35:51.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Program.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Program.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Program.cs",
-              "RelativeToolTip": "FinalProject\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Event.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Event.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Event.cs",
+              "RelativeToolTip": "FinalProject\\Models\\Entities\\Event.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:05:50.461Z",
+              "WhenOpened": "2025-09-28T21:45:20.702Z",
               "EditorCaption": ""
             },
             {
@@ -398,7 +385,7 @@
               "RelativeDocumentMoniker": "FinalProject\\appsettings.json",
               "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\appsettings.json",
               "RelativeToolTip": "FinalProject\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-22T03:10:38.98Z",
               "EditorCaption": ""
@@ -406,58 +393,110 @@
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "FinalProject\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\appsettings.Development.json",
-              "RelativeToolTip": "FinalProject\\appsettings.Development.json",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Program.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Program.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Program.cs",
+              "RelativeToolTip": "FinalProject\\Program.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAgwF0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T22:05:50.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20251020043759_TestMigration.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251020043759_TestMigration.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Migrations\\20251020043759_TestMigration.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251020043759_TestMigration.cs",
+              "RelativeToolTip": "FinalProject\\Migrations\\20251020043759_TestMigration.cs",
+              "ViewState": "AgIAAAMBAAAAAAAAAAAQwBUBAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T04:37:59.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DataSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Data\\DataSeeder.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Data\\DataSeeder.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Data\\DataSeeder.cs",
+              "RelativeToolTip": "FinalProject\\Data\\DataSeeder.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwBgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T22:11:08.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PdfController.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Controllers\\PdfController.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
+              "RelativeToolTip": "FinalProject\\Controllers\\PdfController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T19:43:44.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Index.cshtml",
+              "RelativeDocumentMoniker": "FinalProject\\Views\\Pdf\\Index.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Index.cshtml",
+              "RelativeToolTip": "FinalProject\\Views\\Pdf\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-09T00:44:14.134Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T22:00:45.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\LoginViewModel.cs",
-              "RelativeToolTip": "FinalProject\\Models\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "PdfAnalysisResult.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\PdfAnalysisResult.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\PdfAnalysisResult.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\PdfAnalysisResult.cs",
+              "RelativeToolTip": "FinalProject\\Models\\PdfAnalysisResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T00:16:24.42Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Assignment.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Assignment.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Assignment.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Assignment.cs",
-              "RelativeToolTip": "FinalProject\\Models\\Entities\\Assignment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:37:45.997Z",
+              "WhenOpened": "2025-10-12T19:27:11.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\User.cs",
-              "RelativeToolTip": "FinalProject\\Models\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "Title": "EventsViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\EventsViewModel.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\EventsViewModel.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\EventsViewModel.cs",
+              "RelativeToolTip": "FinalProject\\Models\\EventsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T20:26:39.63Z",
+              "WhenOpened": "2025-09-28T22:56:44.858Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
+              "Title": "CoursesViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\CoursesViewModel.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\CoursesViewModel.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\CoursesViewModel.cs",
+              "RelativeToolTip": "FinalProject\\Models\\CoursesViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T21:35:01.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Views\\Shared\\_Layout.cshtml",
@@ -470,7 +509,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
+              "Title": "DummyEmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\DummyEmailSender.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Services\\DummyEmailSender.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\DummyEmailSender.cs",
+              "RelativeToolTip": "FinalProject\\Services\\DummyEmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T22:09:57.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-16T00:35:51.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "FinalProject\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\appsettings.Development.json",
+              "RelativeToolTip": "FinalProject\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-09T00:44:14.134Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "FinalProject\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T00:16:24.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\User.cs",
+              "RelativeToolTip": "FinalProject\\Models\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T20:26:39.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Views\\Home\\Index.cshtml",
@@ -478,12 +577,11 @@
               "RelativeToolTip": "FinalProject\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-16T00:38:05.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T00:38:05.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "AccountsController.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\AccountsController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\AccountsController.cs",
@@ -491,12 +589,11 @@
               "RelativeToolTip": "FinalProject\\Controllers\\AccountsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T00:13:42.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T00:13:42.224Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
@@ -504,12 +601,11 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:17:01.673Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:17:01.673Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 21,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
@@ -517,25 +613,11 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:20:04.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:20:04.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Event.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Event.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Event.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Event.cs",
-              "RelativeToolTip": "FinalProject\\Models\\Entities\\Event.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA2wC0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:45:20.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\RegisterViewModel.cs",
@@ -543,12 +625,11 @@
               "RelativeToolTip": "FinalProject\\Models\\RegisterViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T00:19:23.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T00:19:23.923Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "Schedule.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Schedule.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Schedule.cs",
@@ -556,12 +637,11 @@
               "RelativeToolTip": "FinalProject\\Models\\Entities\\Schedule.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T20:53:32.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T20:53:32.807Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "FinalProject\\Data\\ApplicationDbContext.cs",
@@ -569,12 +649,11 @@
               "RelativeToolTip": "FinalProject\\Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T20:17:53.066Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T20:17:53.066Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\IUserService.cs",
               "RelativeDocumentMoniker": "FinalProject\\Services\\IUserService.cs",
@@ -582,38 +661,11 @@
               "RelativeToolTip": "FinalProject\\Services\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:10:04.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:10:04.734Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "20251016000247_Test Migration.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251016000247_Test Migration.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Migrations\\20251016000247_Test Migration.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251016000247_Test Migration.cs",
-              "RelativeToolTip": "FinalProject\\Migrations\\20251016000247_Test Migration.cs",
-              "ViewState": "AgIAAOIAAAAAAAAAAAAQwBUBAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T00:02:47.645Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "DataSeeder.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Data\\DataSeeder.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Data\\DataSeeder.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Data\\DataSeeder.cs",
-              "RelativeToolTip": "FinalProject\\Data\\DataSeeder.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:11:08.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "20251015234851_Test Migration.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251015234851_Test Migration.cs",
               "RelativeDocumentMoniker": "FinalProject\\Migrations\\20251015234851_Test Migration.cs",
@@ -621,25 +673,11 @@
               "RelativeToolTip": "FinalProject\\Migrations\\20251015234851_Test Migration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T23:48:52.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-15T23:48:52.25Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Result.cshtml",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
-              "RelativeDocumentMoniker": "FinalProject\\Views\\Pdf\\Result.cshtml",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
-              "RelativeToolTip": "FinalProject\\Views\\Pdf\\Result.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-15T22:00:31.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\HomeController.cs",
@@ -647,25 +685,11 @@
               "RelativeToolTip": "FinalProject\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwB0AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T19:21:06.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T19:21:06.453Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Course.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Course.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Course.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Course.cs",
-              "RelativeToolTip": "FinalProject\\Models\\Entities\\Course.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAADwvxcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:23:53.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\ErrorViewModel.cs",
@@ -673,47 +697,7 @@
               "RelativeToolTip": "FinalProject\\Models\\ErrorViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:36:41.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CoursesViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\CoursesViewModel.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\CoursesViewModel.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\CoursesViewModel.cs",
-              "RelativeToolTip": "FinalProject\\Models\\CoursesViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:35:01.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "EventsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\EventsViewModel.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Models\\EventsViewModel.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\EventsViewModel.cs",
-              "RelativeToolTip": "FinalProject\\Models\\EventsViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:56:44.858Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "FinalProject\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAIBQwDYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T03:10:11.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T21:36:41.287Z"
             },
             {
               "$type": "Document",
@@ -725,8 +709,7 @@
               "RelativeToolTip": "FinalProject\\Models\\UsersViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T20:20:26.505Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T20:20:26.505Z"
             },
             {
               "$type": "Document",
@@ -738,8 +721,7 @@
               "RelativeToolTip": "FinalProject\\Services\\UserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:10:08.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:10:08.789Z"
             },
             {
               "$type": "Document",
@@ -751,8 +733,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T03:59:54.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T03:59:54.978Z"
             },
             {
               "$type": "Document",
@@ -764,8 +745,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T04:08:39.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:08:39.814Z"
             },
             {
               "$type": "Document",
@@ -777,8 +757,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T04:08:19.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:08:19.072Z"
             },
             {
               "$type": "Document",
@@ -790,8 +769,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T04:08:13.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:08:13.053Z"
             },
             {
               "$type": "Document",
@@ -803,8 +781,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T04:00:57.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:00:57.15Z"
             },
             {
               "$type": "Document",
@@ -816,8 +793,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml.cs",
               "ViewState": "AgIAAM4AAAAAAAAAAADwvxoAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T04:01:44.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:01:44.306Z"
             },
             {
               "$type": "Document",
@@ -829,8 +805,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T04:00:20.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:00:20.898Z"
             },
             {
               "$type": "Document",
@@ -842,8 +817,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:19:22.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:19:22.374Z"
             },
             {
               "$type": "Document",
@@ -855,8 +829,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:18:14.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:18:14.033Z"
             },
             {
               "$type": "Document",
@@ -868,8 +841,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:16:51.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:16:51.677Z"
             },
             {
               "$type": "Document",
@@ -881,8 +853,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T04:00:13.987Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:00:13.987Z"
             },
             {
               "$type": "Document",
@@ -894,8 +865,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAgwBsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:38:10.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:38:10.811Z"
             },
             {
               "$type": "Document",
@@ -907,8 +877,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAIBZwCoAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:20:33.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:20:33.46Z"
             },
             {
               "$type": "Document",
@@ -920,8 +889,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "ViewState": "AgIAAGkAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T03:58:33.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T03:58:33.184Z"
             },
             {
               "$type": "Document",
@@ -933,8 +901,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T03:56:46.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T03:56:46.698Z"
             },
             {
               "$type": "Document",
@@ -946,8 +913,7 @@
               "RelativeToolTip": "FinalProject\\Models\\SchedulesViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:10:21.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T21:10:21.045Z"
             },
             {
               "$type": "Document",
@@ -959,8 +925,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:16:47.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:16:47.397Z"
             },
             {
               "$type": "Document",
@@ -972,8 +937,7 @@
               "RelativeToolTip": "FinalProject\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-28T22:05:37.383Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:05:37.383Z"
             },
             {
               "$type": "Document",
@@ -985,8 +949,7 @@
               "RelativeToolTip": "FinalProject\\Properties\\serviceDependencies.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-28T22:24:32.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:24:32.355Z"
             },
             {
               "$type": "Document",
@@ -998,8 +961,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Error.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:16:53.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:16:53.516Z"
             },
             {
               "$type": "Document",
@@ -1011,8 +973,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Error.cshtml.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:18:32.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:18:32.403Z"
             },
             {
               "$type": "Document",
@@ -1024,8 +985,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:18:45.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:18:45.981Z"
             },
             {
               "$type": "Document",
@@ -1037,8 +997,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:16:42.958Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:16:42.958Z"
             },
             {
               "$type": "Document",
@@ -1050,8 +1009,7 @@
               "RelativeToolTip": "FinalProject\\Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-28T22:16:45.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:16:45.597Z"
             }
           ]
         }
