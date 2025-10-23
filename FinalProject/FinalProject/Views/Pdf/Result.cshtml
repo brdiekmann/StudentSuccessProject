@@ -1,4 +1,4 @@
-﻿@model FinalProject.Models.PdfAnalysisResult
+﻿@model FinalProject.Models.AssignmentsViewModel<List>
 
 @{
     ViewBag.Title = "Analysis Result";
@@ -22,6 +22,10 @@
                 <tr>
                     <td>@assignment.AssignmentName</td>
                     <td>@assignment.DueDate.ToShortDateString()</td>
+					<td>@assignment.course.CourseName</td>
+                    <td>@assignment.course.StartDate</td>
+                    <td>@assignment.course.EndDate</td>
+                    <td>@assignment.course.ClassMeetingDays</td>
                 </tr>
             }
         </tbody>
