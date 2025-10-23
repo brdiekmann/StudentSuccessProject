@@ -47,12 +47,40 @@ namespace FinalProject.Services
                             parts = new[]
                             {
                                 //Test this new prompt it is looking to extract assignments and courses as well as meeding times so that it will be able to populate class meeting times as Events 
-                                new { text = $@"Extract all assignments (with due dates) AND all course meeting schedules from this syllabus text. Return ONLY valid JSON in this format:
+                                new { text = $@"
+                                        You are analyzing a university syllabus. 
+                                        Each syllabus corresponds to exactly ONE course.
 
-                                    {{ 
-                                        ""assignments"": [ {{ ""name"": ""..."", ""dueDate"": ""YYYY-MM-DD"" }}],
-                                        ""courses"": [{{""courseName"": ""..."",""courseDescription"": ""..."",""startDate"": ""YYYY-MM-DD"",""endDate"": ""YYYY-MM-DD"",""meetingDays"": ""Monday,Wednesday"",""startTime"": ""15:00"",""endTime"": ""16:15"",""location"": ""...""}}]}}Text:{pdfText}"
-                                    }
+                                        Extract:
+                                        1. The course details.
+                                        2. All assignments with due dates.
+                                        3. Return only valid JSON — do not include explanations or markdown.
+
+                                        JSON format:
+
+                                        {{
+                                            ""course"": {{
+                                            ""courseName"": ""..."",
+                                            ""courseDescription"": ""..."",
+                                            ""startDate"": ""YYYY-MM-DD"",
+                                            ""endDate"": ""YYYY-MM-DD"",
+                                            ""meetingDays"": ""Monday,Wednesday"",
+                                            ""startTime"": ""15:00"",
+                                            ""endTime"": ""16:15"",
+                                            ""location"": ""...""
+                                        }},
+                                            ""assignments"": [
+                                        {{
+                                            ""assignmentName"": ""..."",
+                                            ""dueDate"": ""YYYY-MM-DD""
+                                        }}
+                                                ]
+                                        }}
+
+                                        Text:
+                                        {pdfText}
+                                        "}
+
 
                                 /* Commenting this out to test new prompt
                                 new { text = $"Extract all assignments and their due dates from this text. Return only valid JSON in this format:\n\n{{ \"assignments\": [{{ \"name\": \"...\", \"dueDate\": \"YYYY-MM-DD\" }}] }}\n\nText:\n{pdfText}" }

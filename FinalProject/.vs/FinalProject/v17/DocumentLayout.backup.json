@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\services\\geminiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\views\\pdf\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251020043759_TestMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FinalProject\\Migrations\\20251020043759_TestMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\pdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -45,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\models\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\views\\pdf\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -237,6 +233,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\areas\\identity\\pages\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\areas\\identity\\pages\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|c:\\users\\steel\\cs483\\studentsuccessproject\\finalproject\\finalproject\\migrations\\20251020043759_testmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB70C32A-7A81-4D68-8786-7472D5853B49}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\migrations\\20251020043759_testmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -264,7 +264,7 @@
         },
         {
           "DockedHeight": 91,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -288,20 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Result.cshtml",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
-              "RelativeDocumentMoniker": "FinalProject\\Views\\Pdf\\Result.cshtml",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
-              "RelativeToolTip": "FinalProject\\Views\\Pdf\\Result.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-15T22:00:31.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\UsersController.cs",
@@ -314,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Assignment.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Assignment.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Assignment.cs",
@@ -322,12 +309,11 @@
               "RelativeToolTip": "FinalProject\\Models\\Entities\\Assignment.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:37:45.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T21:37:45.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AssignmentsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\AssignmentsViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\AssignmentsViewModel.cs",
@@ -335,25 +321,24 @@
               "RelativeToolTip": "FinalProject\\Models\\AssignmentsViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:44:23.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T21:44:23.527Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GeminiService.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\GeminiService.cs",
               "RelativeDocumentMoniker": "FinalProject\\Services\\GeminiService.cs",
               "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\GeminiService.cs",
               "RelativeToolTip": "FinalProject\\Services\\GeminiService.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAgwFIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAgwFEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-12T04:39:47.094Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Course.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Course.cs",
@@ -366,6 +351,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PdfController.cs",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Controllers\\PdfController.cs",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
+              "RelativeToolTip": "FinalProject\\Controllers\\PdfController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwJcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T19:43:44.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Result.cshtml",
+              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
+              "RelativeDocumentMoniker": "FinalProject\\Views\\Pdf\\Result.cshtml",
+              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Result.cshtml",
+              "RelativeToolTip": "FinalProject\\Views\\Pdf\\Result.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T22:00:31.433Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Event.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Event.cs",
@@ -374,8 +384,7 @@
               "RelativeToolTip": "FinalProject\\Models\\Entities\\Event.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAYwAwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:45:20.702Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T21:45:20.702Z"
             },
             {
               "$type": "Document",
@@ -387,8 +396,7 @@
               "RelativeToolTip": "FinalProject\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-22T03:10:38.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-22T03:10:38.98Z"
             },
             {
               "$type": "Document",
@@ -400,12 +408,11 @@
               "RelativeToolTip": "FinalProject\\Program.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAgwF0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:05:50.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:05:50.461Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 58,
               "Title": "20251020043759_TestMigration.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251020043759_TestMigration.cs",
               "RelativeDocumentMoniker": "FinalProject\\Migrations\\20251020043759_TestMigration.cs",
@@ -413,12 +420,11 @@
               "RelativeToolTip": "FinalProject\\Migrations\\20251020043759_TestMigration.cs",
               "ViewState": "AgIAAAMBAAAAAAAAAAAQwBUBAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T04:37:59.535Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-20T04:37:59.535Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DataSeeder.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Data\\DataSeeder.cs",
               "RelativeDocumentMoniker": "FinalProject\\Data\\DataSeeder.cs",
@@ -426,25 +432,11 @@
               "RelativeToolTip": "FinalProject\\Data\\DataSeeder.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwBgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:11:08.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:11:08.633Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PdfController.cs",
-              "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
-              "RelativeDocumentMoniker": "FinalProject\\Controllers\\PdfController.cs",
-              "ToolTip": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\PdfController.cs",
-              "RelativeToolTip": "FinalProject\\Controllers\\PdfController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T19:43:44.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Pdf\\Index.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Views\\Pdf\\Index.cshtml",
@@ -452,12 +444,11 @@
               "RelativeToolTip": "FinalProject\\Views\\Pdf\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-15T22:00:45.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-15T22:00:45.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "PdfAnalysisResult.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\PdfAnalysisResult.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\PdfAnalysisResult.cs",
@@ -465,12 +456,11 @@
               "RelativeToolTip": "FinalProject\\Models\\PdfAnalysisResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T19:27:11.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T19:27:11.608Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "EventsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\EventsViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\EventsViewModel.cs",
@@ -478,12 +468,11 @@
               "RelativeToolTip": "FinalProject\\Models\\EventsViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T22:56:44.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T22:56:44.858Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "CoursesViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\CoursesViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\CoursesViewModel.cs",
@@ -491,12 +480,11 @@
               "RelativeToolTip": "FinalProject\\Models\\CoursesViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T21:35:01.708Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T21:35:01.708Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Views\\Shared\\_Layout.cshtml",
@@ -504,12 +492,11 @@
               "RelativeToolTip": "FinalProject\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-16T00:38:14.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T00:38:14.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "DummyEmailSender.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\DummyEmailSender.cs",
               "RelativeDocumentMoniker": "FinalProject\\Services\\DummyEmailSender.cs",
@@ -521,7 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Views\\Shared\\_LoginPartial.cshtml",
@@ -533,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\appsettings.Development.json",
               "RelativeDocumentMoniker": "FinalProject\\appsettings.Development.json",
@@ -545,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\LoginViewModel.cs",
@@ -557,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\User.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\User.cs",
@@ -569,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Views\\Home\\Index.cshtml",
@@ -581,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "AccountsController.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\AccountsController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\AccountsController.cs",
@@ -593,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
@@ -605,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
@@ -617,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\RegisterViewModel.cs",
@@ -629,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "Schedule.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\Entities\\Schedule.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\Entities\\Schedule.cs",
@@ -641,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "FinalProject\\Data\\ApplicationDbContext.cs",
@@ -653,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\IUserService.cs",
               "RelativeDocumentMoniker": "FinalProject\\Services\\IUserService.cs",
@@ -665,7 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "20251015234851_Test Migration.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Migrations\\20251015234851_Test Migration.cs",
               "RelativeDocumentMoniker": "FinalProject\\Migrations\\20251015234851_Test Migration.cs",
@@ -677,7 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\HomeController.cs",
@@ -689,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\ErrorViewModel.cs",
@@ -701,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "UsersViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\UsersViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\UsersViewModel.cs",
@@ -713,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "FinalProject\\Services\\UserService.cs",
@@ -725,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "RegisterConfirmation.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
@@ -737,7 +724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
@@ -749,7 +736,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 36,
               "Title": "DeletePersonalData.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml.cs",
@@ -761,7 +748,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 37,
               "Title": "DeletePersonalData.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
@@ -773,7 +760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 38,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
@@ -785,7 +772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "ExternalLogin.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml.cs",
@@ -797,7 +784,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "SetPassword.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml.cs",
@@ -809,7 +796,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "ExternalLogin.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
@@ -821,7 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
@@ -833,7 +820,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
@@ -845,7 +832,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "PersonalData.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml.cs",
@@ -857,7 +844,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "Register.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
@@ -869,7 +856,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
@@ -881,7 +868,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 47,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
@@ -893,7 +880,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 49,
               "Title": "LoginWith2fa.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
@@ -905,7 +892,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 50,
               "Title": "SchedulesViewModel.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Models\\SchedulesViewModel.cs",
               "RelativeDocumentMoniker": "FinalProject\\Models\\SchedulesViewModel.cs",
@@ -917,7 +904,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 48,
               "Title": "LoginWithRecoveryCode.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
@@ -929,7 +916,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 51,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "FinalProject\\Properties\\launchSettings.json",
@@ -941,7 +928,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 52,
               "Title": "serviceDependencies.json",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Properties\\serviceDependencies.json",
               "RelativeDocumentMoniker": "FinalProject\\Properties\\serviceDependencies.json",
@@ -953,7 +940,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 53,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Error.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Error.cshtml",
@@ -965,7 +952,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 54,
               "Title": "Error.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Error.cshtml.cs",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Error.cshtml.cs",
@@ -977,7 +964,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 56,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
@@ -989,7 +976,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 55,
               "Title": "_StatusMessage.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
@@ -1001,7 +988,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 57,
               "Title": "AccessDenied.cshtml",
               "DocumentMoniker": "C:\\Users\\steel\\CS483\\StudentSuccessProject\\FinalProject\\FinalProject\\Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
               "RelativeDocumentMoniker": "FinalProject\\Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
