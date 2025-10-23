@@ -1,20 +1,597 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Events Manager</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
 
-<script>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth'
-      });
-      calendar.render();
-    });
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-</script>
+        .upload-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 2px dashed #dee2e6;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome To Our Calendar App!</h1>
-    <div id="calendar"></div>
-</div>
+            .upload-section h2 {
+                margin-top: 0;
+                color: #495057;
+                font-size: 18px;
+            }
+
+        .file-upload-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+            .file-input-wrapper input[type=file] {
+                position: absolute;
+                left: -9999px;
+            }
+
+        .file-input-label {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+            .file-input-label:hover {
+                background: #0056b3;
+            }
+
+        .file-name {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .upload-btn {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+            .upload-btn:hover {
+                background: #218838;
+            }
+
+            .upload-btn:disabled {
+                background: #6c757d;
+                cursor: not-allowed;
+            }
+
+        .status-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+            .status-message.success {
+                background: #d4edda;
+                color: #155724;
+                border: 1px solid #c3e6cb;
+            }
+
+            .status-message.error {
+                background: #f8d7da;
+                color: #721c24;
+                border: 1px solid #f5c6cb;
+            }
+
+            .status-message.info {
+                background: #d1ecf1;
+                color: #0c5460;
+                border: 1px solid #bee5eb;
+            }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @@keyframes spin {
+            0%
+
+        {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+
+        }
+
+        #calendar {
+            margin-top: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .modal-header h2 {
+                margin: 0;
+                color: #333;
+            }
+
+        .close {
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+            .close:hover {
+                color: #000;
+            }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"],
+        input[type="color"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background: #0056b3;
+            }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background: #c82333;
+            }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+            .btn-secondary:hover {
+                background: #5a6268;
+            }
+
+        .supported-formats {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 SyllaSmart</h1>
+
+        <!-- Syllabus Upload Section -->
+        <div class="upload-section">
+            <h2>📚 Upload Your Syllabus</h2>
+            <p>Upload your course syllabus and let AI automatically create study blocks, exam reminders, and assignment deadlines!</p>
+            <div class="file-upload-container">
+                <div class="file-input-wrapper">
+                    <label for="syllabusFile" class="file-input-label">Choose File</label>
+                    <input type="file" id="syllabusFile" accept=".pdf,.docx,.txt">
+                </div>
+                <span class="file-name" id="fileName">No file chosen</span>
+                <button class="upload-btn" id="uploadBtn" onclick="uploadSyllabus()" disabled>
+                    Upload & Process
+                </button>
+                <div class="loading-spinner" id="loadingSpinner"></div>
+            </div>
+            <div class="supported-formats">Supported formats: PDF, DOCX, TXT (Max 10MB)</div>
+            <div class="status-message" id="statusMessage"></div>
+        </div>
+
+        <div id="calendar"></div>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Event</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="eventForm">
+                <input type="hidden" id="eventId">
+                <div class="form-group">
+                    <label for="eventTitle">Title:</label>
+                    <input type="text" id="eventTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventStart">Start:</label>
+                    <input type="datetime-local" id="eventStart" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventEnd">End:</label>
+                    <input type="datetime-local" id="eventEnd">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="eventAllDay">
+                        All Day Event
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="eventColor">Color:</label>
+                    <input type="color" id="eventColor" value="#3788d8">
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="btn-primary">Save</button>
+                    <button type="button" id="deleteBtn" class="btn-danger" style="display:none;">Delete</button>
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://localhost:7116/api/calendar'; // Update with your API URL
+        const SYLLABUS_API_URL = 'https://localhost:7116/api/syllabus'; // Update with your API URL
+        let calendar;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+
+            calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                editable: true,
+                selectable: true,
+                selectMirror: true,
+                dayMaxEvents: true,
+
+                events: async function(info, successCallback, failureCallback) {
+                    try {
+                        const response = await fetch(API_URL);
+                        const events = await response.json();
+                        successCallback(events.map(e => ({
+                            id: e.id,
+                            title: e.title,
+                            start: e.start,
+                            end: e.end,
+                            allDay: e.allDay,
+                            backgroundColor: e.color,
+                            borderColor: e.color
+                        })));
+                    } catch (error) {
+                        console.error('Error loading events:', error);
+                        failureCallback(error);
+                    }
+                },
+
+                select: function(info) {
+                    openModal(null, info.startStr, info.endStr, info.allDay);
+                },
+
+                eventClick: function(info) {
+                    const event = info.event;
+                    openModal(event);
+                },
+
+                eventDrop: function(info) {
+                    updateEvent(info.event);
+                },
+                eventResize: function(info) {
+                    updateEvent(info.event);
+                }
+            });
+
+            calendar.render();
+
+            // File input change handler
+            document.getElementById('syllabusFile').addEventListener('change', function(e) {
+                const fileName = e.target.files[0]?.name || 'No file chosen';
+                document.getElementById('fileName').textContent = fileName;
+                document.getElementById('uploadBtn').disabled = !e.target.files[0];
+            });
+
+            // Modal close handlers
+            document.querySelector('.close').onclick = closeModal;
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('eventModal')) {
+                    closeModal();
+                }
+            };
+
+            document.getElementById('eventForm').onsubmit = async function(e) {
+                e.preventDefault();
+                await saveEvent();
+            };
+
+            document.getElementById('deleteBtn').onclick = async function() {
+                await deleteEvent();
+            };
+        });
+
+        async function uploadSyllabus() {
+            const fileInput = document.getElementById('syllabusFile');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                showStatus('Please select a file', 'error');
+                return;
+            }
+
+            const uploadBtn = document.getElementById('uploadBtn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            uploadBtn.disabled = true;
+            loadingSpinner.style.display = 'inline-block';
+            showStatus('Processing your syllabus... This may take a moment.', 'info');
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch(`${SYLLABUS_API_URL}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    showStatus(`✅ ${result.message}`, 'success');
+                    calendar.refetchEvents();
+                    fileInput.value = '';
+                    document.getElementById('fileName').textContent = 'No file chosen';
+                } else {
+                    showStatus(`❌ ${result.message || 'Error processing syllabus'}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error uploading syllabus:', error);
+                showStatus('❌ Error uploading file. Please try again.', 'error');
+            } finally {
+                uploadBtn.disabled = false;
+                loadingSpinner.style.display = 'none';
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message ${type}`;
+            statusDiv.style.display = 'block';
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        function openModal(event = null, startStr = null, endStr = null, allDay = false) {
+            const modal = document.getElementById('eventModal');
+            const form = document.getElementById('eventForm');
+            const deleteBtn = document.getElementById('deleteBtn');
+
+            form.reset();
+
+            if (event) {
+                document.getElementById('modalTitle').textContent = 'Edit Event';
+                document.getElementById('eventId').value = event.id;
+                document.getElementById('eventTitle').value = event.title;
+                document.getElementById('eventStart').value = formatDateTimeLocal(event.start);
+                document.getElementById('eventEnd').value = event.end ? formatDateTimeLocal(event.end) : '';
+                document.getElementById('eventAllDay').checked = event.allDay;
+                document.getElementById('eventColor').value = event.backgroundColor || '#3788d8';
+                deleteBtn.style.display = 'inline-block';
+            } else {
+                document.getElementById('modalTitle').textContent = 'Add Event';
+                document.getElementById('eventStart').value = startStr;
+                document.getElementById('eventEnd').value = endStr || '';
+                document.getElementById('eventAllDay').checked = allDay;
+                deleteBtn.style.display = 'none';
+            }
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('eventModal').style.display = 'none';
+        }
+
+        function formatDateTimeLocal(date) {
+            const d = new Date(date);
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            const hours = String(d.getHours()).padStart(2, '0');
+            const minutes = String(d.getMinutes()).padStart(2, '0');
+            return `${year}-${month}-${day}T${hours}:${minutes}`;
+        }
+
+        async function saveEvent() {
+            const id = document.getElementById('eventId').value;
+            const eventData = {
+                title: document.getElementById('eventTitle').value,
+                start: new Date(document.getElementById('eventStart').value).toISOString(),
+                end: document.getElementById('eventEnd').value ?
+                     new Date(document.getElementById('eventEnd').value).toISOString() : null,
+                allDay: document.getElementById('eventAllDay').checked,
+                color: document.getElementById('eventColor').value
+            };
+
+            try {
+                if (id) {
+                    eventData.id = parseInt(id);
+                    await fetch(`${API_URL}/${id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(eventData)
+                    });
+                } else {
+                    await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(eventData)
+                    });
+                }
+
+                calendar.refetchEvents();
+                closeModal();
+            } catch (error) {
+                console.error('Error saving event:', error);
+                alert('Error saving event. Please try again.');
+            }
+        }
+
+        async function updateEvent(event) {
+            const eventData = {
+                id: parseInt(event.id),
+                title: event.title,
+                start: event.start.toISOString(),
+                end: event.end ? event.end.toISOString() : null,
+                allDay: event.allDay,
+                color: event.backgroundColor
+            };
+
+            try {
+                await fetch(`${API_URL}/${event.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(eventData)
+                });
+            } catch (error) {
+                console.error('Error updating event:', error);
+                alert('Error updating event. Please try again.');
+                calendar.refetchEvents();
+            }
+        }
+
+        async function deleteEvent() {
+            const id = document.getElementById('eventId').value;
+
+            if (!confirm('Are you sure you want to delete this event?')) {
+                return;
+            }
+
+            try {
+                await fetch(`${API_URL}/${id}`, {
+                    method: 'DELETE'
+                });
+
+                calendar.refetchEvents();
+                closeModal();
+            } catch (error) {
+                console.error('Error deleting event:', error);
+                alert('Error deleting event. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
