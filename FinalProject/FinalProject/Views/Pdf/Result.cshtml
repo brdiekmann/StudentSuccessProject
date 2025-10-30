@@ -1,4 +1,4 @@
-﻿@model FinalProject.Models.AssignmentsViewModel<List>
+﻿@model FinalProject.Models.AssignmentsViewModel
 
 @{
     ViewBag.Title = "Analysis Result";
@@ -6,7 +6,7 @@
 
 <h2>Gemini Analysis Result</h2>
 
-@if (Model?.Assignments != null && Model.Assignments.Any())
+@if (Model?.AssignmentList != null && Model.AssignmentList.Any())
 {
     <table class="table table-striped">
         <thead>
@@ -14,18 +14,21 @@
                 <th>Assignment</th>
                 <th>Due Date</th>
                 <th>Course</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Class Meeting Days</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var assignment in Model.Assignments)
+            @foreach (var assignment in Model.AssignmentList)
             {
                 <tr>
                     <td>@assignment.AssignmentName</td>
                     <td>@assignment.DueDate.ToShortDateString()</td>
-					<td>@assignment.course.CourseName</td>
-                    <td>@assignment.course.StartDate</td>
-                    <td>@assignment.course.EndDate</td>
-                    <td>@assignment.course.ClassMeetingDays</td>
+                    <td>@assignment.course?.CourseName</td>
+                    <td>@assignment.course?.StartDate.ToShortDateString()</td>
+                    <td>@assignment.course?.EndDate.ToShortDateString()</td>
+                    <td>@assignment.course?.ClassMeetingDays</td>
                 </tr>
             }
         </tbody>
@@ -36,4 +39,5 @@ else
     <p>No assignments found.</p>
 }
 
-<a asp-action="Index" asp-controller="Pdf">Upload another file</a>
+<a asp-action="Index" asp-controller="Pdf" class="btn btn-primary">Upload another file</a>
+

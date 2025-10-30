@@ -124,7 +124,8 @@ namespace FinalProject.Controllers
             };
 
             // 8️⃣ Redirect to the Assignments table view
-            return View("Result", );
+            return View();
+            //return View("Result", );
         }
     }
 }
