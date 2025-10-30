@@ -9,46 +9,70 @@ using UglyToad.PdfPig;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using FinalProject.Data;
 using FinalProject.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Controllers
 {
-    //Currently not in working condition because views have not been created yet, but logic should work properly
+    [Authorize]
     public class PdfController : Controller
     {
         private readonly GeminiService _geminiService;
         private readonly ApplicationDbContext _dbContext;
+        private readonly UserManager<User> _userManager;
 
 
-        public PdfController(GeminiService geminiService, ApplicationDbContext dbContext)
+
+        public PdfController(GeminiService geminiService, ApplicationDbContext dbContext, UserManager<User> userManager)
         {
             _geminiService = geminiService;
             _dbContext = dbContext;
-
+            _userManager = userManager;
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            // Get currently logged-in user
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            // Fetch schedules belonging to this user
+            var schedules = _dbContext.Schedules
+                .Where(s => s.UserId == user.Id)
+                .ToList();
+
+            var model = new SchedulesViewModel
+            {
+                Schedule = new Schedule(),
+                ScheduleList = schedules
+            };
+
+            return View(model);
         }
+
         [HttpPost]
-        public async Task<IActionResult> UploadSyllabus(IFormFile file, int scheduleId, string userId)
+        public async Task<IActionResult> UploadSyllabus(IFormFile pdfFile, int scheduleId)
         {
-            if (file == null || file.Length == 0)
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            if (pdfFile == null || pdfFile.Length == 0)
                 return BadRequest("No file uploaded.");
 
-            // 1️⃣ Extract text (placeholder — replace with PdfPig later)
             string pdfText;
-            using (var reader = new StreamReader(file.OpenReadStream()))
+            using (var reader = new StreamReader(pdfFile.OpenReadStream()))
             {
                 pdfText = await reader.ReadToEndAsync();
             }
 
-            // 2️⃣ Send to Gemini
+            // 🔹 Send to Gemini
             string apiResponse = await _geminiService.AnalyzePdfTextAsync(pdfText);
 
-            // 3️⃣ Extract inner text
+            // 🔹 Parse Gemini response
             string candidateText;
             try
             {
@@ -65,19 +89,16 @@ namespace FinalProject.Controllers
                 return BadRequest("Gemini did not return valid JSON.");
             }
 
-            // Clean up JSON code block formatting
             candidateText = candidateText?.Trim();
             if (candidateText.StartsWith("```json"))
                 candidateText = candidateText.Substring(7).Trim();
             if (candidateText.EndsWith("```"))
                 candidateText = candidateText.Substring(0, candidateText.Length - 3).Trim();
 
-            // 4️⃣ Parse JSON result
             using var result = JsonDocument.Parse(candidateText);
 
-            // 5️⃣ Extract Course
+            // 🔹 Extract Course
             var courseData = result.RootElement.GetProperty("course");
-
             var course = new Course
             {
                 CourseName = courseData.GetProperty("courseName").GetString(),
@@ -88,15 +109,15 @@ namespace FinalProject.Controllers
                 ClassStartTime = TimeOnly.Parse(courseData.GetProperty("startTime").GetString()),
                 ClassEndTime = TimeOnly.Parse(courseData.GetProperty("endTime").GetString()),
                 Location = courseData.GetProperty("location").GetString(),
-                ScheduleId = scheduleId,
-                UserId = userId,
+                ScheduleId = scheduleId, // ✅ selected by user
+                UserId = user.Id,
                 CourseColor = "#4287f5"
             };
 
             _dbContext.Courses.Add(course);
             await _dbContext.SaveChangesAsync();
 
-            // 6️⃣ Extract and save Assignments
+            // 🔹 Extract assignments
             var assignmentList = new List<Assignment>();
             if (result.RootElement.TryGetProperty("assignments", out var assignments))
             {
@@ -116,16 +137,60 @@ namespace FinalProject.Controllers
                 await _dbContext.SaveChangesAsync();
             }
 
-            // 7️⃣ Build AssignmentsViewModel
-            var model = new AssignmentsViewModel
-            {
-                Assignment = null,
-                AssignmentList = assignmentList
-            };
+            // 🔹 Generate Events (the code we added earlier)
+            var meetingDays = course.ClassMeetingDays
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(d => d.Trim())
+                .ToList();
 
-            // 8️⃣ Redirect to the Assignments table view
-            return View();
-            //return View("Result", );
+            var dayMap = new Dictionary<string, DayOfWeek>(StringComparer.OrdinalIgnoreCase)
+        {
+            { "Monday", DayOfWeek.Monday },
+            { "Tuesday", DayOfWeek.Tuesday },
+            { "Wednesday", DayOfWeek.Wednesday },
+            { "Thursday", DayOfWeek.Thursday },
+            { "Friday", DayOfWeek.Friday },
+            { "Saturday", DayOfWeek.Saturday },
+            { "Sunday", DayOfWeek.Sunday }
+        };
+
+            var validDays = meetingDays
+                .Where(d => dayMap.ContainsKey(d))
+                .Select(d => dayMap[d])
+                .ToList();
+
+            for (var date = course.StartDate.ToDateTime(TimeOnly.MinValue);
+                 date <= course.EndDate.ToDateTime(TimeOnly.MinValue);
+                 date = date.AddDays(1))
+            {
+                if (validDays.Contains(date.DayOfWeek))
+                {
+                    var startDateTime = date.Add(course.ClassStartTime.ToTimeSpan());
+                    var endDateTime = date.Add(course.ClassEndTime.ToTimeSpan());
+
+                    var newEvent = new Event
+                    {
+                        EventName = $"{course.CourseName} Class",
+                        EventDescription = $"Class meeting for {course.CourseName}",
+                        StartDateTime = startDateTime,
+                        EndDateTime = endDateTime,
+                        Location = course.Location ?? "TBD",
+                        EventColor = course.CourseColor,
+                        IsAllDay = false,
+                        IsCancelled = false,
+                        attachedToCourse = true,
+                        UserId = course.UserId,
+                        ScheduleId = course.ScheduleId,
+                        CourseId = course.Id
+                    };
+
+                    _dbContext.Events.Add(newEvent);
+                }
+            }
+
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Assignments");
         }
     }
 }

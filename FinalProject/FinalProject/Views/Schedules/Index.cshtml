@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FinalProject.Models.Entities.Schedule>
+
+<h2>Your Schedules</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Schedule</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>End</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.ScheduleDescription</td>
+                <td>@item.StartDateTime</td>
+                <td>@item.EndDateTime</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

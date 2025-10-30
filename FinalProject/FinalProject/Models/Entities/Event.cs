@@ -19,9 +19,9 @@ namespace FinalProject.Models.Entities
         [Required(ErrorMessage = "Location is required"), MaxLength(50, ErrorMessage = "Location must be less than 50 characters")]
         public string Location { get; set; }
         [Required]
-        bool IsAllDay { get; set; } = false;
+        public bool IsAllDay { get; set; } = false;
         [Required]
-        bool IsCanceled { get; set; } = true;
+        public bool IsCancelled { get; set; } = false;
         [Required(ErrorMessage = "Course color is required"), MinLength(6, ErrorMessage = "RGB Hex Code must be at least 6 digits"), MaxLength(8, ErrorMessage = "RGB Hex Code can not be larger than 8 digits")]
         public string EventColor { get; set; }
         [Required]

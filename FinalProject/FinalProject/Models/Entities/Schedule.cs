@@ -16,7 +16,7 @@ namespace FinalProject.Models.Entities
         [Required(ErrorMessage = "End date and time is required")]
         public DateTime EndDateTime { get; set; }
         [Required]
-        bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; } = true;
 
         [ForeignKey("userId")]
         [Required(ErrorMessage = "UserId is required")]
