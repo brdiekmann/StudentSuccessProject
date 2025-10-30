@@ -47,39 +47,46 @@ namespace FinalProject.Services
                             parts = new[]
                             {
                                 //Test this new prompt it is looking to extract assignments and courses as well as meeding times so that it will be able to populate class meeting times as Events 
-                                new { text = $@"
-                                        You are analyzing a university syllabus. 
-                                        Each syllabus corresponds to exactly ONE course.
+                               new { text = $@"
+You are analyzing a university syllabus. 
+Each syllabus corresponds to exactly ONE course.
 
-                                        Extract:
-                                        1. The course details.
-                                        2. All assignments with due dates.
-                                        3. Return only valid JSON — do not include explanations or markdown.
+Extract:
+1. The course details (including meeting schedule).
+2. All assignments with due dates.
+3. Return ONLY valid JSON — no markdown, no explanations.
 
-                                        JSON format:
+Important formatting rules for course meeting information:
+- ""meetingDays"" must be a single comma-separated list using full weekday names (e.g. ""Monday,Wednesday,Friday"").
+- ""startTime"" and ""endTime"" must be in 24-hour HH:MM format.
+- Dates must use ISO format (YYYY-MM-DD).
+- If any field is unknown, return an empty string for that property.
 
-                                        {{
-                                            ""course"": {{
-                                            ""courseName"": ""..."",
-                                            ""courseDescription"": ""..."",
-                                            ""startDate"": ""YYYY-MM-DD"",
-                                            ""endDate"": ""YYYY-MM-DD"",
-                                            ""meetingDays"": ""Monday,Wednesday"",
-                                            ""startTime"": ""15:00"",
-                                            ""endTime"": ""16:15"",
-                                            ""location"": ""...""
-                                        }},
-                                            ""assignments"": [
-                                        {{
-                                            ""assignmentName"": ""..."",
-                                            ""dueDate"": ""YYYY-MM-DD""
-                                        }}
-                                                ]
-                                        }}
+Expected JSON format:
 
-                                        Text:
-                                        {pdfText}
-                                        "}
+{{
+  ""course"": {{
+    ""courseName"": ""..."",
+    ""courseDescription"": ""..."",
+    ""startDate"": ""YYYY-MM-DD"",
+    ""endDate"": ""YYYY-MM-DD"",
+    ""meetingDays"": ""Monday,Wednesday,Friday"",
+    ""startTime"": ""15:00"",
+    ""endTime"": ""16:15"",
+    ""location"": ""...""
+  }},
+  ""assignments"": [
+    {{
+      ""assignmentName"": ""..."",
+      ""dueDate"": ""YYYY-MM-DD""
+    }}
+  ]
+}}
+
+Text:
+{pdfText}
+"}
+
 
 
                                 /* Commenting this out to test new prompt
