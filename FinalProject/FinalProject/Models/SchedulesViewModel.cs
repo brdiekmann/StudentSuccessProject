@@ -1,8 +1,9 @@
-﻿namespace FinalProject.Models.Entities
+﻿using FinalProject.Models.Entities;
+namespace FinalProject.Models
 {
     public class SchedulesViewModel
     {
-        public Schedule Schedule { get; set; }
-        public List<Schedule> ScheduleList { get; set; }
+        public Schedule Schedule { get; set; } = new Schedule();
+        public List<Schedule> ScheduleList { get; set; } = new List<Schedule>();
     }
 }

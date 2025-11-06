@@ -39,6 +39,11 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Schedule schedule)
         {
+            // Added these Removes to allow the schedule to be made
+            ModelState.Remove("UserId");
+            ModelState.Remove("User");
+            ModelState.Remove("IsActive");
+
             if (ModelState.IsValid)
             {
                 var user = await _userManager.GetUserAsync(User);
@@ -68,6 +73,10 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Schedule schedule)
         {
+            ModelState.Remove("UserId");
+            ModelState.Remove("User");
+            ModelState.Remove("IsActive");
+
             if (id != schedule.Id)
                 return NotFound();
 
@@ -104,6 +113,10 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //ModelState.Remove("UserId");
+            //ModelState.Remove("User");
+            //ModelState.Remove("IsActive");
+
             var schedule = await _context.Schedules.FindAsync(id);
             if (schedule != null)
             {

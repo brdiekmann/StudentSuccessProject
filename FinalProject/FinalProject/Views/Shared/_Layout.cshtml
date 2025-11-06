@@ -24,7 +24,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-controller="Syllabus" asp-action="Calendar">
+                                <i class="fas fa-calendar-alt"></i> Calendar
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Schedules" asp-action="Index">Schedules</a>
@@ -32,6 +34,9 @@
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Pdf" asp-action="Index">Upload PDF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

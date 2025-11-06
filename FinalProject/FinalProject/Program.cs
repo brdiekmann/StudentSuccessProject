@@ -38,6 +38,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddSingleton<IEmailSender, DummyEmailSender>();
 
+builder.Services.AddScoped<SyllabusService>();
+
 // Register GeminiService in DI
 builder.Services.AddSingleton<GeminiService>(sp =>
 {
