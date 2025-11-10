@@ -132,6 +132,32 @@ namespace FinalProject.Controllers
                     scheduleId
                 );
 
+                // Check if some course details are missing
+                if (result.RequiresUserInput && result.CreatedCourse != null)
+                {
+                    var course = result.CreatedCourse;
+
+                    return Ok(new
+                    {
+                        success = false,
+                        message = "⚠️ Some course details are missing. Please fill in the missing information.",
+                        requiresUserInput = true,
+                        createdCourse = new
+                        {
+                            course.CourseName,
+                            course.CourseDescription,
+                            startDate = course.StartDate?.ToString("yyyy-MM-dd") ?? "",
+                            endDate = course.EndDate?.ToString("yyyy-MM-dd") ?? "",
+                            course.ClassMeetingDays,
+                            classStartTime = course.ClassStartTime?.ToString("HH:mm") ?? "",
+                            classEndTime = course.ClassEndTime?.ToString("HH:mm") ?? "",
+                            course.Location,
+                            course.CourseColor
+                        }
+                    });
+                }
+
+                // Normal success
                 if (result.Success)
                 {
                     return Ok(new
@@ -141,15 +167,14 @@ namespace FinalProject.Controllers
                         eventsCreated = result.EventsCreated
                     });
                 }
-                else
+
+                // Normal failure
+                return BadRequest(new
                 {
-                    return BadRequest(new
-                    {
-                        success = false,
-                        message = result.Message,
-                        errors = result.Errors
-                    });
-                }
+                    success = false,
+                    message = result.Message,
+                    errors = result.Errors
+                });
             }
             catch (Exception ex)
             {
@@ -161,6 +186,102 @@ namespace FinalProject.Controllers
                 });
             }
         }
+
+        public async Task<IActionResult> SaveCourseFromModal([FromBody] CourseModalDto courseDto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized(new { success = false, message = "User not authenticated" });
+
+            try
+            {
+                var course = new Course
+                {
+                    CourseName = courseDto.CourseName,
+                    CourseDescription = courseDto.CourseDescription,
+                    StartDate = string.IsNullOrWhiteSpace(courseDto.StartDate) ? null : DateOnly.Parse(courseDto.StartDate),
+                    EndDate = string.IsNullOrWhiteSpace(courseDto.EndDate) ? null : DateOnly.Parse(courseDto.EndDate),
+                    ClassMeetingDays = courseDto.ClassMeetingDays,
+                    ClassStartTime = string.IsNullOrWhiteSpace(courseDto.ClassStartTime) ? null : TimeOnly.Parse(courseDto.ClassStartTime),
+                    ClassEndTime = string.IsNullOrWhiteSpace(courseDto.ClassEndTime) ? null : TimeOnly.Parse(courseDto.ClassEndTime),
+                    Location = courseDto.Location,
+                    CourseColor = courseDto.CourseColor,
+                    ScheduleId = courseDto.ScheduleId,
+                    UserId = user.Id
+                };
+
+                if (course.StartDate.HasValue && course.EndDate.HasValue)
+                {
+                    var today = DateOnly.FromDateTime(DateTime.Now);
+                    course.IsActive = today >= course.StartDate.Value && today <= course.EndDate.Value;
+                }
+                else
+                {
+                    course.IsActive = false;
+                }
+
+                var result = await _syllabusService.SaveCourseAsync(course);
+
+                if (result.Success)
+                    return Ok(new { success = true, message = result.Message, course = result.CreatedCourse });
+                else if (result.RequiresUserInput)
+                    return BadRequest(new { success = false, message = result.Message, course = result.CreatedCourse });
+                else
+                    return StatusCode(500, new { success = false, message = result.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error saving course from modal");
+                return StatusCode(500, new { success = false, message = "Error saving course details." });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CompleteCourseDetails([FromBody] CourseModalDto dto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized(new { success = false, message = "User not authenticated" });
+
+            // Validate dates and times
+            if (!DateOnly.TryParse(dto.StartDate, out var startDate))
+                return BadRequest(new { success = false, message = "Invalid start date format" });
+
+            if (!DateOnly.TryParse(dto.EndDate, out var endDate))
+                return BadRequest(new { success = false, message = "Invalid end date format" });
+
+            if (!TimeOnly.TryParse(dto.ClassStartTime, out var startTime))
+                return BadRequest(new { success = false, message = "Invalid class start time format" });
+
+            if (!TimeOnly.TryParse(dto.ClassEndTime, out var endTime))
+                return BadRequest(new { success = false, message = "Invalid class end time format" });
+
+            var course = new Course
+            {
+                CourseName = dto.CourseName,
+                CourseDescription = dto.CourseDescription,
+                StartDate = startDate,
+                EndDate = endDate,
+                ClassMeetingDays = dto.ClassMeetingDays,
+                ClassStartTime = startTime,
+                ClassEndTime = endTime,
+                Location = dto.Location,
+                CourseColor = dto.CourseColor,
+                ScheduleId = dto.ScheduleId,
+                UserId = user.Id,
+                IsActive = DateOnly.FromDateTime(DateTime.Now) >= startDate && DateOnly.FromDateTime(DateTime.Now) <= endDate
+            };
+
+            var result = await _syllabusService.SaveCourseAsync(course);
+
+            if (result.Success)
+                return Ok(new { success = true, message = result.Message, course = result.CreatedCourse });
+
+            return StatusCode(500, new { success = false, message = result.Message });
+        }
+
+
+
 
         // API: Get Events
         [HttpGet]
@@ -193,5 +314,7 @@ namespace FinalProject.Controllers
 
             return Json(events);
         }
+        
+
     }
 }

@@ -57,10 +57,8 @@ Extract:
 3. Return ONLY valid JSON — no markdown, no explanations.
 
 CRITICAL: 
-- If you cannot find a required field, use a reasonable default value
+- If you cannot find a required field, use a string value of ""Unknown"" for that field.
 - NEVER return empty strings """"
-- For unknown dates, use placeholder dates at least 1 week in the future
-- For unknown times, use reasonable class times (e.g., ""09:00"" and ""10:30"")
 
 Important formatting rules for course meeting information:
 - ""meetingDays"" must be a single comma-separated list using full weekday names (e.g. ""Monday,Wednesday,Friday"").

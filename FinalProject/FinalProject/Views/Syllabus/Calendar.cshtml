@@ -336,12 +336,67 @@
         </div>
     </div>
 </div>
+<!-- Missing Course Details Modal -->
+<div id="missingCourseModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Complete Course Details</h2>
+            <button class="modal-close" onclick="closeMissingCourseModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="courseForm">
+                <div class="form-group">
+                    <label for="courseName">Course Name <span style="color:red">*</span></label>
+                    <input type="text" id="courseName" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseDescription">Course Description <span style="color:red">*</span></label>
+                    <textarea id="courseDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="courseStartDate">Start Date <span style="color:red">*</span></label>
+                    <input type="date" id="courseStartDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseEndDate">End Date <span style="color:red">*</span></label>
+                    <input type="date" id="courseEndDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="classMeetingDays">Class Meeting Days <span style="color:red">*</span></label>
+                    <input type="text" id="classMeetingDays" placeholder="Monday, Wednesday" required>
+                </div>
+                <div class="form-group">
+                    <label for="classStartTime">Class Start Time <span style="color:red">*</span></label>
+                    <input type="time" id="classStartTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="classEndTime">Class End Time <span style="color:red">*</span></label>
+                    <input type="time" id="classEndTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseLocation">Location</label>
+                    <input type="text" id="courseLocation">
+                </div>
+                <div class="form-group">
+                    <label for="courseColor">Course Color</label>
+                    <input type="color" id="courseColor" value="#007bff">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closeMissingCourseModal()">Cancel</button>
+            <button type="button" class="btn btn-primary" onclick="submitMissingCourse()">Save Course</button>
+        </div>
+    </div>
+</div>
+
 
 <script>
     const UPLOAD_URL = '@Url.Action("UploadSyllabus", "Syllabus")';
     const GET_EVENTS_URL = '@Url.Action("GetEvents", "Syllabus")';
     const UPDATE_EVENT_URL = '@Url.Action("UpdateEvent", "Syllabus")';
     const DELETE_EVENT_URL = '@Url.Action("DeleteEvent", "Syllabus")';
+    const COMPLETE_COURSE_URL = '@Url.Action("CompleteCourseDetails", "Syllabus")';
 
     let calendar;
     let currentEvent = null;
@@ -359,19 +414,15 @@
             editable: true,
             selectable: true,
             events: GET_EVENTS_URL,
-
             eventClick: function (info) {
                 openEditModal(info.event);
             },
-
             eventDrop: function (info) {
                 updateEventDateTime(info.event);
             },
-
             eventResize: function (info) {
                 updateEventDateTime(info.event);
             },
-
             eventDidMount: function (info) {
                 info.el.title = info.event.extendedProps.description || info.event.title;
                 info.el.style.cursor = 'pointer';
@@ -396,9 +447,7 @@
         // Close modal when clicking outside
         window.onclick = function (event) {
             const modal = document.getElementById('eventModal');
-            if (event.target === modal) {
-                closeModal();
-            }
+            if (event.target === modal) closeModal();
         };
     });
 
@@ -406,7 +455,6 @@
         const fileInput = document.getElementById('syllabusFile');
         const scheduleSelect = document.getElementById('scheduleSelect');
         const uploadBtn = document.getElementById('uploadBtn');
-
         uploadBtn.disabled = !fileInput.files[0] || !scheduleSelect.value;
     }
 
@@ -423,7 +471,6 @@
         document.getElementById('eventAllDay').checked = event.allDay || false;
         document.getElementById('eventColor').value = event.backgroundColor || '#007bff';
 
-        // Update character counts
         document.getElementById('nameCharCount').textContent = event.title.length;
         document.getElementById('descCharCount').textContent = (event.extendedProps.description || '').length;
 
@@ -448,7 +495,6 @@
 
     async function saveEvent() {
         const form = document.getElementById('eventForm');
-
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
@@ -469,9 +515,7 @@
         try {
             const response = await fetch(`${UPDATE_EVENT_URL}/${eventId}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(eventData)
             });
 
@@ -490,17 +534,11 @@
     }
 
     async function deleteEvent() {
-        if (!confirm('Are you sure you want to delete this event? This action cannot be undone.')) {
-            return;
-        }
-
+        if (!confirm('Are you sure you want to delete this event? This action cannot be undone.')) return;
         const eventId = document.getElementById('eventId').value;
 
         try {
-            const response = await fetch(`${DELETE_EVENT_URL}/${eventId}`, {
-                method: 'DELETE'
-            });
-
+            const response = await fetch(`${DELETE_EVENT_URL}/${eventId}`, { method: 'DELETE' });
             if (response.ok) {
                 showStatus('✅ Event deleted successfully!', 'success');
                 calendar.refetchEvents();
@@ -530,12 +568,9 @@
         try {
             const response = await fetch(`${UPDATE_EVENT_URL}/${event.id}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(eventData)
             });
-
             if (response.ok) {
                 showStatus('✅ Event time updated!', 'success');
             } else {
@@ -561,7 +596,6 @@
 
         const uploadBtn = document.getElementById('uploadBtn');
         const loadingSpinner = document.getElementById('loadingSpinner');
-
         uploadBtn.disabled = true;
         loadingSpinner.style.display = 'inline-block';
         showStatus('Processing your syllabus... This may take a moment.', 'info');
@@ -571,14 +605,13 @@
         formData.append('scheduleId', scheduleId);
 
         try {
-            const response = await fetch(UPLOAD_URL, {
-                method: 'POST',
-                body: formData
-            });
-
+            const response = await fetch(UPLOAD_URL, { method: 'POST', body: formData });
             const result = await response.json();
 
-            if (result.success) {
+            if (result.requiresUserInput) {
+                showStatus('⚠️ Some course details are missing. Please fill them in.', 'info');
+                openMissingCourseModal(result.createdCourse);
+            } else if (result.success) {
                 showStatus(`✅ ${result.message}`, 'success');
                 calendar.refetchEvents();
                 fileInput.value = '';
@@ -603,9 +636,61 @@
         statusDiv.style.display = 'block';
 
         if (type === 'success') {
-            setTimeout(() => {
-                statusDiv.style.display = 'none';
-            }, 5000);
+            setTimeout(() => { statusDiv.style.display = 'none'; }, 5000);
+        }
+    }
+
+    // ---------- Missing course modal ----------
+    function openMissingCourseModal(course) {
+        document.getElementById('courseName').value = course.courseName || '';
+        document.getElementById('courseDescription').value = course.courseDescription || '';
+        document.getElementById('courseStartDate').value = course.startDate || '';
+        document.getElementById('courseEndDate').value = course.endDate || '';
+        document.getElementById('classMeetingDays').value = course.classMeetingDays || '';
+        document.getElementById('classStartTime').value = course.classStartTime || '';
+        document.getElementById('classEndTime').value = course.classEndTime || '';
+        document.getElementById('courseLocation').value = course.location || '';
+        document.getElementById('courseColor').value = course.courseColor || '#007bff';
+        document.getElementById('missingCourseModal').style.display = 'block';
+    }
+
+    function closeMissingCourseModal() {
+        document.getElementById('missingCourseModal').style.display = 'none';
+    }
+
+    async function submitMissingCourse() {
+        const courseData = {
+            courseName: document.getElementById('courseName').value,
+            courseDescription: document.getElementById('courseDescription').value,
+            startDate: document.getElementById('courseStartDate').value,
+            endDate: document.getElementById('courseEndDate').value,
+            classMeetingDays: document.getElementById('classMeetingDays').value,
+            classStartTime: document.getElementById('classStartTime').value,
+            classEndTime: document.getElementById('classEndTime').value,
+            location: document.getElementById('courseLocation').value,
+            courseColor: document.getElementById('courseColor').value,
+            scheduleId: document.getElementById('scheduleSelect').value
+        };
+
+        try {
+            const response = await fetch(COMPLETE_COURSE_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(courseData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showStatus('✅ Course details saved successfully!', 'success');
+                closeMissingCourseModal();
+                calendar.refetchEvents();
+            } else {
+                showStatus(`❌ ${result.message}`, 'error');
+            }
+        } catch (err) {
+            console.error(err);
+            showStatus('❌ Error saving course details.', 'error');
         }
     }
 </script>
