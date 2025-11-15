@@ -1,5 +1,4 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using FinalProject.Data;
 using FinalProject.Models;
@@ -9,6 +8,7 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace FinalProject.Services
 {
@@ -67,7 +67,48 @@ namespace FinalProject.Services
                 _logger.LogInformation("Extracted {Length} characters from syllabus", syllabusText.Length);
 
                 // Parse with Gemini API (structured result)
-                var parsedResult = await ParseFullSyllabusWithGeminiAsync(syllabusText);
+                GeminiSyllabusResult parsedResult;
+
+                try
+                {
+                    parsedResult = await ParseFullSyllabusWithGeminiAsync(syllabusText);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Gemini parsing failed, attempting fallback");
+
+                    // Try fallback parsing
+                    var fallbackEvents = CreateFallbackStudyBlocks(syllabusText);
+
+                    if (fallbackEvents.Any())
+                    {
+                        // Create basic course with fallback
+                        var fallbackCourse = new Course
+                        {
+                            CourseName = ExtractCourseName(syllabusText),
+                            CourseDescription = "Automatically extracted course",
+                            StartDate = DateOnly.FromDateTime(DateTime.Now),
+                            EndDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(4)),
+                            ClassMeetingDays = "",
+                            ClassStartTime = TimeOnly.Parse("10:00"),
+                            ClassEndTime = TimeOnly.Parse("11:30"),
+                            Location = "TBD",
+                            CourseColor = "#007bff",
+                            UserId = userId,
+                            ScheduleId = scheduleId
+                        };
+
+                        result.RequiresUserInput = true;
+                        result.Success = false;
+                        result.Message = "AI parsing failed. Please fill in course details manually.";
+                        result.CreatedCourse = fallbackCourse;
+                        return result;
+                    }
+
+                    result.Success = false;
+                    result.Message = $"Could not parse syllabus: {ex.Message}";
+                    return result;
+                }
 
                 if (parsedResult == null || parsedResult.Course == null)
                 {
@@ -79,39 +120,6 @@ namespace FinalProject.Services
                 // ------------------- CREATE COURSE -------------------
                 var courseData = parsedResult.Course;
 
-                bool missingInfo = string.IsNullOrWhiteSpace(courseData.CourseName)
-                    || string.IsNullOrWhiteSpace(courseData.CourseDescription)
-                    || string.IsNullOrWhiteSpace(courseData.StartDate)
-                    || string.IsNullOrWhiteSpace(courseData.EndDate)
-                    || string.IsNullOrWhiteSpace(courseData.ClassMeetingDays)
-                    || string.IsNullOrWhiteSpace(courseData.ClassStartTime)
-                    || string.IsNullOrWhiteSpace(courseData.ClassEndTime)
-                    || string.IsNullOrWhiteSpace(courseData.CourseColor);
-
-                if (missingInfo)
-                {
-                    result.RequiresUserInput = true;
-                    result.Success = false;
-                    result.Message = "Some course details are missing. Please fill in the missing information.";
-                    result.CreatedCourse = new Course
-                    {
-                        CourseName = courseData.CourseName ?? "",
-                        CourseDescription = courseData.CourseDescription ?? "",
-                        StartDate = string.IsNullOrEmpty(courseData.StartDate) ? null : DateOnly.Parse(courseData.StartDate),
-                        EndDate = string.IsNullOrEmpty(courseData.EndDate) ? null : DateOnly.Parse(courseData.EndDate),
-                        ClassMeetingDays = courseData.ClassMeetingDays ?? "",
-                        ClassStartTime = string.IsNullOrEmpty(courseData.ClassStartTime) ? null : TimeOnly.Parse(courseData.ClassStartTime),
-                        ClassEndTime = string.IsNullOrEmpty(courseData.ClassEndTime) ? null : TimeOnly.Parse(courseData.ClassEndTime),
-                        Location = courseData.Location,
-                        CourseColor = courseData.CourseColor ?? "#007bff",
-                        UserId = userId,
-                        ScheduleId = scheduleId
-                    };
-
-                    return result; // Controller will prompt user
-                }
-
-                // ------------------- CHECK FOR MISSING COURSE INFO -------------------
                 var course = new Course
                 {
                     CourseName = string.IsNullOrWhiteSpace(courseData.CourseName) ? null : courseData.CourseName,
@@ -121,12 +129,11 @@ namespace FinalProject.Services
                     ClassMeetingDays = string.IsNullOrWhiteSpace(courseData.ClassMeetingDays) ? null : courseData.ClassMeetingDays,
                     ClassStartTime = ParseTimeOrNull(courseData.ClassStartTime),
                     ClassEndTime = ParseTimeOrNull(courseData.ClassEndTime),
-                    Location = courseData.Location,
+                    Location = string.IsNullOrWhiteSpace(courseData.Location) ? "TBD" : courseData.Location,
                     CourseColor = string.IsNullOrWhiteSpace(courseData.CourseColor) ? "#007bff" : courseData.CourseColor,
                     UserId = userId,
                     ScheduleId = scheduleId
                 };
-
 
                 // If any required field is missing, prompt user input via modal
                 if (string.IsNullOrWhiteSpace(course.CourseName)
@@ -135,15 +142,13 @@ namespace FinalProject.Services
                     || !course.EndDate.HasValue
                     || string.IsNullOrWhiteSpace(course.ClassMeetingDays)
                     || !course.ClassStartTime.HasValue
-                    || !course.ClassEndTime.HasValue
-                    || string.IsNullOrWhiteSpace(course.CourseColor))
+                    || !course.ClassEndTime.HasValue)
                 {
                     result.RequiresUserInput = true;
                     result.Success = false;
                     result.Message = "Some course details are missing. Please fill in the missing information.";
                     result.CreatedCourse = course;
-
-                    return result; // Controller will trigger modal for user input
+                    return result;
                 }
 
                 // ------------------- SAVE COURSE -------------------
@@ -152,7 +157,6 @@ namespace FinalProject.Services
                 result.CoursesCreated = 1;
                 result.CreatedCourse = course;
 
-
                 // ------------------- CREATE ASSIGNMENTS -------------------
                 if (parsedResult.Assignments != null && parsedResult.Assignments.Any())
                 {
@@ -160,13 +164,13 @@ namespace FinalProject.Services
                     {
                         if (string.IsNullOrWhiteSpace(a.AssignmentName) || a.DueDate == null)
                         {
-                            result.RequiresUserInput = true;
+                            _logger.LogWarning("Skipping invalid assignment: {Name}", a.AssignmentName);
                             continue;
                         }
 
                         var assignment = new Assignment
                         {
-                            AssignmentName = a.AssignmentName!,
+                            AssignmentName = TruncateString(a.AssignmentName!, 100),
                             DueDate = a.DueDate.Value,
                             CourseId = course.Id,
                             IsCompleted = false
@@ -174,37 +178,51 @@ namespace FinalProject.Services
                         _context.Assignments.Add(assignment);
                         result.CreatedAssignments.Add(assignment);
                     }
-                    await _context.SaveChangesAsync();
-                    result.AssignmentsCreated = result.CreatedAssignments.Count;
+
+                    if (result.CreatedAssignments.Any())
+                    {
+                        await _context.SaveChangesAsync();
+                        result.AssignmentsCreated = result.CreatedAssignments.Count;
+                    }
                 }
 
                 // ------------------- CREATE EVENTS -------------------
-                if (parsedResult.Events != null)
+                if (parsedResult.Events != null && parsedResult.Events.Any())
                 {
                     foreach (var block in parsedResult.Events)
                     {
-                        var newEvent = new Event
+                        try
                         {
-                            EventName = TruncateString(block.Title, 30),
-                            EventDescription = TruncateString(block.Description ?? $"{block.EventType} event", 200),
-                            StartDateTime = block.StartDate,
-                            EndDateTime = block.EndDate,
-                            Location = course.Location,
-                            IsAllDay = false,
-                            IsCancelled = false,
-                            EventColor = GetColorForEventType(block.EventType),
-                            attachedToCourse = true,
-                            UserId = userId,
-                            ScheduleId = scheduleId,
-                            CourseId = course.Id
-                        };
+                            var newEvent = new Event
+                            {
+                                EventName = TruncateString(block.Title ?? "Study Session", 30),
+                                EventDescription = TruncateString(block.Description ?? $"{block.EventType} event", 200),
+                                StartDateTime = block.StartDate,
+                                EndDateTime = block.EndDate,
+                                Location = course.Location ?? "TBD",
+                                IsAllDay = false,
+                                IsCancelled = false,
+                                EventColor = GetColorForEventType(block.EventType),
+                                attachedToCourse = true,
+                                UserId = userId,
+                                ScheduleId = scheduleId,
+                                CourseId = course.Id
+                            };
 
-                        _context.Events.Add(newEvent);
-                        result.Events.Add(newEvent);
+                            _context.Events.Add(newEvent);
+                            result.Events.Add(newEvent);
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogWarning(ex, "Failed to create event: {Title}", block.Title);
+                        }
                     }
 
-                    await _context.SaveChangesAsync();
-                    result.EventsCreated = result.Events.Count;
+                    if (result.Events.Any())
+                    {
+                        await _context.SaveChangesAsync();
+                        result.EventsCreated = result.Events.Count;
+                    }
                 }
 
                 result.Success = true;
@@ -217,26 +235,10 @@ namespace FinalProject.Services
             {
                 _logger.LogError(ex, "Error processing syllabus for user {UserId}", userId);
                 result.Success = false;
-                result.Message = "An error occurred while processing the syllabus.";
+                result.Message = $"An error occurred while processing the syllabus: {ex.Message}";
                 result.Errors.Add(ex.Message);
                 return result;
             }
-        }
-        // Helper function
-        private TimeOnly? ParseTimeOrNull(string input)
-        {
-            if (string.IsNullOrWhiteSpace(input) || input.Trim().ToLower() == "null")
-                return null;
-
-            return TimeOnly.TryParse(input, out var result) ? result : null;
-        }
-
-        private DateOnly? ParseDateOrNull(string input)
-        {
-            if (string.IsNullOrWhiteSpace(input) || input.Trim().ToLower() == "null")
-                return null;
-
-            return DateOnly.TryParse(input, out var result) ? result : null;
         }
 
         public async Task<SyllabusProcessResult> SaveCourseAsync(Course course)
@@ -259,8 +261,7 @@ namespace FinalProject.Services
                     || !course.EndDate.HasValue
                     || string.IsNullOrWhiteSpace(course.ClassMeetingDays)
                     || !course.ClassStartTime.HasValue
-                    || !course.ClassEndTime.HasValue
-                    || string.IsNullOrWhiteSpace(course.CourseColor))
+                    || !course.ClassEndTime.HasValue)
                 {
                     result.Success = false;
                     result.Message = "Missing required course information";
@@ -269,7 +270,6 @@ namespace FinalProject.Services
                     return result;
                 }
 
-                // If course has an Id > 0, update; otherwise add new
                 if (course.Id > 0)
                 {
                     _context.Courses.Update(course);
@@ -297,6 +297,23 @@ namespace FinalProject.Services
             }
         }
 
+        // ==================== HELPER METHODS ====================
+
+        private TimeOnly? ParseTimeOrNull(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input) || input.Trim().Equals("null", StringComparison.OrdinalIgnoreCase))
+                return null;
+
+            return TimeOnly.TryParse(input, out var result) ? result : null;
+        }
+
+        private DateOnly? ParseDateOrNull(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input) || input.Trim().Equals("null", StringComparison.OrdinalIgnoreCase))
+                return null;
+
+            return DateOnly.TryParse(input, out var result) ? result : null;
+        }
 
         private string TruncateString(string value, int maxLength)
         {
@@ -310,13 +327,15 @@ namespace FinalProject.Services
         {
             return eventType?.ToLower() switch
             {
-                "exam" => "#dc3545",        // Red
-                "assignment" => "#ffc107",   // Yellow/Orange
-                "study" => "#28a745",        // Green
-                "project" => "#17a2b8",      // Cyan
-                _ => "#007bff"               // Blue (default)
+                "exam" => "#dc3545",
+                "assignment" => "#ffc107",
+                "study" => "#28a745",
+                "project" => "#17a2b8",
+                _ => "#007bff"
             };
         }
+
+        // ==================== TEXT EXTRACTION ====================
 
         private async Task<string> ExtractTextFromFileAsync(IFormFile file)
         {
@@ -387,151 +406,7 @@ namespace FinalProject.Services
             return text.ToString();
         }
 
-        // NOTE: You have two Gemini helpers. The old one returns List<StudyBlock>.
-        // I left it here in case you still use it elsewhere.
-        private async Task<List<StudyBlock>> ParseSyllabusWithGeminiAsync(string syllabusText)
-        {
-            using var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromMinutes(2);
-
-            // Verify API key exists
-            if (string.IsNullOrWhiteSpace(_geminiApiKey))
-            {
-                _logger.LogError("Gemini API key is not configured");
-                throw new Exception("Gemini API key is not configured. Please check appsettings.json");
-            }
-
-            _logger.LogInformation("Using Gemini API key: {KeyPreview}...", _geminiApiKey.Substring(0, Math.Min(10, _geminiApiKey.Length)));
-
-            var prompt = $@"
-Analyze this college syllabus and extract the following structured data as JSON only.
-
-Rules:
-- There is only ONE course per syllabus.
-- Include all key details like course name, meeting days/times, start/end dates, and location.
-- Extract all assignments with due dates.
-- Generate study events for exams and assignments leading up to dealines (Rules:
-1. For exams: Create 3-5 study blocks in the week leading up to the exam (1-2 hours each)
-2. For major assignments/projects: Create study blocks starting 1-2 weeks before due date
-3. For regular assignments: Create 1-2 study blocks 2-3 days before due date
-4. Each study block should be 1-2 hours long
-5. Spread study blocks across different days (avoid cramming)
-6. Only create events for future dates (after {DateTime.Now:yyyy-MM-dd})
-7. If no specific times are mentioned, use reasonable study times (e.g., 14:00-16:00, 18:00-20:00)
-8. Event titles must be 30 characters or less
-9. Descriptions must be 200 characters or less)
-- Omit any past dates (before {DateTime.Now:yyyy-MM-dd}).
-- Use 'null' for unknown fields.
-
-Return only JSON in this exact structure:
-{{
-  ""course"": {{
-    ""courseName"": ""Example 101"",
-    ""courseDescription"": ""Intro to Example Concepts"",
-    ""startDate"": ""2025-01-20"",
-    ""endDate"": ""2025-05-10"",
-    ""classMeetingDays"": ""Monday, Wednesday"",
-    ""classStartTime"": ""15:00"",
-    ""classEndTime"": ""16:15"",
-    ""location"": ""Room 210"",
-    ""courseColor"": ""#007bff""
-  }},
-  ""assignments"": [
-    {{
-      ""assignmentName"": ""Essay 1"",
-      ""dueDate"": ""2025-02-10T23:59:00""
-    }},
-    {{
-      ""assignmentName"": ""Midterm Paper"",
-      ""dueDate"": ""2025-03-15T23:59:00""
-    }}
-  ],
-  ""events"": [
-    {{
-      ""title"": ""Study for Midterm"",
-      ""startDate"": ""2025-03-10T14:00:00"",
-      ""endDate"": ""2025-03-10T16:00:00"",
-      ""eventType"": ""study"",
-      ""description"": ""Review chapters 1-5""
-    }}
-  ]
-}}
-
-Syllabus Text:
-{syllabusText}";
-
-            var requestBody = new
-            {
-                contents = new[]
-                {
-                    new
-                    {
-                        parts = new[]
-                        {
-                            new { text = prompt }
-                        }
-                    }
-                },
-                generationConfig = new
-                {
-                    temperature = 0.2,
-                    maxOutputTokens = 8192
-                }
-            };
-
-            var json = JsonSerializer.Serialize(requestBody);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var apiUrl = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={_geminiApiKey}";
-
-            _logger.LogInformation("Calling Gemini API...");
-
-            var response = await httpClient.PostAsync(apiUrl, content);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorContent = await response.Content.ReadAsStringAsync();
-                _logger.LogError("Gemini API error: Status {Status}, Response: {Error}", response.StatusCode, errorContent);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
-                {
-                    throw new Exception("Gemini API key is invalid or doesn't have permission. Please check your API key in appsettings.json");
-                }
-
-                throw new Exception($"Gemini API error: {response.StatusCode} - {errorContent}");
-            }
-
-            var responseContent = await response.Content.ReadAsStringAsync();
-            _logger.LogInformation("Received response from Gemini API");
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-            var geminiResponse = JsonSerializer.Deserialize<GeminiResponse>(responseContent, options);
-            var generatedText = geminiResponse?.Candidates?[0]?.Content?.Parts?[0]?.Text ?? "";
-
-            // Clean markdown formatting
-            generatedText = generatedText.Trim();
-            if (generatedText.StartsWith("```json"))
-                generatedText = generatedText.Substring(7);
-            if (generatedText.StartsWith("```"))
-                generatedText = generatedText.Substring(3);
-            if (generatedText.EndsWith("```"))
-                generatedText = generatedText.Substring(0, generatedText.Length - 3);
-            generatedText = generatedText.Trim();
-
-            _logger.LogInformation("Gemini response cleaned: {Length} characters", generatedText.Length);
-
-            try
-            {
-                var studyBlocks = JsonSerializer.Deserialize<List<StudyBlock>>(generatedText, options);
-                return studyBlocks ?? new List<StudyBlock>();
-            }
-            catch (JsonException ex)
-            {
-                _logger.LogError(ex, "Failed to parse Gemini response as JSON. Response: {Response}", generatedText);
-                throw new Exception("Could not parse AI response. Please try again.", ex);
-            }
-        }
+        // ==================== GEMINI API PARSING ====================
 
         private async Task<GeminiSyllabusResult?> ParseFullSyllabusWithGeminiAsync(string syllabusText)
         {
@@ -541,59 +416,66 @@ Syllabus Text:
             if (string.IsNullOrWhiteSpace(_geminiApiKey))
                 throw new Exception("Gemini API key is not configured.");
 
-            // ------------------- PROMPT -------------------
-            var prompt = $@"
-Analyze this college syllabus and extract the following structured data as JSON only.
+            _logger.LogInformation("Sending syllabus to Gemini API for parsing...");
 
-Rules:
-- There is only ONE course per syllabus.
-- Include all key details like course name, meeting days/times, start/end dates, and location.
-- Extract all assignments with due dates.
-- Generate study events for exams and assignments (see rules in prompt)
-- Omit any past dates (before {DateTime.Now:yyyy-MM-dd}).
-- Use 'null' for unknown fields.
+            var prompt = $@"Analyze this college syllabus and extract structured data as JSON ONLY. No explanations, no markdown, just the JSON object.
 
-Return only JSON in this exact structure:
+CRITICAL RULES:
+1. Return ONLY valid JSON - no text before or after
+2. ONE course per syllabus
+3. Extract ALL assignments, quizzes, exams with due dates
+4. Generate study events for major items (exams, projects)
+5. Use 'null' for unknown fields (as string, not bare null)
+6. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
+7. Event titles: max 30 characters
+8. Descriptions: max 200 characters
+
+EXACT JSON STRUCTURE:
 {{
   ""course"": {{
-    ""courseName"": ""Example 101"",
-    ""courseDescription"": ""Intro to Example Concepts"",
-    ""startDate"": ""2025-01-20"",
-    ""endDate"": ""2025-05-10"",
-    ""classMeetingDays"": ""Monday, Wednesday"",
-    ""classStartTime"": ""15:00"",
-    ""classEndTime"": ""16:15"",
-    ""location"": ""Room 210"",
+    ""courseName"": ""CIS 375"",
+    ""courseDescription"": ""System Analysis & Design"",
+    ""startDate"": ""2024-01-09"",
+    ""endDate"": ""2024-05-02"",
+    ""classMeetingDays"": ""Tuesday,Thursday"",
+    ""classStartTime"": ""10:30"",
+    ""classEndTime"": ""11:45"",
+    ""location"": ""Room 101"",
     ""courseColor"": ""#007bff""
   }},
   ""assignments"": [
     {{
-      ""assignmentName"": ""Essay 1"",
-      ""dueDate"": ""2025-02-10T23:59:00""
+      ""assignmentName"": ""Chapter 1 Quiz"",
+      ""dueDate"": ""2024-01-18T23:59:00""
     }}
   ],
   ""events"": [
     {{
-      ""title"": ""Study for Midterm"",
-      ""startDate"": ""2025-03-10T14:00:00"",
-      ""endDate"": ""2025-03-10T16:00:00"",
+      ""title"": ""Study Ch 1-2"",
+      ""startDate"": ""2024-01-16T14:00:00"",
+      ""endDate"": ""2024-01-16T16:00:00"",
       ""eventType"": ""study"",
-      ""description"": ""Review chapters 1–5""
+      ""description"": ""Prepare for quiz""
     }}
   ]
 }}
 
-Syllabus Text:
+Syllabus:
 {syllabusText}";
 
-            // ------------------- REQUEST -------------------
             var requestBody = new
             {
                 contents = new[]
                 {
-            new { parts = new[] { new { text = prompt } } }
-        },
-                generationConfig = new { temperature = 0.2, maxOutputTokens = 8192 }
+                    new { parts = new[] { new { text = prompt } } }
+                },
+                generationConfig = new
+                {
+                    temperature = 0.1,
+                    maxOutputTokens = 8192,
+                    topK = 1,
+                    topP = 0.95
+                }
             };
 
             var json = JsonSerializer.Serialize(requestBody);
@@ -604,53 +486,158 @@ Syllabus Text:
             var responseContent = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
-                throw new Exception($"Gemini API error: {response.StatusCode} - {responseContent}");
+            {
+                _logger.LogError("Gemini API error: {Status} - {Content}", response.StatusCode, responseContent);
+                throw new Exception($"Gemini API error: {response.StatusCode}");
+            }
+
+            _logger.LogInformation("Received Gemini response, length: {Length}", responseContent.Length);
 
             var geminiResponse = JsonSerializer.Deserialize<GeminiResponse>(responseContent,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             var generatedText = geminiResponse?.Candidates?[0]?.Content?.Parts?[0]?.Text ?? "";
 
-            // ------------------- 🧹 CLEANUP SNIPPET -------------------
-            generatedText = generatedText.Trim();
+            _logger.LogInformation("Raw Gemini text (first 500 chars): {Text}",
+                generatedText.Length > 500 ? generatedText.Substring(0, 500) + "..." : generatedText);
 
-            // Remove markdown code fences or labels like ```json
-            if (generatedText.StartsWith("```json", StringComparison.OrdinalIgnoreCase))
-                generatedText = generatedText.Substring(7);
-            if (generatedText.StartsWith("```"))
-                generatedText = generatedText.Substring(3);
-            if (generatedText.EndsWith("```"))
-                generatedText = generatedText.Substring(0, generatedText.Length - 3);
+            if (string.IsNullOrWhiteSpace(generatedText))
+            {
+                _logger.LogError("Gemini returned empty text");
+                throw new Exception("Gemini returned empty response");
+            }
 
-            // Find the first '{' in case Gemini added preamble text
-            var jsonStart = generatedText.IndexOf('{');
-            if (jsonStart > 0)
-                generatedText = generatedText.Substring(jsonStart);
+            // ==================== AGGRESSIVE CLEANING ====================
+            var cleanedText = generatedText.Trim();
 
-            generatedText = generatedText.Trim();
+            // Remove markdown code blocks
+            if (cleanedText.StartsWith("```json", StringComparison.OrdinalIgnoreCase))
+                cleanedText = cleanedText.Substring(7);
+            else if (cleanedText.StartsWith("```"))
+                cleanedText = cleanedText.Substring(3);
 
-            // ------------------- PARSE RESULT -------------------
+            if (cleanedText.EndsWith("```"))
+                cleanedText = cleanedText.Substring(0, cleanedText.Length - 3);
+
+            cleanedText = cleanedText.Trim();
+
+            // Find JSON object boundaries
+            int jsonStart = cleanedText.IndexOf('{');
+            int jsonEnd = cleanedText.LastIndexOf('}');
+
+            if (jsonStart == -1 || jsonEnd == -1 || jsonEnd <= jsonStart)
+            {
+                _logger.LogError("Could not find valid JSON object. Cleaned text: {Text}", cleanedText);
+                throw new Exception("Gemini did not return valid JSON structure");
+            }
+
+            // Extract just the JSON object
+            cleanedText = cleanedText.Substring(jsonStart, jsonEnd - jsonStart + 1);
+
+            _logger.LogInformation("Final cleaned JSON (first 500 chars): {Text}",
+                cleanedText.Length > 500 ? cleanedText.Substring(0, 500) + "..." : cleanedText);
+
+            // ==================== PARSE RESULT ====================
             try
             {
                 var result = JsonSerializer.Deserialize<GeminiSyllabusResult>(
-                    generatedText,
+                    cleanedText,
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
                 );
 
-                if (result == null)
-                    throw new Exception("Gemini returned empty or invalid JSON.");
+                if (result == null || result.Course == null)
+                {
+                    _logger.LogError("Deserialized result is null or missing course");
+                    throw new Exception("Gemini returned invalid course data");
+                }
 
-                _logger.LogInformation("✅ Successfully parsed Gemini structured syllabus response.");
+                _logger.LogInformation("✅ Successfully parsed syllabus: {CourseName}", result.Course.CourseName);
                 return result;
             }
             catch (JsonException ex)
             {
-                _logger.LogError(ex, "❌ Failed to parse Gemini structured response: {Response}", generatedText);
-                throw new Exception("Could not parse Gemini structured response. Check logs for details.", ex);
+                _logger.LogError(ex, "❌ JSON parsing failed. Content: {Content}", cleanedText);
+
+                // Save to file for debugging
+                try
+                {
+                    var debugPath = Path.Combine(Path.GetTempPath(), $"gemini_error_{DateTime.Now:yyyyMMdd_HHmmss}.txt");
+                    File.WriteAllText(debugPath, $"Original:\n{generatedText}\n\nCleaned:\n{cleanedText}");
+                    _logger.LogError("Debug output saved to: {Path}", debugPath);
+                }
+                catch { }
+
+                throw new Exception("Could not parse Gemini JSON response. Check logs for details.", ex);
             }
         }
 
+        // ==================== FALLBACK PARSING ====================
 
+        private List<StudyBlock> CreateFallbackStudyBlocks(string syllabusText)
+        {
+            _logger.LogInformation("Using fallback syllabus parser");
+
+            var blocks = new List<StudyBlock>();
+            var lines = syllabusText.Split('\n');
+
+            // Regex for dates: MM/DD/YYYY or M/D/YY
+            var datePattern = new Regex(@"(\d{1,2})/(\d{1,2})/(\d{2,4})");
+
+            foreach (var line in lines)
+            {
+                var match = datePattern.Match(line);
+                if (match.Success)
+                {
+                    try
+                    {
+                        var dateStr = match.Value;
+                        if (DateTime.TryParse(dateStr, out var date) && date > DateTime.Now)
+                        {
+                            var lowerLine = line.ToLower();
+                            string eventType = "study";
+
+                            if (lowerLine.Contains("quiz"))
+                                eventType = "assignment";
+                            else if (lowerLine.Contains("exam") || lowerLine.Contains("test"))
+                                eventType = "exam";
+                            else if (lowerLine.Contains("project") || lowerLine.Contains("submission") || lowerLine.Contains("essay"))
+                                eventType = "project";
+
+                            var block = new StudyBlock
+                            {
+                                Title = TruncateString(line.Trim(), 30),
+                                StartDate = date.Date.AddHours(23).AddMinutes(59),
+                                EndDate = date.Date.AddHours(23).AddMinutes(59),
+                                EventType = eventType,
+                                Description = TruncateString(line.Trim(), 200)
+                            };
+
+                            blocks.Add(block);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogWarning(ex, "Failed to parse date from line: {Line}", line);
+                    }
+                }
+            }
+
+            _logger.LogInformation("Fallback parser found {Count} events", blocks.Count);
+            return blocks;
+        }
+
+        private string ExtractCourseName(string syllabusText)
+        {
+            // Try to find course code like "CIS 375" or similar
+            var coursePattern = new Regex(@"([A-Z]{2,4}\s*\d{3})", RegexOptions.IgnoreCase);
+            var match = coursePattern.Match(syllabusText);
+
+            if (match.Success)
+                return match.Value.Trim();
+
+            // Fallback: use first line
+            var lines = syllabusText.Split('\n');
+            return lines.FirstOrDefault(l => !string.IsNullOrWhiteSpace(l))?.Trim() ?? "Unknown Course";
+        }
     }
-
 }

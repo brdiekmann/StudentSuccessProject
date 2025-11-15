@@ -416,7 +416,6 @@ C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\n
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.genruntimeconfig.cache
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\ref\FinalProject.dll
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.Development.json
-C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\FinalProject.staticwebassets.runtime.json
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\FinalProject.staticwebassets.endpoints.json
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\FinalProject.exe
