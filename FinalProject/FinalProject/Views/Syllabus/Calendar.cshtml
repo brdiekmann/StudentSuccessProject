@@ -40,6 +40,179 @@
         flex-wrap: wrap;
     }
 
+    /* File List Styles */
+    .file-list {
+        margin-top: 15px;
+        padding: 15px;
+        background: white;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+        display: none;
+    }
+
+        .file-list.show {
+            display: block;
+        }
+
+    .file-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 8px;
+        background: #f8f9fa;
+        border-radius: 4px;
+        border: 1px solid #e9ecef;
+    }
+
+        .file-item:last-child {
+            margin-bottom: 0;
+        }
+
+    .file-info {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .file-icon {
+        font-size: 20px;
+    }
+
+    .file-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .file-name {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .file-size {
+        font-size: 12px;
+        color: #6c757d;
+    }
+
+    .file-remove {
+        background: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+        .file-remove:hover {
+            background: #c82333;
+        }
+
+    /* Upload Progress Styles */
+    .upload-progress {
+        display: none;
+        margin-top: 15px;
+    }
+
+        .upload-progress.show {
+            display: block;
+        }
+
+    .progress-item {
+        margin-bottom: 15px;
+        padding: 15px;
+        background: white;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+    }
+
+    .progress-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .progress-filename {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .progress-status {
+        font-size: 12px;
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+
+        .progress-status.processing {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .progress-status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .progress-status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .progress-status.needs-input {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+    .progress-bar-container {
+        width: 100%;
+        height: 8px;
+        background: #e9ecef;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: #007bff;
+        transition: width 0.3s ease;
+    }
+
+        .progress-bar.success {
+            background: #28a745;
+        }
+
+        .progress-bar.error {
+            background: #dc3545;
+        }
+
+        .progress-bar.needs-input {
+            background: #ffc107;
+        }
+
+    .progress-message {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #6c757d;
+    }
+
+    .upload-summary {
+        display: none;
+        margin-top: 15px;
+        padding: 15px;
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+        color: #155724;
+    }
+
+        .upload-summary.show {
+            display: block;
+        }
+
     .status-message {
         margin-top: 10px;
         padding: 10px;
@@ -106,6 +279,8 @@
         width: 90%;
         max-width: 600px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
     .modal-header {
@@ -116,6 +291,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1;
     }
 
         .modal-header h2 {
@@ -187,6 +365,8 @@
         display: flex;
         gap: 10px;
         justify-content: flex-end;
+        position: sticky;
+        bottom: 0;
     }
 
     .btn {
@@ -208,6 +388,15 @@
             background: #0056b3;
         }
 
+    .btn-success {
+        background: #28a745;
+        color: white;
+    }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
     .btn-danger {
         background: #dc3545;
         color: white;
@@ -226,6 +415,12 @@
             background: #5a6268;
         }
 
+    .btn:disabled {
+        background: #6c757d;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
     .checkbox-label {
         display: flex;
         align-items: center;
@@ -238,8 +433,8 @@
 
     <!-- Syllabus Upload Section -->
     <div class="upload-section">
-        <h2>📚 Upload Your Syllabus</h2>
-        <p>Upload your course syllabus and let AI automatically create study blocks, exam reminders, and assignment deadlines!</p>
+        <h2>📚 Upload Your Syllabi</h2>
+        <p>Upload one or more course syllabi and let AI automatically create study blocks, exam reminders, and assignment deadlines!</p>
 
         <div class="form-group mb-3">
             <label for="scheduleSelect">Select Schedule:</label>
@@ -256,13 +451,23 @@
         </div>
 
         <div class="file-upload-container">
-            <input type="file" id="syllabusFile" accept=".pdf,.docx,.txt" class="form-control" style="max-width: 400px;" />
-            <button class="btn btn-success" id="uploadBtn" onclick="uploadSyllabus()" disabled>
-                Upload & Process
+            <input type="file" id="syllabusFiles" accept=".pdf,.docx,.txt" class="form-control" style="max-width: 400px;" multiple />
+            <button class="btn btn-success" id="uploadBtn" onclick="uploadSyllabi()" disabled>
+                📤 Upload & Process All
             </button>
             <div class="loading-spinner" id="loadingSpinner"></div>
         </div>
-        <small class="text-muted">Supported formats: PDF, DOCX, TXT (Max 10MB)</small>
+        <small class="text-muted">Supported formats: PDF, DOCX, TXT (Max 10MB per file) • Select multiple files at once</small>
+
+        <!-- File List -->
+        <div id="fileList" class="file-list"></div>
+
+        <!-- Upload Progress -->
+        <div id="uploadProgress" class="upload-progress"></div>
+
+        <!-- Upload Summary -->
+        <div id="uploadSummary" class="upload-summary"></div>
+
         <div class="status-message" id="statusMessage"></div>
     </div>
 
@@ -288,41 +493,34 @@
         <div class="modal-body">
             <form id="eventForm">
                 <input type="hidden" id="eventId">
-
                 <div class="form-group">
                     <label for="eventName">Event Name: <span style="color: red;">*</span></label>
                     <input type="text" id="eventName" maxlength="30" required placeholder="Max 30 characters">
                     <small class="text-muted"><span id="nameCharCount">0</span>/30 characters</small>
                 </div>
-
                 <div class="form-group">
                     <label for="eventDescription">Description: <span style="color: red;">*</span></label>
                     <textarea id="eventDescription" maxlength="200" required placeholder="Max 200 characters"></textarea>
                     <small class="text-muted"><span id="descCharCount">0</span>/200 characters</small>
                 </div>
-
                 <div class="form-group">
                     <label for="eventStart">Start Date & Time: <span style="color: red;">*</span></label>
                     <input type="datetime-local" id="eventStart" required>
                 </div>
-
                 <div class="form-group">
                     <label for="eventEnd">End Date & Time: <span style="color: red;">*</span></label>
                     <input type="datetime-local" id="eventEnd" required>
                 </div>
-
                 <div class="form-group">
                     <label for="eventLocation">Location: <span style="color: red;">*</span></label>
                     <input type="text" id="eventLocation" maxlength="50" required placeholder="Max 50 characters">
                 </div>
-
                 <div class="form-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="eventAllDay">
                         All Day Event
                     </label>
                 </div>
-
                 <div class="form-group">
                     <label for="eventColor">Event Color:</label>
                     <input type="color" id="eventColor" value="#007bff">
@@ -336,6 +534,7 @@
         </div>
     </div>
 </div>
+
 <!-- Missing Course Details Modal -->
 <div id="missingCourseModal" class="modal">
     <div class="modal-content">
@@ -345,6 +544,7 @@
         </div>
         <div class="modal-body">
             <form id="courseForm">
+                <input type="hidden" id="courseFileIndex">
                 <div class="form-group">
                     <label for="courseName">Course Name <span style="color:red">*</span></label>
                     <input type="text" id="courseName" required>
@@ -375,7 +575,7 @@
                 </div>
                 <div class="form-group">
                     <label for="courseLocation">Location</label>
-                    <input type="text" id="courseLocation">
+                    <input type="text" id="courseLocation" placeholder="TBD">
                 </div>
                 <div class="form-group">
                     <label for="courseColor">Course Color</label>
@@ -384,12 +584,11 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onclick="closeMissingCourseModal()">Cancel</button>
+            <button type="button" class="btn btn-secondary" onclick="skipCourse()">Skip This Course</button>
             <button type="button" class="btn btn-primary" onclick="submitMissingCourse()">Save Course</button>
         </div>
     </div>
 </div>
-
 
 <script>
     const UPLOAD_URL = '@Url.Action("UploadSyllabus", "Syllabus")';
@@ -400,6 +599,9 @@
 
     let calendar;
     let currentEvent = null;
+    let selectedFiles = [];
+    let pendingCourseQueue = [];
+    let currentProcessingIndex = 0;
 
     document.addEventListener('DOMContentLoaded', function () {
         const calendarEl = document.getElementById('calendar');
@@ -431,8 +633,14 @@
 
         calendar.render();
 
-        // File and schedule selection handlers
-        document.getElementById('syllabusFile').addEventListener('change', updateUploadButton);
+        // File selection handler (CHANGED to syllabusFiles)
+        document.getElementById('syllabusFiles').addEventListener('change', function (e) {
+            selectedFiles = Array.from(e.target.files);
+            updateFileList();
+            updateUploadButton();
+        });
+
+        // Schedule selection handler
         document.getElementById('scheduleSelect').addEventListener('change', updateUploadButton);
 
         // Character count handlers
@@ -444,25 +652,276 @@
             document.getElementById('descCharCount').textContent = this.value.length;
         });
 
-        // Close modal when clicking outside
+        // Close modals when clicking outside
         window.onclick = function (event) {
-            const modal = document.getElementById('eventModal');
-            if (event.target === modal) closeModal();
+            if (event.target === document.getElementById('eventModal')) closeModal();
+            if (event.target === document.getElementById('missingCourseModal')) closeMissingCourseModal();
         };
     });
 
+    // ==================== FILE MANAGEMENT ====================
+
+    function updateFileList() {
+        const fileListDiv = document.getElementById('fileList');
+
+        if (selectedFiles.length === 0) {
+            fileListDiv.classList.remove('show');
+            fileListDiv.innerHTML = '';
+            return;
+        }
+
+        fileListDiv.classList.add('show');
+        fileListDiv.innerHTML = `
+            <h6 style="margin-top: 0; margin-bottom: 10px; color: #333;">
+                <strong>${selectedFiles.length} file(s) selected</strong>
+            </h6>
+        `;
+
+        selectedFiles.forEach((file, index) => {
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+            const fileIcon = getFileIcon(file.name);
+
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+            fileItem.innerHTML = `
+                <div class="file-info">
+                    <span class="file-icon">${fileIcon}</span>
+                    <div class="file-details">
+                        <span class="file-name">${file.name}</span>
+                        <span class="file-size">${fileSize} MB</span>
+                    </div>
+                </div>
+                <button class="file-remove" onclick="removeFile(${index})">Remove</button>
+            `;
+
+            fileListDiv.appendChild(fileItem);
+        });
+    }
+
+    function getFileIcon(filename) {
+        const ext = filename.split('.').pop().toLowerCase();
+        switch (ext) {
+            case 'pdf': return '📄';
+            case 'docx': return '📝';
+            case 'txt': return '📃';
+            default: return '📁';
+        }
+    }
+
+    function removeFile(index) {
+        selectedFiles.splice(index, 1);
+        updateFileList();
+        updateUploadButton();
+
+        const fileInput = document.getElementById('syllabusFiles');
+        const dataTransfer = new DataTransfer();
+        selectedFiles.forEach(file => dataTransfer.items.add(file));
+        fileInput.files = dataTransfer.files;
+    }
+
     function updateUploadButton() {
-        const fileInput = document.getElementById('syllabusFile');
         const scheduleSelect = document.getElementById('scheduleSelect');
         const uploadBtn = document.getElementById('uploadBtn');
-        uploadBtn.disabled = !fileInput.files[0] || !scheduleSelect.value;
+        uploadBtn.disabled = selectedFiles.length === 0 || !scheduleSelect.value;
     }
+
+    // ==================== MULTI-FILE UPLOAD ====================
+
+    async function uploadSyllabi() {
+        const scheduleSelect = document.getElementById('scheduleSelect');
+        const scheduleId = scheduleSelect.value;
+
+        if (selectedFiles.length === 0 || !scheduleId) {
+            showStatus('Please select both files and a schedule', 'error');
+            return;
+        }
+
+        const uploadBtn = document.getElementById('uploadBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const progressDiv = document.getElementById('uploadProgress');
+        const summaryDiv = document.getElementById('uploadSummary');
+
+        uploadBtn.disabled = true;
+        loadingSpinner.style.display = 'inline-block';
+        progressDiv.classList.add('show');
+        progressDiv.innerHTML = '';
+        summaryDiv.classList.remove('show');
+        pendingCourseQueue = [];
+        currentProcessingIndex = 0;
+
+        let successCount = 0;
+        let errorCount = 0;
+        let needsInputCount = 0;
+        let totalEvents = 0;
+
+        for (let i = 0; i < selectedFiles.length; i++) {
+            const file = selectedFiles[i];
+            const progressId = `progress-${i}`;
+
+            // Create progress item
+            const progressItem = document.createElement('div');
+            progressItem.className = 'progress-item';
+            progressItem.id = progressId;
+            progressItem.innerHTML = `
+                <div class="progress-header">
+                    <span class="progress-filename">${file.name}</span>
+                    <span class="progress-status processing">Processing...</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 50%"></div>
+                </div>
+                <div class="progress-message">Uploading and processing...</div>
+            `;
+            progressDiv.appendChild(progressItem);
+
+            // Upload file
+            const formData = new FormData();
+            formData.append('syllabusFile', file);
+            formData.append('scheduleId', scheduleId);
+
+            try {
+                const response = await fetch(UPLOAD_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                const statusSpan = progressItem.querySelector('.progress-status');
+                const progressBar = progressItem.querySelector('.progress-bar');
+                const message = progressItem.querySelector('.progress-message');
+
+                if (result.requiresUserInput) {
+                    needsInputCount++;
+                    statusSpan.textContent = '⚠️ Needs Input';
+                    statusSpan.classList.remove('processing');
+                    statusSpan.classList.add('needs-input');
+                    progressBar.style.width = '100%';
+                    progressBar.classList.add('needs-input');
+                    message.textContent = 'Missing course details - will prompt after all uploads';
+
+                    // Add to queue for later
+                    pendingCourseQueue.push({
+                        fileIndex: i,
+                        fileName: file.name,
+                        course: result.createdCourse,
+                        file: file
+                    });
+
+                } else if (result.success) {
+                    successCount++;
+                    totalEvents += result.eventsCreated || 0;
+
+                    statusSpan.textContent = '✓ Success';
+                    statusSpan.classList.remove('processing');
+                    statusSpan.classList.add('success');
+                    progressBar.style.width = '100%';
+                    progressBar.classList.add('success');
+                    message.textContent = `Created ${result.eventsCreated || 0} events`;
+                } else {
+                    errorCount++;
+
+                    statusSpan.textContent = '✗ Failed';
+                    statusSpan.classList.remove('processing');
+                    statusSpan.classList.add('error');
+                    progressBar.style.width = '100%';
+                    progressBar.classList.add('error');
+                    message.textContent = result.message || 'Error processing file';
+                }
+            } catch (error) {
+                errorCount++;
+                console.error('Error uploading file:', error);
+
+                const statusSpan = progressItem.querySelector('.progress-status');
+                const progressBar = progressItem.querySelector('.progress-bar');
+                const message = progressItem.querySelector('.progress-message');
+
+                statusSpan.textContent = '✗ Failed';
+                statusSpan.classList.remove('processing');
+                statusSpan.classList.add('error');
+                progressBar.style.width = '100%';
+                progressBar.classList.add('error');
+                message.textContent = 'Network error';
+            }
+        }
+
+        // Show summary
+        summaryDiv.innerHTML = `
+            <strong>📊 Upload Complete!</strong><br>
+            ✅ ${successCount} file(s) processed successfully<br>
+            ${needsInputCount > 0 ? `⚠️ ${needsInputCount} file(s) need additional details<br>` : ''}
+            ${errorCount > 0 ? `❌ ${errorCount} file(s) failed<br>` : ''}
+            📅 ${totalEvents} total events created
+        `;
+        summaryDiv.classList.add('show');
+
+        // Refresh calendar
+        calendar.refetchEvents();
+
+        // Reset upload button and spinner
+        uploadBtn.disabled = false;
+        loadingSpinner.style.display = 'none';
+
+        // Process pending courses that need input
+        if (pendingCourseQueue.length > 0) {
+            showStatus(`✅ ${successCount} processed. ${needsInputCount} need(s) details. Opening form...`, 'info');
+            setTimeout(() => {
+                processNextPendingCourse();
+            }, 1000);
+        } else {
+            // Clear selection
+            selectedFiles = [];
+            document.getElementById('syllabusFiles').value = '';
+            document.getElementById('fileList').classList.remove('show');
+            scheduleSelect.value = '';
+            updateUploadButton();
+
+            // Show final status
+            if (errorCount === 0) {
+                showStatus(`✅ All ${successCount} syllabi processed successfully! Created ${totalEvents} events.`, 'success');
+            } else if (successCount > 0) {
+                showStatus(`⚠️ Processed ${successCount} syllabi with ${errorCount} errors. Created ${totalEvents} events.`, 'info');
+            } else {
+                showStatus(`❌ All uploads failed. Please check the files and try again.`, 'error');
+            }
+        }
+    }
+
+    // ==================== PENDING COURSE PROCESSING ====================
+
+    function processNextPendingCourse() {
+        if (currentProcessingIndex >= pendingCourseQueue.length) {
+            // All done
+            showStatus('✅ All courses completed!', 'success');
+            calendar.refetchEvents();
+
+            // Clear selection
+            selectedFiles = [];
+            document.getElementById('syllabusFiles').value = '';
+            document.getElementById('fileList').classList.remove('show');
+            document.getElementById('scheduleSelect').value = '';
+            updateUploadButton();
+            return;
+        }
+
+        const pending = pendingCourseQueue[currentProcessingIndex];
+        openMissingCourseModal(pending.course, pending.fileIndex, pending.fileName);
+    }
+
+    function skipCourse() {
+        currentProcessingIndex++;
+        closeMissingCourseModal();
+        processNextPendingCourse();
+    }
+
+    // ==================== EVENT MODAL FUNCTIONS ====================
 
     function openEditModal(event) {
         currentEvent = event;
 
         document.getElementById('modalTitle').textContent = 'Edit Event';
         document.getElementById('eventId').value = event.id;
+        document.getElementById('eventName').value
         document.getElementById('eventName').value = event.title;
         document.getElementById('eventDescription').value = event.extendedProps.description || '';
         document.getElementById('eventLocation').value = event.extendedProps.location || 'TBD';
@@ -583,52 +1042,6 @@
         }
     }
 
-    async function uploadSyllabus() {
-        const fileInput = document.getElementById('syllabusFile');
-        const scheduleSelect = document.getElementById('scheduleSelect');
-        const file = fileInput.files[0];
-        const scheduleId = scheduleSelect.value;
-
-        if (!file || !scheduleId) {
-            showStatus('Please select both a file and a schedule', 'error');
-            return;
-        }
-
-        const uploadBtn = document.getElementById('uploadBtn');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        uploadBtn.disabled = true;
-        loadingSpinner.style.display = 'inline-block';
-        showStatus('Processing your syllabus... This may take a moment.', 'info');
-
-        const formData = new FormData();
-        formData.append('syllabusFile', file);
-        formData.append('scheduleId', scheduleId);
-
-        try {
-            const response = await fetch(UPLOAD_URL, { method: 'POST', body: formData });
-            const result = await response.json();
-
-            if (result.requiresUserInput) {
-                showStatus('⚠️ Some course details are missing. Please fill them in.', 'info');
-                openMissingCourseModal(result.createdCourse);
-            } else if (result.success) {
-                showStatus(`✅ ${result.message}`, 'success');
-                calendar.refetchEvents();
-                fileInput.value = '';
-                scheduleSelect.value = '';
-                updateUploadButton();
-            } else {
-                showStatus(`❌ ${result.message}`, 'error');
-            }
-        } catch (error) {
-            console.error('Error uploading syllabus:', error);
-            showStatus('❌ Error connecting to server. Please try again.', 'error');
-        } finally {
-            uploadBtn.disabled = false;
-            loadingSpinner.style.display = 'none';
-        }
-    }
-
     function showStatus(message, type) {
         const statusDiv = document.getElementById('statusMessage');
         statusDiv.textContent = message;
@@ -636,21 +1049,65 @@
         statusDiv.style.display = 'block';
 
         if (type === 'success') {
-            setTimeout(() => { statusDiv.style.display = 'none'; }, 5000);
+            setTimeout(() => { statusDiv.style.display = 'none'; }, 8000);
         }
     }
 
-    // ---------- Missing course modal ----------
-    function openMissingCourseModal(course) {
-        document.getElementById('courseName').value = course.courseName || '';
-        document.getElementById('courseDescription').value = course.courseDescription || '';
-        document.getElementById('courseStartDate').value = course.startDate || '';
-        document.getElementById('courseEndDate').value = course.endDate || '';
-        document.getElementById('classMeetingDays').value = course.classMeetingDays || '';
-        document.getElementById('classStartTime').value = course.classStartTime || '';
-        document.getElementById('classEndTime').value = course.classEndTime || '';
-        document.getElementById('courseLocation').value = course.location || '';
-        document.getElementById('courseColor').value = course.courseColor || '#007bff';
+    // ==================== MISSING COURSE MODAL ====================
+
+    function openMissingCourseModal(course, fileIndex, fileName) {
+        document.getElementById('courseFileIndex').value = fileIndex;
+
+        // Show which file this is for
+        const modalTitle = document.querySelector('#missingCourseModal .modal-header h2');
+        modalTitle.textContent = `Complete Course Details - ${fileName || 'Unknown File'}`;
+
+        document.getElementById('courseName').value = course?.courseName || '';
+        document.getElementById('courseDescription').value = course?.courseDescription || '';
+
+        // Handle date conversion
+        if (course?.startDate) {
+            const startDate = course.startDate.toString().includes('T')
+                ? course.startDate.split('T')[0]
+                : course.startDate;
+            document.getElementById('courseStartDate').value = startDate;
+        } else {
+            document.getElementById('courseStartDate').value = '';
+        }
+
+        if (course?.endDate) {
+            const endDate = course.endDate.toString().includes('T')
+                ? course.endDate.split('T')[0]
+                : course.endDate;
+            document.getElementById('courseEndDate').value = endDate;
+        } else {
+            document.getElementById('courseEndDate').value = '';
+        }
+
+        document.getElementById('classMeetingDays').value = course?.classMeetingDays || '';
+
+        // Handle time conversion
+        if (course?.classStartTime) {
+            const startTime = course.classStartTime.toString().includes(':')
+                ? course.classStartTime.substring(0, 5)
+                : course.classStartTime;
+            document.getElementById('classStartTime').value = startTime;
+        } else {
+            document.getElementById('classStartTime').value = '';
+        }
+
+        if (course?.classEndTime) {
+            const endTime = course.classEndTime.toString().includes(':')
+                ? course.classEndTime.substring(0, 5)
+                : course.classEndTime;
+            document.getElementById('classEndTime').value = endTime;
+        } else {
+            document.getElementById('classEndTime').value = '';
+        }
+
+        document.getElementById('courseLocation').value = course?.location || 'TBD';
+        document.getElementById('courseColor').value = course?.courseColor || '#007bff';
+
         document.getElementById('missingCourseModal').style.display = 'block';
     }
 
@@ -659,6 +1116,15 @@
     }
 
     async function submitMissingCourse() {
+        const form = document.getElementById('courseForm');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const fileIndex = parseInt(document.getElementById('courseFileIndex').value);
+        const pending = pendingCourseQueue[currentProcessingIndex];
+
         const courseData = {
             courseName: document.getElementById('courseName').value,
             courseDescription: document.getElementById('courseDescription').value,
@@ -667,9 +1133,10 @@
             classMeetingDays: document.getElementById('classMeetingDays').value,
             classStartTime: document.getElementById('classStartTime').value,
             classEndTime: document.getElementById('classEndTime').value,
-            location: document.getElementById('courseLocation').value,
+            location: document.getElementById('courseLocation').value || 'TBD',
             courseColor: document.getElementById('courseColor').value,
-            scheduleId: document.getElementById('scheduleSelect').value
+            scheduleId: document.getElementById('scheduleSelect').value,
+            userId: pending.course?.userId // Preserve from original
         };
 
         try {
@@ -682,9 +1149,40 @@
             const result = await response.json();
 
             if (result.success) {
-                showStatus('✅ Course details saved successfully!', 'success');
+                showStatus(`✅ Course "${courseData.courseName}" saved successfully!`, 'success');
+
+                // Update progress item
+                const progressItem = document.getElementById(`progress-${fileIndex}`);
+                if (progressItem) {
+                    const statusSpan = progressItem.querySelector('.progress-status');
+                    const progressBar = progressItem.querySelector('.progress-bar');
+                    const message = progressItem.querySelector('.progress-message');
+
+                    statusSpan.textContent = '✓ Completed';
+                    statusSpan.classList.remove('needs-input');
+                    statusSpan.classList.add('success');
+                    progressBar.classList.remove('needs-input');
+                    progressBar.classList.add('success');
+                    message.textContent = 'Course details completed and saved';
+                }
+
                 closeMissingCourseModal();
-                calendar.refetchEvents();
+                currentProcessingIndex++;
+
+                // Process next or finish
+                if (currentProcessingIndex < pendingCourseQueue.length) {
+                    setTimeout(() => processNextPendingCourse(), 500);
+                } else {
+                    showStatus('✅ All courses completed successfully!', 'success');
+                    calendar.refetchEvents();
+
+                    // Clear everything
+                    selectedFiles = [];
+                    document.getElementById('syllabusFiles').value = '';
+                    document.getElementById('fileList').classList.remove('show');
+                    document.getElementById('scheduleSelect').value = '';
+                    updateUploadButton();
+                }
             } else {
                 showStatus(`❌ ${result.message}`, 'error');
             }
