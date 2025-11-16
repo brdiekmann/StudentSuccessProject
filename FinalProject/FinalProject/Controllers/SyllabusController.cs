@@ -152,7 +152,8 @@ namespace FinalProject.Controllers
                             classStartTime = course.ClassStartTime?.ToString("HH:mm") ?? "",
                             classEndTime = course.ClassEndTime?.ToString("HH:mm") ?? "",
                             course.Location,
-                            course.CourseColor
+                            course.CourseColor,
+                            course.IsActive
                         }
                     });
                 }
@@ -268,8 +269,7 @@ namespace FinalProject.Controllers
                 Location = dto.Location,
                 CourseColor = dto.CourseColor,
                 ScheduleId = dto.ScheduleId,
-                UserId = user.Id,
-                IsActive = DateOnly.FromDateTime(DateTime.Now) >= startDate && DateOnly.FromDateTime(DateTime.Now) <= endDate
+                UserId = user.Id
             };
 
             var result = await _syllabusService.SaveCourseAsync(course);

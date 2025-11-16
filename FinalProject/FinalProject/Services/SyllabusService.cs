@@ -23,7 +23,7 @@ namespace FinalProject.Services
             ApplicationDbContext context,
             ILogger<SyllabusService> logger)
         {
-            _geminiApiKey = configuration["GeminiApiKey"] ?? configuration["ApiKey"];
+            _geminiApiKey = configuration["Gemini:ApiKey"];
             _context = context;
             _logger = logger;
         }
