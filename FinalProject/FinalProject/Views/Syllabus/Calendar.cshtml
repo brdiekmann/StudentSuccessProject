@@ -1115,6 +1115,30 @@
         document.getElementById('missingCourseModal').style.display = 'none';
     }
 
+            // Store parsed data globally
+    let parsedSyllabusData = {};
+
+    // In uploadSyllabi function, update this part:
+    if (result.requiresUserInput) {
+        needsInputCount++;
+        statusSpan.textContent = '⚠️ Needs Input';
+        statusSpan.classList.remove('processing');
+        statusSpan.classList.add('needs-input');
+        progressBar.style.width = '100%';
+        progressBar.classList.add('needs-input');
+        message.textContent = 'Missing course details - will prompt after all uploads';
+
+        // Store the FULL parsed data including assignments and events
+        pendingCourseQueue.push({
+            fileIndex: i,
+            fileName: file.name,
+            course: result.createdCourse,
+            parsedData: result.parsedData, // ADD THIS
+            file: file
+        });
+    }
+
+    // Update submitMissingCourse function:
     async function submitMissingCourse() {
         const form = document.getElementById('courseForm');
         if (!form.checkValidity()) {
@@ -1136,7 +1160,10 @@
             location: document.getElementById('courseLocation').value || 'TBD',
             courseColor: document.getElementById('courseColor').value,
             scheduleId: document.getElementById('scheduleSelect').value,
-            userId: pending.course?.userId // Preserve from original
+
+            // INCLUDE THE PARSED ASSIGNMENTS AND EVENTS
+            parsedAssignments: pending.parsedData?.assignments || [],
+            parsedEvents: pending.parsedData?.events || []
         };
 
         try {
@@ -1149,7 +1176,7 @@
             const result = await response.json();
 
             if (result.success) {
-                showStatus(`✅ Course "${courseData.courseName}" saved successfully!`, 'success');
+                showStatus(`✅ Course "${courseData.courseName}" saved with ${result.eventsCreated || 0} events and ${result.assignmentsCreated || 0} assignments!`, 'success');
 
                 // Update progress item
                 const progressItem = document.getElementById(`progress-${fileIndex}`);
@@ -1163,20 +1190,18 @@
                     statusSpan.classList.add('success');
                     progressBar.classList.remove('needs-input');
                     progressBar.classList.add('success');
-                    message.textContent = 'Course details completed and saved';
+                    message.textContent = `Created ${result.eventsCreated || 0} events, ${result.assignmentsCreated || 0} assignments`;
                 }
 
                 closeMissingCourseModal();
                 currentProcessingIndex++;
 
-                // Process next or finish
                 if (currentProcessingIndex < pendingCourseQueue.length) {
                     setTimeout(() => processNextPendingCourse(), 500);
                 } else {
                     showStatus('✅ All courses completed successfully!', 'success');
                     calendar.refetchEvents();
 
-                    // Clear everything
                     selectedFiles = [];
                     document.getElementById('syllabusFiles').value = '';
                     document.getElementById('fileList').classList.remove('show');

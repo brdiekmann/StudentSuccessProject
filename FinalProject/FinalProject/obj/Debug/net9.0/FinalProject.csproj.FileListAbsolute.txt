@@ -821,7 +821,6 @@ C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\ob
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.FinalProject.props
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.FinalProject.props
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalPro.8C09D514.Up2Date
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.dll
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\refint\FinalProject.dll
@@ -860,6 +859,7 @@ C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\n
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\itext.commons.dll
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\System.IO.Packaging.dll
+<<<<<<< HEAD
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\System.Formats.Asn1.dll
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets\msbuild.FinalProject.Microsoft.AspNetCore.StaticWebAssets.props
@@ -869,3 +869,6 @@ C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\n
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.FinalProject.props
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets.pack.json
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
+=======
+C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+>>>>>>> eea640e9c5bae59a7cb270df028d67d04fac3442
