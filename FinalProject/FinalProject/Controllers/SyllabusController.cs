@@ -236,48 +236,215 @@ namespace FinalProject.Controllers
             }
         }
 
+        // POST: Syllabus/CompleteCourseDetails
         [HttpPost]
-        public async Task<IActionResult> CompleteCourseDetails([FromBody] CourseModalDto dto)
+        public async Task<IActionResult> CompleteCourseDetails([FromBody] CourseCompletionDto courseData)
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-                return Unauthorized(new { success = false, message = "User not authenticated" });
-
-            // Validate dates and times
-            if (!DateOnly.TryParse(dto.StartDate, out var startDate))
-                return BadRequest(new { success = false, message = "Invalid start date format" });
-
-            if (!DateOnly.TryParse(dto.EndDate, out var endDate))
-                return BadRequest(new { success = false, message = "Invalid end date format" });
-
-            if (!TimeOnly.TryParse(dto.ClassStartTime, out var startTime))
-                return BadRequest(new { success = false, message = "Invalid class start time format" });
-
-            if (!TimeOnly.TryParse(dto.ClassEndTime, out var endTime))
-                return BadRequest(new { success = false, message = "Invalid class end time format" });
-
-            var course = new Course
+            try
             {
-                CourseName = dto.CourseName,
-                CourseDescription = dto.CourseDescription,
-                StartDate = startDate,
-                EndDate = endDate,
-                ClassMeetingDays = dto.ClassMeetingDays,
-                ClassStartTime = startTime,
-                ClassEndTime = endTime,
-                Location = dto.Location,
-                CourseColor = dto.CourseColor,
-                ScheduleId = dto.ScheduleId,
-                UserId = user.Id,
-                IsActive = DateOnly.FromDateTime(DateTime.Now) >= startDate && DateOnly.FromDateTime(DateTime.Now) <= endDate
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                    return Unauthorized(new { success = false, message = "User not authenticated" });
+
+                // Validate required fields
+                if (string.IsNullOrWhiteSpace(courseData.CourseName) ||
+                    string.IsNullOrWhiteSpace(courseData.CourseDescription) ||
+                    string.IsNullOrWhiteSpace(courseData.StartDate) ||
+                    string.IsNullOrWhiteSpace(courseData.EndDate) ||
+                    string.IsNullOrWhiteSpace(courseData.ClassMeetingDays) ||
+                    string.IsNullOrWhiteSpace(courseData.ClassStartTime) ||
+                    string.IsNullOrWhiteSpace(courseData.ClassEndTime))
+                {
+                    return BadRequest(new { success = false, message = "Missing required course information" });
+                }
+
+                // Parse dates and times
+                if (!DateOnly.TryParse(courseData.StartDate, out var startDate) ||
+                    !DateOnly.TryParse(courseData.EndDate, out var endDate) ||
+                    !TimeOnly.TryParse(courseData.ClassStartTime, out var startTime) ||
+                    !TimeOnly.TryParse(courseData.ClassEndTime, out var endTime))
+                {
+                    return BadRequest(new { success = false, message = "Invalid date or time format" });
+                }
+
+                // Create the Course entity
+                var course = new Course
+                {
+                    CourseName = courseData.CourseName,
+                    CourseDescription = courseData.CourseDescription,
+                    StartDate = startDate,
+                    EndDate = endDate,
+                    ClassMeetingDays = courseData.ClassMeetingDays,
+                    ClassStartTime = startTime,
+                    ClassEndTime = endTime,
+                    Location = string.IsNullOrWhiteSpace(courseData.Location) ? "TBD" : courseData.Location,
+                    CourseColor = string.IsNullOrWhiteSpace(courseData.CourseColor) ? "#007bff" : courseData.CourseColor,
+                    UserId = user.Id,
+                    ScheduleId = courseData.ScheduleId
+                };
+
+                _context.Courses.Add(course);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation("Created course {CourseName} with ID {CourseId}", course.CourseName, course.Id);
+
+                int totalEventsCreated = 0;
+                int assignmentsCreated = 0;
+
+                // If we have the parsed data, create assignments and study events
+                if (courseData.ParsedAssignments != null && courseData.ParsedAssignments.Any())
+                {
+                    foreach (var a in courseData.ParsedAssignments)
+                    {
+                        if (string.IsNullOrWhiteSpace(a.AssignmentName) || !a.DueDate.HasValue)
+                            continue;
+
+                        var assignment = new Assignment
+                        {
+                            AssignmentName = TruncateString(a.AssignmentName, 100),
+                            DueDate = a.DueDate.Value,
+                            CourseId = course.Id,
+                            IsCompleted = false
+                        };
+                        _context.Assignments.Add(assignment);
+                        assignmentsCreated++;
+                    }
+                }
+
+                // Create study blocks, exam events, etc. from parsed data
+                if (courseData.ParsedEvents != null && courseData.ParsedEvents.Any())
+                {
+                    foreach (var block in courseData.ParsedEvents)
+                    {
+                        try
+                        {
+                            var newEvent = new Event
+                            {
+                                EventName = TruncateString(block.Title ?? "Study Session", 30),
+                                EventDescription = TruncateString(block.Description ?? $"{block.EventType} event", 200),
+                                StartDateTime = block.StartDate,
+                                EndDateTime = block.EndDate,
+                                Location = course.Location ?? "TBD",
+                                IsAllDay = false,
+                                IsCancelled = false,
+                                EventColor = GetColorForEventType(block.EventType),
+                                attachedToCourse = true,
+                                UserId = user.Id,
+                                ScheduleId = course.ScheduleId,
+                                CourseId = course.Id
+                            };
+
+                            _context.Events.Add(newEvent);
+                            totalEventsCreated++;
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogWarning(ex, "Failed to create event: {Title}", block.Title);
+                        }
+                    }
+                }
+
+                // Generate recurring class meeting events
+                var meetingDays = course.ClassMeetingDays
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                    .Select(d => d.Trim())
+                    .ToList();
+
+                if (meetingDays.Any())
+                {
+                    var dayMap = new Dictionary<string, DayOfWeek>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "Monday", DayOfWeek.Monday },
+                { "Tuesday", DayOfWeek.Tuesday },
+                { "Wednesday", DayOfWeek.Wednesday },
+                { "Thursday", DayOfWeek.Thursday },
+                { "Friday", DayOfWeek.Friday },
+                { "Saturday", DayOfWeek.Saturday },
+                { "Sunday", DayOfWeek.Sunday }
             };
 
-            var result = await _syllabusService.SaveCourseAsync(course);
+                    var validDays = meetingDays
+                        .Where(d => dayMap.ContainsKey(d))
+                        .Select(d => dayMap[d])
+                        .ToList();
 
-            if (result.Success)
-                return Ok(new { success = true, message = result.Message, course = result.CreatedCourse });
+                    for (var date = course.StartDate.HasValue
+                    ? course.StartDate.Value.ToDateTime(TimeOnly.MinValue)
+                    : DateTime.MinValue;
+                    date <= (course.EndDate.HasValue
+                        ? course.EndDate.Value.ToDateTime(TimeOnly.MinValue)
+                        : DateTime.MaxValue);
+                    date = date.AddDays(1))
+                    {
+                        if (validDays.Contains(date.DayOfWeek))
+                        {
+                            var startDateTime = date.Add(course.ClassStartTime?.ToTimeSpan() ?? TimeSpan.Zero);
+                            var endDateTime = date.Add(course.ClassEndTime?.ToTimeSpan() ?? TimeSpan.Zero);
 
-            return StatusCode(500, new { success = false, message = result.Message });
+                            var classEvent = new Event
+                            {
+                                EventName = TruncateString($"{course.CourseName} Class", 30),
+                                EventDescription = TruncateString($"Class meeting for {course.CourseName}", 200),
+                                StartDateTime = startDateTime,
+                                EndDateTime = endDateTime,
+                                Location = course.Location ?? "TBD",
+                                EventColor = course.CourseColor,
+                                IsAllDay = false,
+                                IsCancelled = false,
+                                attachedToCourse = true,
+                                UserId = user.Id,
+                                ScheduleId = course.ScheduleId,
+                                CourseId = course.Id
+                            };
+
+                            _context.Events.Add(classEvent);
+                            totalEventsCreated++;
+                        }
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Created {EventCount} events and {AssignmentCount} assignments for course {CourseName}",
+                    totalEventsCreated, assignmentsCreated, course.CourseName);
+
+                return Ok(new
+                {
+                    success = true,
+                    message = $"Course saved successfully with {totalEventsCreated} events and {assignmentsCreated} assignments",
+                    courseId = course.Id,
+                    eventsCreated = totalEventsCreated,
+                    assignmentsCreated = assignmentsCreated
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error completing course details");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "An error occurred while saving the course"
+                });
+            }
+        }
+
+        private string GetColorForEventType(string? eventType)
+        {
+            return eventType?.ToLower() switch
+            {
+                "exam" => "#dc3545",        // Red
+                "assignment" => "#ffc107",   // Yellow
+                "study" => "#28a745",        // Green
+                "project" => "#17a2b8",      // Cyan
+                _ => "#007bff"               // Blue
+            };
+        }
+
+        private string TruncateString(string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value))
+                return string.Empty;
+
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
 
 

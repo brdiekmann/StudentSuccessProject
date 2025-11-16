@@ -29,9 +29,9 @@ namespace FinalProject.Services
         }
 
         public async Task<SyllabusProcessResult> ProcessSyllabusAsync(
-            IFormFile file,
-            string userId,
-            int scheduleId)
+    IFormFile file,
+    string userId,
+    int scheduleId)
         {
             var result = new SyllabusProcessResult();
 
@@ -47,7 +47,7 @@ namespace FinalProject.Services
                     return result;
                 }
 
-                if (file.Length > 10 * 1024 * 1024) // 10MB limit
+                if (file.Length > 10 * 1024 * 1024)
                 {
                     result.Success = false;
                     result.Message = "File size exceeds 10MB limit";
@@ -66,7 +66,7 @@ namespace FinalProject.Services
 
                 _logger.LogInformation("Extracted {Length} characters from syllabus", syllabusText.Length);
 
-                // Parse with Gemini API (structured result)
+                // Parse with Gemini API
                 GeminiSyllabusResult parsedResult;
 
                 try
@@ -75,36 +75,7 @@ namespace FinalProject.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Gemini parsing failed, attempting fallback");
-
-                    // Try fallback parsing
-                    var fallbackEvents = CreateFallbackStudyBlocks(syllabusText);
-
-                    if (fallbackEvents.Any())
-                    {
-                        // Create basic course with fallback
-                        var fallbackCourse = new Course
-                        {
-                            CourseName = ExtractCourseName(syllabusText),
-                            CourseDescription = "Automatically extracted course",
-                            StartDate = DateOnly.FromDateTime(DateTime.Now),
-                            EndDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(4)),
-                            ClassMeetingDays = "",
-                            ClassStartTime = TimeOnly.Parse("10:00"),
-                            ClassEndTime = TimeOnly.Parse("11:30"),
-                            Location = "TBD",
-                            CourseColor = "#007bff",
-                            UserId = userId,
-                            ScheduleId = scheduleId
-                        };
-
-                        result.RequiresUserInput = true;
-                        result.Success = false;
-                        result.Message = "AI parsing failed. Please fill in course details manually.";
-                        result.CreatedCourse = fallbackCourse;
-                        return result;
-                    }
-
+                    _logger.LogError(ex, "Gemini parsing failed");
                     result.Success = false;
                     result.Message = $"Could not parse syllabus: {ex.Message}";
                     return result;
@@ -117,7 +88,10 @@ namespace FinalProject.Services
                     return result;
                 }
 
-                // ------------------- CREATE COURSE -------------------
+                // STORE THE PARSED DATA FOR LATER USE
+                result.ParsedData = parsedResult;
+
+                // Create Course
                 var courseData = parsedResult.Course;
 
                 var course = new Course
@@ -135,38 +109,36 @@ namespace FinalProject.Services
                     ScheduleId = scheduleId
                 };
 
-                // If any required field is missing, prompt user input via modal
-                if (string.IsNullOrWhiteSpace(course.CourseName)
-                    || string.IsNullOrWhiteSpace(course.CourseDescription)
-                    || !course.StartDate.HasValue
-                    || !course.EndDate.HasValue
-                    || string.IsNullOrWhiteSpace(course.ClassMeetingDays)
-                    || !course.ClassStartTime.HasValue
-                    || !course.ClassEndTime.HasValue)
+                // Check if course details are incomplete
+                if (string.IsNullOrWhiteSpace(course.CourseName) ||
+                    string.IsNullOrWhiteSpace(course.CourseDescription) ||
+                    !course.StartDate.HasValue ||
+                    !course.EndDate.HasValue ||
+                    string.IsNullOrWhiteSpace(course.ClassMeetingDays) ||
+                    !course.ClassStartTime.HasValue ||
+                    !course.ClassEndTime.HasValue)
                 {
                     result.RequiresUserInput = true;
                     result.Success = false;
                     result.Message = "Some course details are missing. Please fill in the missing information.";
                     result.CreatedCourse = course;
+                    // ParsedData is already stored above
                     return result;
                 }
 
-                // ------------------- SAVE COURSE -------------------
+                // Course is complete - save everything
                 _context.Courses.Add(course);
                 await _context.SaveChangesAsync();
                 result.CoursesCreated = 1;
                 result.CreatedCourse = course;
 
-                // ------------------- CREATE ASSIGNMENTS -------------------
+                // Create Assignments
                 if (parsedResult.Assignments != null && parsedResult.Assignments.Any())
                 {
                     foreach (var a in parsedResult.Assignments)
                     {
                         if (string.IsNullOrWhiteSpace(a.AssignmentName) || a.DueDate == null)
-                        {
-                            _logger.LogWarning("Skipping invalid assignment: {Name}", a.AssignmentName);
                             continue;
-                        }
 
                         var assignment = new Assignment
                         {
@@ -186,7 +158,7 @@ namespace FinalProject.Services
                     }
                 }
 
-                // ------------------- CREATE EVENTS -------------------
+                // Create Events (study blocks, exams, etc.)
                 if (parsedResult.Events != null && parsedResult.Events.Any())
                 {
                     foreach (var block in parsedResult.Events)
@@ -217,12 +189,20 @@ namespace FinalProject.Services
                             _logger.LogWarning(ex, "Failed to create event: {Title}", block.Title);
                         }
                     }
+                }
 
-                    if (result.Events.Any())
-                    {
-                        await _context.SaveChangesAsync();
-                        result.EventsCreated = result.Events.Count;
-                    }
+                // Create recurring class meeting events
+                var classMeetingEvents = CreateRecurringClassEvents(course, userId, scheduleId);
+                foreach (var evt in classMeetingEvents)
+                {
+                    _context.Events.Add(evt);
+                    result.Events.Add(evt);
+                }
+
+                if (result.Events.Any())
+                {
+                    await _context.SaveChangesAsync();
+                    result.EventsCreated = result.Events.Count;
                 }
 
                 result.Success = true;
@@ -239,6 +219,69 @@ namespace FinalProject.Services
                 result.Errors.Add(ex.Message);
                 return result;
             }
+        }
+
+        private List<Event> CreateRecurringClassEvents(Course course, string userId, int scheduleId)
+        {
+            var events = new List<Event>();
+
+            if (string.IsNullOrWhiteSpace(course.ClassMeetingDays))
+                return events;
+
+            var meetingDays = course.ClassMeetingDays
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(d => d.Trim())
+                .ToList();
+
+            var dayMap = new Dictionary<string, DayOfWeek>(StringComparer.OrdinalIgnoreCase)
+    {
+        { "Monday", DayOfWeek.Monday },
+        { "Tuesday", DayOfWeek.Tuesday },
+        { "Wednesday", DayOfWeek.Wednesday },
+        { "Thursday", DayOfWeek.Thursday },
+        { "Friday", DayOfWeek.Friday },
+        { "Saturday", DayOfWeek.Saturday },
+        { "Sunday", DayOfWeek.Sunday }
+    };
+
+            var validDays = meetingDays
+                .Where(d => dayMap.ContainsKey(d))
+                .Select(d => dayMap[d])
+                .ToList();
+
+            if (!validDays.Any() || !course.StartDate.HasValue || !course.EndDate.HasValue)
+                return events;
+
+            for (var date = course.StartDate.Value.ToDateTime(TimeOnly.MinValue);
+                 date <= course.EndDate.Value.ToDateTime(TimeOnly.MinValue);
+                 date = date.AddDays(1))
+            {
+                if (validDays.Contains(date.DayOfWeek))
+                {
+                    var startDateTime = date.Add(course.ClassStartTime!.Value.ToTimeSpan());
+                    var endDateTime = date.Add(course.ClassEndTime!.Value.ToTimeSpan());
+
+                    var classEvent = new Event
+                    {
+                        EventName = TruncateString($"{course.CourseName} Class", 30),
+                        EventDescription = TruncateString($"Class meeting for {course.CourseName}", 200),
+                        StartDateTime = startDateTime,
+                        EndDateTime = endDateTime,
+                        Location = course.Location ?? "TBD",
+                        EventColor = course.CourseColor,
+                        IsAllDay = false,
+                        IsCancelled = false,
+                        attachedToCourse = true,
+                        UserId = userId,
+                        ScheduleId = scheduleId,
+                        CourseId = course.Id
+                    };
+
+                    events.Add(classEvent);
+                }
+            }
+
+            return events;
         }
 
         public async Task<SyllabusProcessResult> SaveCourseAsync(Course course)
