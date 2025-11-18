@@ -22,8 +22,7 @@ namespace FinalProject.Models.Entities
         [Required(ErrorMessage = "Class end time is required")]
         public TimeOnly? ClassEndTime { get; set; }
         public string? Location { get; set; }
-        [Required]
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; }
 
         [Required (ErrorMessage = "Course color is required"), MinLength(6, ErrorMessage = "RGB Hex Code must be at least 6 digits"), MaxLength(8, ErrorMessage = "RGB Hex Code can not be larger than 8 digits")]
         public string CourseColor { get; set; }

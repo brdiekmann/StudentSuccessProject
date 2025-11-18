@@ -3,61 +3,498 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FinalProject</title>
+    <title>@ViewData["Title"] - SyllaSmart</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FinalProject.styles.css" asp-append-version="true" />
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 250px;
+            background: #000000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .sidebar.collapsed {
+                width: 80px;
+            }
+
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+            .sidebar-header h3 {
+                color: white;
+                font-size: 24px;
+                font-weight: bold;
+                margin: 0;
+                transition: opacity 0.3s ease;
+            }
+
+        .sidebar.collapsed .sidebar-header h3 {
+            opacity: 0;
+            display: none;
+        }
+
+        .sidebar-header .logo {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        /* Toggle Button */
+        .sidebar-toggle {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 2px solid gray;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+            .sidebar-toggle:hover {
+                transform: scale(1.1);
+                background: gray;
+            }
+
+                .sidebar-toggle:hover i {
+                    color: white;
+                }
+
+            .sidebar-toggle i {
+                color: black;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+        .sidebar.collapsed .sidebar-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Navigation Menu */
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin: 5px 0;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .nav-link:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                padding-left: 25px;
+            }
+
+            .nav-link.active {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border-left: 4px solid white;
+            }
+
+            .nav-link i {
+                font-size: 20px;
+                min-width: 40px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link span {
+                margin-left: 10px;
+                white-space: nowrap;
+                transition: opacity 0.3s ease;
+            }
+
+        .sidebar.collapsed .nav-link span {
+            opacity: 0;
+            display: none;
+        }
+
+        .sidebar.collapsed .nav-link {
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+            .sidebar.collapsed .nav-link:hover {
+                padding-left: 0;
+            }
+
+        /* Tooltip for collapsed state */
+        .nav-link::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar.collapsed .nav-link:hover::after {
+            opacity: 1;
+        }
+
+        /* User Section */
+        .sidebar-user {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+            .sidebar-user a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                transition: all 0.3s ease;
+            }
+
+                .sidebar-user a:hover {
+                    color: white;
+                }
+
+            .sidebar-user i {
+                font-size: 20px;
+                min-width: 40px;
+                text-align: center;
+            }
+
+            .sidebar-user span {
+                margin-left: 10px;
+                transition: opacity 0.3s ease;
+            }
+
+        .sidebar.collapsed .sidebar-user span {
+            opacity: 0;
+            display: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            transition: margin-left 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .sidebar.collapsed ~ .main-content {
+            margin-left: 80px;
+        }
+
+        /* Top Header */
+        .top-header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px 30px;
+            margin-bottom: 20px;
+        }
+
+            .top-header h1 {
+                margin: 0;
+                font-size: 24px;
+                color: #333;
+            }
+
+        /* Content Container */
+        .content-container {
+            padding: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 20px 30px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 768px) {
+            .sidebar
+
+        {
+            transform: translateX(-100%);
+        }
+
+        .sidebar.mobile-open {
+            transform: translateX(0);
+        }
+
+        .main-content {
+            margin-left: 0 !important;
+        }
+
+        .mobile-menu-btn {
+            display: block !important;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Badge for notifications */
+        .nav-badge {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: #ff4757;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .sidebar.collapsed .nav-badge {
+            right: 10px;
+            top: 8px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FinalProject</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Syllabus" asp-action="Calendar">
-                                <i class="fas fa-calendar-alt"></i> Calendar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Schedules" asp-action="Index">Schedules</a>
-                        </li>
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Pdf" asp-action="Index">Upload PDF</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+            <h3>SyllaSmart</h3>
+        </div>
+
+        <div class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
+                   asp-controller="Home" asp-action="Index" data-tooltip="Home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Syllabus" ? "active" : "")"
+                   asp-controller="Syllabus" asp-action="Calendar" data-tooltip="Calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Schedules" ? "active" : "")"
+                   asp-controller="Schedules" asp-action="Index" data-tooltip="Schedules">
+                    <i class="fas fa-list-check"></i>
+                    <span>Schedules</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Privacy" ? "active" : "")"
+                   asp-controller="Home" asp-action="Privacy" data-tooltip="Privacy">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Privacy</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-user">
+            <partial name="_LoginPartial" />
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="content-container fade-in">
             @RenderBody()
-        </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2025 - SyllaSmart - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - FinalProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // Sidebar Toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        // Desktop toggle
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('collapsed');
+
+            // Save state to localStorage
+            if (sidebar.classList.contains('collapsed')) {
+                localStorage.setItem('sidebarCollapsed', 'true');
+            } else {
+                localStorage.setItem('sidebarCollapsed', 'false');
+            }
+        });
+
+        // Load saved state on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+            if (isCollapsed) {
+                sidebar.classList.add('collapsed');
+            }
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('mobile-open');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking overlay
+        sidebarOverlay.addEventListener('click', function() {
+            sidebar.classList.remove('mobile-open');
+            sidebarOverlay.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('mobile-open');
+                    sidebarOverlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Animate navigation items on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-20px)';
+                    item.style.transition = 'all 0.3s ease';
+
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, 50);
+                }, index * 100);
+            });
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

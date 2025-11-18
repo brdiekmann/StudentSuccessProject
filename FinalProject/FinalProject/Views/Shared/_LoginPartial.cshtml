@@ -6,24 +6,28 @@
 
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            <i class="fas fa-user-circle"></i>
+            <span>@User.Identity?.Name</span>
+        </a>
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" style="display: inline;">
+            <button type="submit" class="btn btn-link" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; border: none; padding: 0; margin-top: 10px; display: flex; align-items: center;">
+                <i class="fas fa-sign-out-alt"></i>
+                <span style="margin-left: 10px;">Logout</span>
+            </button>
         </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+    }
+    else
+    {
+        <a asp-area="Identity" asp-page="/Account/Register">
+            <i class="fas fa-user-plus"></i>
+            <span>Register</span>
+        </a>
+        <a asp-area="Identity" asp-page="/Account/Login" style="margin-top: 10px;">
+            <i class="fas fa-sign-in-alt"></i>
+            <span>Login</span>
+        </a>
+    }
 </ul>

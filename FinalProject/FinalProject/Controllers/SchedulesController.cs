@@ -38,7 +38,8 @@ namespace FinalProject.Controllers
                 // REMOVED: && s.IsActive - this was causing the error
                 var schedules = await _context.Schedules
                     .Where(s => s.UserId == user.Id)
-                    .OrderByDescending(s => s.StartDateTime)
+                    .OrderByDescending(s => s.IsActive)
+                    .ThenBy(s => s.Title)
                     .ToListAsync();
 
                 return View(schedules);

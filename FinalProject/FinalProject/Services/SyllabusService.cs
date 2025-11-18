@@ -161,10 +161,16 @@ namespace FinalProject.Services
                 // Create Events (study blocks, exams, etc.)
                 if (parsedResult.Events != null && parsedResult.Events.Any())
                 {
+                    _logger.LogInformation("Creating {Count} study blocks/events", parsedResult.Events.Count);
+
                     foreach (var block in parsedResult.Events)
                     {
                         try
                         {
+                            // Log each study block being created
+                            _logger.LogInformation("Creating study block: {Title}, Type: {Type}, Start: {Start}",
+                                block.Title, block.EventType, block.StartDate);
+
                             var newEvent = new Event
                             {
                                 EventName = TruncateString(block.Title ?? "Study Session", 30),
@@ -467,11 +473,13 @@ CRITICAL RULES:
 1. Return ONLY valid JSON - no text before or after
 2. ONE course per syllabus
 3. Extract ALL assignments, quizzes, exams with due dates
-4. Generate study events for major items (exams, projects)
-5. Use 'null' for unknown fields (as string, not bare null)
-6. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
-7. Event titles: max 30 characters
-8. Descriptions: max 200 characters
+4. **Generate study blocks/events for ALL major items (exams, projects, quizzes)**
+5. **For each exam, create a study block 2-3 days BEFORE the exam**
+6. **For each project, create study blocks throughout the timeline**
+7. Use 'null' for unknown fields (as string, not bare null)
+8. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
+9. Event titles: max 30 characters
+10. Descriptions: max 200 characters
 
 EXACT JSON STRUCTURE:
 {{
@@ -494,11 +502,25 @@ EXACT JSON STRUCTURE:
   ],
   ""events"": [
     {{
-      ""title"": ""Study Ch 1-2"",
+      ""title"": ""Study for Ch 1 Quiz"",
       ""startDate"": ""2024-01-16T14:00:00"",
       ""endDate"": ""2024-01-16T16:00:00"",
       ""eventType"": ""study"",
-      ""description"": ""Prepare for quiz""
+      ""description"": ""Review Ch 1 before quiz""
+    }},
+    {{
+      ""title"": ""Midterm Exam"",
+      ""startDate"": ""2024-03-15T10:30:00"",
+      ""endDate"": ""2024-03-15T11:45:00"",
+      ""eventType"": ""exam"",
+      ""description"": ""Midterm covering Ch 1-5""
+    }},
+    {{
+      ""title"": ""Study for Midterm"",
+      ""startDate"": ""2024-03-13T14:00:00"",
+      ""endDate"": ""2024-03-13T17:00:00"",
+      ""eventType"": ""study"",
+      ""description"": ""Review Ch 1-5""
     }}
   ]
 }}

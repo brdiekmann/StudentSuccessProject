@@ -154,6 +154,23 @@ namespace FinalProject.Controllers
                             course.Location,
                             course.CourseColor,
                             course.IsActive
+                        },
+
+                        parsedData = new
+                        {
+                            assignments = result.ParsedData?.Assignments?.Select(a => new
+                            {
+                                assignmentName = a.AssignmentName,
+                                dueDate = a.DueDate
+                            }).ToList(),
+                            events = result.ParsedData?.Events?.Select(e => new
+                            {
+                                title = e.Title,
+                                startDate = e.StartDate,
+                                endDate = e.EndDate,
+                                eventType = e.EventType,
+                                description = e.Description
+                            }).ToList()
                         }
                     });
                 }
@@ -243,22 +260,25 @@ namespace FinalProject.Controllers
         {
             try
             {
-<<<<<<< HEAD
-                CourseName = dto.CourseName,
-                CourseDescription = dto.CourseDescription,
-                StartDate = startDate,
-                EndDate = endDate,
-                ClassMeetingDays = dto.ClassMeetingDays,
-                ClassStartTime = startTime,
-                ClassEndTime = endTime,
-                Location = dto.Location,
-                CourseColor = dto.CourseColor,
-                ScheduleId = dto.ScheduleId,
-                UserId = user.Id
-=======
                 var user = await _userManager.GetUserAsync(User);
                 if (user == null)
                     return Unauthorized(new { success = false, message = "User not authenticated" });
+
+                // Logging
+                _logger.LogInformation("CompleteCourseDetails called");
+                _logger.LogInformation("Course: {CourseName}", courseData.CourseName);
+                _logger.LogInformation("ParsedAssignments count: {Count}", courseData.ParsedAssignments?.Count ?? 0);
+                _logger.LogInformation("ParsedEvents count: {Count}", courseData.ParsedEvents?.Count ?? 0);
+
+                // Logging each assignment
+                if (courseData.ParsedAssignments != null)
+                {
+                    foreach (var a in courseData.ParsedAssignments)
+                    {
+                        _logger.LogInformation("Assignment: {Name}, Due: {Date}",
+                            a.AssignmentName, a.DueDate);
+                    }
+                }
 
                 // Validate required fields
                 if (string.IsNullOrWhiteSpace(courseData.CourseName) ||
@@ -375,7 +395,6 @@ namespace FinalProject.Controllers
                 { "Friday", DayOfWeek.Friday },
                 { "Saturday", DayOfWeek.Saturday },
                 { "Sunday", DayOfWeek.Sunday }
->>>>>>> eea640e9c5bae59a7cb270df028d67d04fac3442
             };
 
                     var validDays = meetingDays

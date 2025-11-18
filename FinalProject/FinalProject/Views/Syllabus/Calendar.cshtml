@@ -728,122 +728,137 @@
     // ==================== MULTI-FILE UPLOAD ====================
 
     async function uploadSyllabi() {
-        const scheduleSelect = document.getElementById('scheduleSelect');
-        const scheduleId = scheduleSelect.value;
+    const scheduleSelect = document.getElementById('scheduleSelect');
+    const scheduleId = scheduleSelect.value;
 
-        if (selectedFiles.length === 0 || !scheduleId) {
-            showStatus('Please select both files and a schedule', 'error');
-            return;
-        }
+    if (selectedFiles.length === 0 || !scheduleId) {
+        showStatus('Please select both files and a schedule', 'error');
+        return;
+    }
 
-        const uploadBtn = document.getElementById('uploadBtn');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const progressDiv = document.getElementById('uploadProgress');
-        const summaryDiv = document.getElementById('uploadSummary');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const progressDiv = document.getElementById('uploadProgress');
+    const summaryDiv = document.getElementById('uploadSummary');
 
-        uploadBtn.disabled = true;
-        loadingSpinner.style.display = 'inline-block';
-        progressDiv.classList.add('show');
-        progressDiv.innerHTML = '';
-        summaryDiv.classList.remove('show');
-        pendingCourseQueue = [];
-        currentProcessingIndex = 0;
+    uploadBtn.disabled = true;
+    loadingSpinner.style.display = 'inline-block';
+    progressDiv.classList.add('show');
+    progressDiv.innerHTML = '';
+    summaryDiv.classList.remove('show');
+    pendingCourseQueue = [];
+    currentProcessingIndex = 0;
 
-        let successCount = 0;
-        let errorCount = 0;
-        let needsInputCount = 0;
-        let totalEvents = 0;
+    let successCount = 0;
+    let errorCount = 0;
+    let needsInputCount = 0;
+    let totalEvents = 0;
 
-        for (let i = 0; i < selectedFiles.length; i++) {
-            const file = selectedFiles[i];
-            const progressId = `progress-${i}`;
+    for (let i = 0; i < selectedFiles.length; i++) {
+        const file = selectedFiles[i];
+        const progressId = `progress-${i}`;
 
-            // Create progress item
-            const progressItem = document.createElement('div');
-            progressItem.className = 'progress-item';
-            progressItem.id = progressId;
-            progressItem.innerHTML = `
-                <div class="progress-header">
-                    <span class="progress-filename">${file.name}</span>
-                    <span class="progress-status processing">Processing...</span>
-                </div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" style="width: 50%"></div>
-                </div>
-                <div class="progress-message">Uploading and processing...</div>
-            `;
-            progressDiv.appendChild(progressItem);
+        // Create progress item
+        const progressItem = document.createElement('div');
+        progressItem.className = 'progress-item';
+        progressItem.id = progressId;
+        progressItem.innerHTML = `
+            <div class="progress-header">
+                <span class="progress-filename">${file.name}</span>
+                <span class="progress-status processing">Processing...</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 50%"></div>
+            </div>
+            <div class="progress-message">Uploading and processing...</div>
+        `;
+        progressDiv.appendChild(progressItem);
 
-            // Upload file
-            const formData = new FormData();
-            formData.append('syllabusFile', file);
-            formData.append('scheduleId', scheduleId);
+        // Upload file
+        const formData = new FormData();
+        formData.append('syllabusFile', file);
+        formData.append('scheduleId', scheduleId);
 
-            try {
-                const response = await fetch(UPLOAD_URL, {
-                    method: 'POST',
-                    body: formData
+        try {
+            const response = await fetch(UPLOAD_URL, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            // Log the result
+            console.log(`File ${i} (${file.name}) result:`, result);
+
+            const statusSpan = progressItem.querySelector('.progress-status');
+            const progressBar = progressItem.querySelector('.progress-bar');
+            const message = progressItem.querySelector('.progress-message');
+
+            if (result.requiresUserInput) {
+                needsInputCount++;
+                statusSpan.textContent = '⚠️ Needs Input';
+                statusSpan.classList.remove('processing');
+                statusSpan.classList.add('needs-input');
+                progressBar.style.width = '100%';
+                progressBar.classList.add('needs-input');
+                message.textContent = 'Missing course details - will prompt after all uploads';
+
+                // Log what's being stored
+                console.log('Storing in queue:', {
+                    fileIndex: i,
+                    fileName: file.name,
+                    course: result.createdCourse,
+                    parsedData: result.parsedData
                 });
 
-                const result = await response.json();
+                // Add to queue for later
+                pendingCourseQueue.push({
+                    fileIndex: i,
+                    fileName: file.name,
+                    course: result.createdCourse,
+                    parsedData: result.parsedData, // Make sure this is captured
+                    file: file
+                });
 
-                const statusSpan = progressItem.querySelector('.progress-status');
-                const progressBar = progressItem.querySelector('.progress-bar');
-                const message = progressItem.querySelector('.progress-message');
+            } else if (result.success) {
+                successCount++;
+                totalEvents += result.eventsCreated || 0;
 
-                if (result.requiresUserInput) {
-                    needsInputCount++;
-                    statusSpan.textContent = '⚠️ Needs Input';
-                    statusSpan.classList.remove('processing');
-                    statusSpan.classList.add('needs-input');
-                    progressBar.style.width = '100%';
-                    progressBar.classList.add('needs-input');
-                    message.textContent = 'Missing course details - will prompt after all uploads';
-
-                    // Add to queue for later
-                    pendingCourseQueue.push({
-                        fileIndex: i,
-                        fileName: file.name,
-                        course: result.createdCourse,
-                        file: file
-                    });
-
-                } else if (result.success) {
-                    successCount++;
-                    totalEvents += result.eventsCreated || 0;
-
-                    statusSpan.textContent = '✓ Success';
-                    statusSpan.classList.remove('processing');
-                    statusSpan.classList.add('success');
-                    progressBar.style.width = '100%';
-                    progressBar.classList.add('success');
-                    message.textContent = `Created ${result.eventsCreated || 0} events`;
-                } else {
-                    errorCount++;
-
-                    statusSpan.textContent = '✗ Failed';
-                    statusSpan.classList.remove('processing');
-                    statusSpan.classList.add('error');
-                    progressBar.style.width = '100%';
-                    progressBar.classList.add('error');
-                    message.textContent = result.message || 'Error processing file';
-                }
-            } catch (error) {
+                statusSpan.textContent = '✓ Success';
+                statusSpan.classList.remove('processing');
+                statusSpan.classList.add('success');
+                progressBar.style.width = '100%';
+                progressBar.classList.add('success');
+                message.textContent = `Created ${result.eventsCreated || 0} events`;
+            } else {
                 errorCount++;
-                console.error('Error uploading file:', error);
-
-                const statusSpan = progressItem.querySelector('.progress-status');
-                const progressBar = progressItem.querySelector('.progress-bar');
-                const message = progressItem.querySelector('.progress-message');
 
                 statusSpan.textContent = '✗ Failed';
                 statusSpan.classList.remove('processing');
                 statusSpan.classList.add('error');
                 progressBar.style.width = '100%';
                 progressBar.classList.add('error');
-                message.textContent = 'Network error';
+                message.textContent = result.message || 'Error processing file';
             }
+        } catch (error) {
+            errorCount++;
+            console.error('Error uploading file:', error);
+
+            const statusSpan = progressItem.querySelector('.progress-status');
+            const progressBar = progressItem.querySelector('.progress-bar');
+            const message = progressItem.querySelector('.progress-message');
+
+            statusSpan.textContent = '✗ Failed';
+            statusSpan.classList.remove('processing');
+            statusSpan.classList.add('error');
+            progressBar.style.width = '100%';
+            progressBar.classList.add('error');
+            message.textContent = 'Network error';
         }
+    }
+
+    // Log the queue before processing
+    console.log('Pending course queue:', pendingCourseQueue);
 
         // Show summary
         summaryDiv.innerHTML = `
@@ -1118,7 +1133,7 @@
             // Store parsed data globally
     let parsedSyllabusData = {};
 
-    // In uploadSyllabi function, update this part:
+
     if (result.requiresUserInput) {
         needsInputCount++;
         statusSpan.textContent = '⚠️ Needs Input';
@@ -1133,13 +1148,13 @@
             fileIndex: i,
             fileName: file.name,
             course: result.createdCourse,
-            parsedData: result.parsedData, // ADD THIS
+            parsedData: result.parsedData,
             file: file
         });
     }
 
     // Update submitMissingCourse function:
-    async function submitMissingCourse() {
+        async function submitMissingCourse() {
         const form = document.getElementById('courseForm');
         if (!form.checkValidity()) {
             form.reportValidity();
@@ -1148,6 +1163,14 @@
 
         const fileIndex = parseInt(document.getElementById('courseFileIndex').value);
         const pending = pendingCourseQueue[currentProcessingIndex];
+
+        // Detailed logging
+        console.log('=== SUBMITTING COURSE ===');
+        console.log('Current processing index:', currentProcessingIndex);
+        console.log('Pending course:', pending);
+        console.log('Parsed data:', pending.parsedData);
+        console.log('Assignments:', pending.parsedData?.assignments);
+        console.log('Events:', pending.parsedData?.events);
 
         const courseData = {
             courseName: document.getElementById('courseName').value,
@@ -1159,12 +1182,26 @@
             classEndTime: document.getElementById('classEndTime').value,
             location: document.getElementById('courseLocation').value || 'TBD',
             courseColor: document.getElementById('courseColor').value,
-            scheduleId: document.getElementById('scheduleSelect').value,
+            scheduleId: parseInt(document.getElementById('scheduleSelect').value),
 
-            // INCLUDE THE PARSED ASSIGNMENTS AND EVENTS
-            parsedAssignments: pending.parsedData?.assignments || [],
-            parsedEvents: pending.parsedData?.events || []
+            // Ensuring the fields are properly matched
+            parsedAssignments: (pending.parsedData?.assignments || []).map(a => ({
+                assignmentName: a.assignmentName,
+                dueDate: a.dueDate
+            })),
+            parsedEvents: (pending.parsedData?.events || []).map(e => ({
+                title: e.title,
+                startDate: e.startDate,
+                endDate: e.endDate,
+                eventType: e.eventType,
+                description: e.description
+            }))
         };
+
+        // Log what's being sent
+        console.log('Course data being sent:', courseData);
+        console.log('Assignments being sent:', courseData.parsedAssignments);
+        console.log('Events being sent:', courseData.parsedEvents);
 
         try {
             const response = await fetch(COMPLETE_COURSE_URL, {
@@ -1174,6 +1211,7 @@
             });
 
             const result = await response.json();
+            console.log('Server response:', result);
 
             if (result.success) {
                 showStatus(`✅ Course "${courseData.courseName}" saved with ${result.eventsCreated || 0} events and ${result.assignmentsCreated || 0} assignments!`, 'success');
@@ -1212,7 +1250,7 @@
                 showStatus(`❌ ${result.message}`, 'error');
             }
         } catch (err) {
-            console.error(err);
+            console.error('Error submitting course:', err);
             showStatus('❌ Error saving course details.', 'error');
         }
     }
