@@ -6,3 +6,12 @@ GeminiDataParsingTestProject/GeminiDataParsingTestProject/appsettings.json
 
 #Ignore Appsettings.json files on main project files
 FinalProject/FinalProject/appsettings.json
+
+#Had to add these to push all the changes
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates

@@ -1,0 +1,51 @@
+﻿/* style.css */
+center{
+    color:white;
+}
+    
+    center h2{
+        font-size: 56px;
+    }
+
+body {
+    background-image: linear-gradient(to bottom, gray, black);
+}
+
+h3{
+    color:white;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.tiles-container {
+    display: flex;
+    gap: 20px;
+}
+
+.tile {
+    flex: 1;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+    .tile:hover {
+        transform: scale(1.05);
+    }
+
+footer{
+    color:white;
+}
