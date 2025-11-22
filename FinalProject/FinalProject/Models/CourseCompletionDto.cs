@@ -11,6 +11,7 @@
         public string ClassEndTime { get; set; }
         public string Location { get; set; }
         public string CourseColor { get; set; }
+        public string DifficultyLevel { get; set; }
         public int ScheduleId { get; set; }
 
         // Include the parsed assignments and events

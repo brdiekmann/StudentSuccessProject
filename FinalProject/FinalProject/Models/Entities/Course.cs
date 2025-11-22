@@ -23,6 +23,8 @@ namespace FinalProject.Models.Entities
         public TimeOnly? ClassEndTime { get; set; }
         public string? Location { get; set; }
         public bool IsActive { get; set; }
+        [Required, Range(1,5, ErrorMessage = "Difficulty level must be between 1 and 5")]
+        public int DifficultyLevel { get; set; }
 
         [Required (ErrorMessage = "Course color is required"), MinLength(6, ErrorMessage = "RGB Hex Code must be at least 6 digits"), MaxLength(8, ErrorMessage = "RGB Hex Code can not be larger than 8 digits")]
         public string CourseColor { get; set; }

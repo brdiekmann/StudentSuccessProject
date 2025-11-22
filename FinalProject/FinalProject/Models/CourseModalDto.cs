@@ -28,6 +28,9 @@ namespace FinalProject.Models
         [Required(ErrorMessage = "Class end time is required")]
         public string ClassEndTime { get; set; } // HH:mm from JS
 
+        [Required(ErrorMessage = "Difficulty level is required")]
+        public string DifficultyLevel { get; set; }
+
         public string Location { get; set; }
 
 

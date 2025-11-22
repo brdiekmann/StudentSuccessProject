@@ -6,6 +6,7 @@ using FinalProject.Models.Entities;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using iText.Signatures;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
@@ -93,6 +94,7 @@ namespace FinalProject.Services
 
                 // Create Course
                 var courseData = parsedResult.Course;
+                int difficultyLevel = ExtractCourseDifficulty(courseData.CourseName);
 
                 var course = new Course
                 {
@@ -105,6 +107,7 @@ namespace FinalProject.Services
                     ClassEndTime = ParseTimeOrNull(courseData.ClassEndTime),
                     Location = string.IsNullOrWhiteSpace(courseData.Location) ? "TBD" : courseData.Location,
                     CourseColor = string.IsNullOrWhiteSpace(courseData.CourseColor) ? "#007bff" : courseData.CourseColor,
+                    DifficultyLevel = difficultyLevel, 
                     UserId = userId,
                     ScheduleId = scheduleId
                 };
@@ -704,5 +707,32 @@ Syllabus:
             var lines = syllabusText.Split('\n');
             return lines.FirstOrDefault(l => !string.IsNullOrWhiteSpace(l))?.Trim() ?? "Unknown Course";
         }
+        private int ExtractCourseDifficulty(string courseName)
+        {
+            if (string.IsNullOrWhiteSpace(courseName))
+                return 0;
+
+            // Extract digits from the string (e.g., "CS 145" → "145")
+            var digits = new string(courseName.Where(char.IsDigit).ToArray());
+
+            if (!int.TryParse(digits, out int number))
+                return 0;
+
+            // Check ranges
+            if (number >= 100 && number <= 199)
+                return 1;
+
+            if (number >= 200 && number <= 299)
+                return 2;
+
+            if (number >= 300 && number <= 399)
+                return 3;
+
+            if (number >= 400 && number <= 499)
+                return 4;
+
+            return 0;
+        }
+
     }
 }

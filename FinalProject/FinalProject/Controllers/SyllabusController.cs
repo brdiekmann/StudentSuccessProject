@@ -225,6 +225,7 @@ namespace FinalProject.Controllers
                     Location = courseDto.Location,
                     CourseColor = courseDto.CourseColor,
                     ScheduleId = courseDto.ScheduleId,
+                    DifficultyLevel = int.Parse(courseDto.DifficultyLevel),
                     UserId = user.Id
                 };
 
@@ -287,7 +288,8 @@ namespace FinalProject.Controllers
                     string.IsNullOrWhiteSpace(courseData.EndDate) ||
                     string.IsNullOrWhiteSpace(courseData.ClassMeetingDays) ||
                     string.IsNullOrWhiteSpace(courseData.ClassStartTime) ||
-                    string.IsNullOrWhiteSpace(courseData.ClassEndTime))
+                    string.IsNullOrWhiteSpace(courseData.ClassEndTime) ||
+                    string.IsNullOrWhiteSpace(courseData.DifficultyLevel))
                 {
                     return BadRequest(new { success = false, message = "Missing required course information" });
                 }
@@ -313,6 +315,7 @@ namespace FinalProject.Controllers
                     ClassEndTime = endTime,
                     Location = string.IsNullOrWhiteSpace(courseData.Location) ? "TBD" : courseData.Location,
                     CourseColor = string.IsNullOrWhiteSpace(courseData.CourseColor) ? "#007bff" : courseData.CourseColor,
+                    DifficultyLevel = int.Parse(courseData.DifficultyLevel),
                     UserId = user.Id,
                     ScheduleId = courseData.ScheduleId
                 };
