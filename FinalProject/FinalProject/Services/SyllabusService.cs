@@ -72,10 +72,12 @@ namespace FinalProject.Services
 
                 try
                 {
+                    _logger.LogInformation("Syllabus text length: {Length}", syllabusText.Length);
                     parsedResult = await ParseFullSyllabusWithGeminiAsync(syllabusText);
                 }
                 catch (Exception ex)
                 {
+                    _logger.LogInformation("Syllabus text length: {Length}", syllabusText.Length);
                     _logger.LogError(ex, "Gemini parsing failed");
                     result.Success = false;
                     result.Message = $"Could not parse syllabus: {ex.Message}";
@@ -541,7 +543,7 @@ Syllabus:
                 {
                     temperature = 0.1,
                     maxOutputTokens = 8192,
-                    topK = 1,
+                    //topK = 1,
                     topP = 0.95
                 }
             };
@@ -555,9 +557,13 @@ Syllabus:
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogError("Gemini API error: {Status} - {Content}", response.StatusCode, responseContent);
-                throw new Exception($"Gemini API error: {response.StatusCode}");
+                _logger.LogError("❌ GEMINI BAD REQUEST");
+                _logger.LogError("Status: {Status}", response.StatusCode);
+                _logger.LogError("Body:\n{Body}", responseContent);
+
+                throw new Exception($"Gemini API error: {response.StatusCode}. Body: {responseContent}");
             }
+
 
             _logger.LogInformation("Received Gemini response, length: {Length}", responseContent.Length);
 

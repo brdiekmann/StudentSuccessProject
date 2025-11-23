@@ -1196,6 +1196,7 @@
             location: document.getElementById('courseLocation').value || 'TBD',
             courseColor: document.getElementById('courseColor').value,
             scheduleId: parseInt(document.getElementById('scheduleSelect').value),
+            DifficultyLevel: document.getElementById('DifficultyLevel').value,
 
             // Ensuring the fields are properly matched
             parsedAssignments: (pending.parsedData?.assignments || []).map(a => ({

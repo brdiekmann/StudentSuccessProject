@@ -871,3 +871,4 @@ C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\n
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.pdb
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.genruntimeconfig.cache
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\ref\FinalProject.dll
+C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
