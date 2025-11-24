@@ -15,3 +15,6 @@ obj/
 *.suo
 *.userosscache
 *.sln.docstates
+
+#Ignore Appsettings.json
+FinalProject/FinalProject/bin/Debug/net9.0/appsettings.json
