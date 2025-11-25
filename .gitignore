@@ -19,3 +19,5 @@ obj/
 # Ignore all appsettings.json inside bin/ and obj/ folders
 **/bin/**/appsettings.json
 **/obj/**/appsettings.json
+bin/
+obj/
