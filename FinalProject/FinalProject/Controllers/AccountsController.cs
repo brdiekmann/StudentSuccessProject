@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.Controllers
 {
+    //This controller manages user account actions
     public class AccountsController : Controller
     {
         public class AccountController : Controller
