@@ -6,6 +6,7 @@ using FinalProject.Models;
 using FinalProject.Models.Entities;
 using FinalProject.Data;
 using FinalProject.Services;
+using System.Security.Claims;
 
 namespace FinalProject.Controllers
 {
@@ -38,11 +39,52 @@ namespace FinalProject.Controllers
                 return Unauthorized();
 
             var schedules = await _context.Schedules
-                .Where(s => s.UserId == user.Id && s.IsActive)
+                .Where(s => s.UserId == user.Id) // Had to remove && s.IsActive
+                .OrderByDescending(s => s.IsActive)
+                .ThenBy(s => s.Title)
                 .ToListAsync();
+
+            _logger.LogInformation("Found {Count} schedules for user {UserId}", schedules.Count, user.Id);
 
             ViewBag.Schedules = schedules;
             return View();
+        }
+
+        // POST: Syllabus/CreateEvent
+        [HttpPost]
+        public async Task<IActionResult> CreateEvent([FromBody] EventCreateDto eventData)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            try
+            {
+                var newEvent = new Event
+                {
+                    EventName = eventData.EventName?.Substring(0, Math.Min(30, eventData.EventName.Length)),
+                    EventDescription = eventData.EventDescription?.Substring(0, Math.Min(200, eventData.EventDescription.Length)),
+                    StartDateTime = eventData.StartDateTime,
+                    EndDateTime = eventData.EndDateTime,
+                    Location = eventData.Location?.Substring(0, Math.Min(50, eventData.Location.Length)),
+                    IsAllDay = eventData.IsAllDay,
+                    EventColor = eventData.EventColor ?? "#007bff",
+                    IsCancelled = false,
+                    attachedToCourse = false,
+                    UserId = user.Id,
+                    ScheduleId = eventData.ScheduleId
+                };
+
+                _context.Events.Add(newEvent);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Event created successfully", eventId = newEvent.Id });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating event");
+                return StatusCode(500, "Error creating event");
+            }
         }
 
         // PUT: Syllabus/UpdateEvent/5
@@ -78,6 +120,63 @@ namespace FinalProject.Controllers
             {
                 _logger.LogError(ex, "Error updating event {EventId}", id);
                 return StatusCode(500, "Error updating event");
+            }
+        }
+
+        [HttpPost]
+        [Route("Syllabus/AddEvent")]
+        public async Task<IActionResult> AddEvent([FromBody] AddEventRequest request)
+        {
+            try
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                var schedule = await _context.Schedules
+                    .FirstOrDefaultAsync(s => s.Id == request.ScheduleId && s.UserId == userId);
+
+                if (schedule == null)
+                {
+                    return Json(new { success = false, message = "Invalid schedule" });
+                }
+
+                if (request.EndDateTime < request.StartDateTime)
+                {
+                    return Json(new { success = false, message = "End date must be after start date" });
+                }
+
+                var newEvent = new Event
+                {
+                    EventName = TruncateString(request.EventName, 30),
+                    EventDescription = TruncateString(request.EventDescription, 200),
+                    StartDateTime = request.StartDateTime,
+                    EndDateTime = request.EndDateTime,
+                    Location = TruncateString(request.Location, 50),
+                    EventColor = request.EventColor ?? "#007bff",
+                    IsAllDay = request.IsAllDay,
+                    IsCancelled = false,
+                    attachedToCourse = request.AttachedToCourse,
+                    CourseId = request.CourseId,
+                    ScheduleId = request.ScheduleId,
+                    UserId = userId
+                };
+
+                _context.Events.Add(newEvent);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation("Event '{EventName}' created by user {UserId}",
+                    newEvent.EventName, userId);
+
+                return Json(new
+                {
+                    success = true,
+                    message = "Event created successfully",
+                    eventId = newEvent.Id
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating event");
+                return Json(new { success = false, message = "An error occurred" });
             }
         }
 

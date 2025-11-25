@@ -433,8 +433,6 @@ C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\ob
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.pdb
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.genruntimeconfig.cache
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\ref\FinalProject.dll
-C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
-C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\compressed\aec63ga6k2-bnatcmwzfl.gz
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\FinalProject.staticwebassets.runtime.json
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\FinalProject.staticwebassets.endpoints.json
@@ -872,3 +870,5 @@ C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\n
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.genruntimeconfig.cache
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\ref\FinalProject.dll
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
+C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
+C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\compressed\aec63ga6k2-5u2yi1d2y3.gz

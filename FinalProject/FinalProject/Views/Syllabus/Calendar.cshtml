@@ -382,12 +382,13 @@
     }
 
     .btn-primary {
-        background: #007bff;
+        background: #2c3e50;
         color: white;
     }
 
         .btn-primary:hover {
-            background: #0056b3;
+            background: #1e2b37;
+            ;
         }
 
     .btn-success {
@@ -427,6 +428,51 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+    }
+
+    /* List Week View Styles */
+    .fc-list-day-cushion {
+        position: relative;
+        padding-right: 80px !important;
+    }
+
+    .fc-list-hide-day-btn {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #6c757d;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+        z-index: 10;
+    }
+
+        .fc-list-hide-day-btn:hover {
+            background: #5a6268;
+        }
+
+        .fc-list-hide-day-btn.hidden {
+            background: #28a745;
+        }
+
+            .fc-list-hide-day-btn.hidden:hover {
+                background: #218838;
+            }
+
+    .fc-list-day.day-hidden .fc-list-event-graphic,
+    .fc-list-day.day-hidden .fc-list-event-time,
+    .fc-list-day.day-hidden .fc-list-event-title {
+        display: none !important;
+    }
+
+    .fc-list-day.day-hidden {
+        margin-bottom: 5px;
     }
 </style>
 
@@ -472,6 +518,12 @@
         <div id="uploadSummary" class="upload-summary"></div>
 
         <div class="status-message" id="statusMessage"></div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <button class="btn btn-primary" onclick="openAddEventModal()">
+            <i class="fas fa-plus"></i> Add Event
+        </button>
     </div>
 
     <div id="calendar"></div>
@@ -531,7 +583,9 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" id="deleteBtn" onclick="deleteEvent()">Delete</button>
+            <button type="button" class="btn btn-danger" onclick="deleteEvent()">
+                <i class="fas fa-trash"></i> Delete Event
+            </button>
             <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
             <button type="button" class="btn btn-primary" onclick="saveEvent()">Save Changes</button>
         </div>
@@ -603,10 +657,72 @@
     </div>
 </div>
 
+<!-- Add Event Modal (NEW) -->
+<div id="addEventModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Add New Event</h2>
+            <button class="modal-close" onclick="closeAddEventModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="addEventForm">
+                <input type="hidden" id="addScheduleId" />
+
+                <div class="form-group">
+                    <label for="addEventName">Event Name: <span style="color: red;">*</span></label>
+                    <input type="text" id="addEventName" maxlength="30" required>
+                    <small class="text-muted"><span id="addNameCharCount">0</span>/30</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="addEventDescription">Description: <span style="color: red;">*</span></label>
+                    <textarea id="addEventDescription" maxlength="200" required></textarea>
+                    <small class="text-muted"><span id="addDescCharCount">0</span>/200</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="addEventStart">Start Date & Time: <span style="color: red;">*</span></label>
+                    <input type="datetime-local" id="addEventStart" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="addEventEnd">End Date & Time: <span style="color: red;">*</span></label>
+                    <input type="datetime-local" id="addEventEnd" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="addEventLocation">Location: <span style="color: red;">*</span></label>
+                    <input type="text" id="addEventLocation" maxlength="50" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="addEventAllDay">
+                        All Day Event
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="addEventColor">Event Color:</label>
+                    <input type="color" id="addEventColor" value="#007bff">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closeAddEventModal()">Cancel</button>
+            <button type="button" class="btn btn-success" onclick="saveNewEvent()">
+                <span id="addEventSpinner" class="loading-spinner" style="display:none;"></span>
+                Create Event
+            </button>
+        </div>
+    </div>
+</div>
+
 <script>
     const UPLOAD_URL = '@Url.Action("UploadSyllabus", "Syllabus")';
     const GET_EVENTS_URL = '@Url.Action("GetEvents", "Syllabus")';
     const UPDATE_EVENT_URL = '@Url.Action("UpdateEvent", "Syllabus")';
+    const ADD_EVENT_URL = '@Url.Action("AddEvent", "Syllabus")';
     const DELETE_EVENT_URL = '@Url.Action("DeleteEvent", "Syllabus")';
     const COMPLETE_COURSE_URL = '@Url.Action("CompleteCourseDetails", "Syllabus")';
 
@@ -618,33 +734,151 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         const calendarEl = document.getElementById('calendar');
+            // Character count handlers for ADD modal
+    document.getElementById('addEventName').addEventListener('input', function () {
+        document.getElementById('addNameCharCount').textContent = this.value.length;
+    });
 
-        calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-            },
-            editable: true,
-            selectable: true,
-            events: GET_EVENTS_URL,
-            eventClick: function (info) {
-                openEditModal(info.event);
-            },
-            eventDrop: function (info) {
-                updateEventDateTime(info.event);
-            },
-            eventResize: function (info) {
-                updateEventDateTime(info.event);
-            },
-            eventDidMount: function (info) {
-                info.el.title = info.event.extendedProps.description || info.event.title;
-                info.el.style.cursor = 'pointer';
+    document.getElementById('addEventDescription').addEventListener('input', function () {
+        document.getElementById('addDescCharCount').textContent = this.value.length;
+    });
+
+    // Handle all-day checkbox
+    document.getElementById('addEventAllDay').addEventListener('change', function() {
+        const startInput = document.getElementById('addEventStart');
+        const endInput = document.getElementById('addEventEnd');
+
+        if (this.checked) {
+            const startVal = startInput.value;
+            const endVal = endInput.value;
+            startInput.type = 'date';
+            endInput.type = 'date';
+            if (startVal) startInput.value = startVal.split('T')[0];
+            if (endVal) endInput.value = endVal.split('T')[0];
+        } else {
+            startInput.type = 'datetime-local';
+            endInput.type = 'datetime-local';
+        }
+    });
+            calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        },
+        editable: true,
+        selectable: true,
+        events: GET_EVENTS_URL,
+        eventClick: function (info) {
+            openEditModal(info.event);
+        },
+        eventDrop: function (info) {
+            updateEventDateTime(info.event);
+        },
+        eventResize: function (info) {
+            updateEventDateTime(info.event);
+        },
+        eventDidMount: function (info) {
+            info.el.title = info.event.extendedProps.description || info.event.title;
+            info.el.style.cursor = 'pointer';
+        },
+
+        // ← ADD THIS NEW PROPERTY
+        viewDidMount: function (info) {
+            if (info.view.type === 'listWeek') {
+                addHideButtonsToListView();
             }
-        });
+        }
+        // ← END OF NEW PROPERTY
+    });
 
         calendar.render();
+
+    // ==================== LIST WEEK HIDE/SHOW FUNCTIONS ====================
+
+    /**
+     * Adds hide/show buttons to each day in the list week view
+     */
+    function addHideButtonsToListView() {
+        setTimeout(() => {
+            const dayHeaders = document.querySelectorAll('.fc-list-day-cushion');
+
+            dayHeaders.forEach((header, index) => {
+                // Check if button already exists
+                if (header.querySelector('.fc-list-hide-day-btn')) {
+                    return;
+                }
+
+                // Create hide button
+                const hideBtn = document.createElement('button');
+                hideBtn.className = 'fc-list-hide-day-btn';
+                hideBtn.textContent = 'Hide';
+                hideBtn.setAttribute('data-day-index', index);
+
+                // Add click handler
+                hideBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleDayVisibility(this);
+                });
+
+                // Append button to header
+                header.appendChild(hideBtn);
+            });
+        }, 100);
+    }
+
+    /**
+     * Toggles visibility of events for a specific day
+     */
+    function toggleDayVisibility(button) {
+        const dayIndex = button.getAttribute('data-day-index');
+        const dayElement = button.closest('.fc-list-day');
+
+        if (!dayElement) return;
+
+        // Toggle hidden class
+        dayElement.classList.toggle('day-hidden');
+
+        // Update button text and style
+        if (dayElement.classList.contains('day-hidden')) {
+            button.textContent = 'Show';
+            button.classList.add('hidden');
+        } else {
+            button.textContent = 'Hide';
+            button.classList.remove('hidden');
+        }
+    }
+
+    /**
+     * Shows all hidden days in list view
+     */
+    function showAllDays() {
+        const hiddenDays = document.querySelectorAll('.fc-list-day.day-hidden');
+        hiddenDays.forEach(day => {
+            day.classList.remove('day-hidden');
+            const btn = day.querySelector('.fc-list-hide-day-btn');
+            if (btn) {
+                btn.textContent = 'Hide';
+                btn.classList.remove('hidden');
+            }
+        });
+    }
+
+    /**
+     * Hides all days in list view
+     */
+    function hideAllDays() {
+        const allDays = document.querySelectorAll('.fc-list-day');
+        allDays.forEach(day => {
+            day.classList.add('day-hidden');
+            const btn = day.querySelector('.fc-list-hide-day-btn');
+            if (btn) {
+                btn.textContent = 'Show';
+                btn.classList.add('hidden');
+            }
+        });
+    }
 
         // File selection handler (CHANGED to syllabusFiles)
         document.getElementById('syllabusFiles').addEventListener('change', function (e) {
@@ -668,7 +902,7 @@
         // Close modals when clicking outside
         window.onclick = function (event) {
             if (event.target === document.getElementById('eventModal')) closeModal();
-            //if (event.target === document.getElementById('missingCourseModal')) closeMissingCourseModal();
+            if (event.target === document.getElementById('addEventModal')) closeAddEventModal();
         };
     });
 
@@ -942,6 +1176,136 @@
         processNextPendingCourse();
     }
 
+    // ==================== ADD EVENT MODAL FUNCTIONS ====================
+
+    function openAddEventModal() {
+        const scheduleId = document.getElementById('scheduleSelect').value;
+
+        if (!scheduleId) {
+            showStatus('⚠️ Please select a schedule first', 'error');
+            return;
+        }
+
+        document.getElementById('addEventForm').reset();
+        document.getElementById('addScheduleId').value = scheduleId;
+        document.getElementById('addEventColor').value = '#007bff';
+        document.getElementById('addNameCharCount').textContent = '0';
+        document.getElementById('addDescCharCount').textContent = '0';
+
+        const now = new Date();
+        const oneHourLater = new Date(now.getTime() + 60 * 60 * 1000);
+        document.getElementById('addEventStart').value = formatDateTimeLocal(now);
+        document.getElementById('addEventEnd').value = formatDateTimeLocal(oneHourLater);
+
+        document.getElementById('addEventModal').style.display = 'block';
+    }
+
+    function closeAddEventModal() {
+        document.getElementById('addEventModal').style.display = 'none';
+    }
+
+    async function saveNewEvent() {
+        const form = document.getElementById('addEventForm');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const spinner = document.getElementById('addEventSpinner');
+        spinner.style.display = 'inline-block';
+
+        const isAllDay = document.getElementById('addEventAllDay').checked;
+        const startInput = document.getElementById('addEventStart');
+        const endInput = document.getElementById('addEventEnd');
+
+        let startDateTime, endDateTime;
+
+        if (isAllDay) {
+            startDateTime = new Date(startInput.value + 'T00:00:00');
+            endDateTime = new Date(endInput.value + 'T23:59:59');
+        } else {
+            startDateTime = new Date(startInput.value);
+            endDateTime = new Date(endInput.value);
+        }
+
+        if (endDateTime < startDateTime) {
+            showStatus('❌ End date/time must be after start date/time', 'error');
+            spinner.style.display = 'none';
+            return;
+        }
+
+        const eventData = {
+            scheduleId: parseInt(document.getElementById('addScheduleId').value),
+            eventName: document.getElementById('addEventName').value,
+            eventDescription: document.getElementById('addEventDescription').value,
+            startDateTime: formatDateTimeForServer(startInput.value),
+            endDateTime: formatDateTimeForServer(endInput.value),
+            location: document.getElementById('addEventLocation').value,
+            isAllDay: isAllDay,
+            eventColor: document.getElementById('addEventColor').value,
+            isCancelled: false,
+            attachedToCourse: false
+        };
+
+        try {
+            const response = await fetch(ADD_EVENT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(eventData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showStatus('✅ Event created successfully!', 'success');
+                calendar.refetchEvents();
+                closeAddEventModal();
+            } else {
+                showStatus(`❌ ${result.message || 'Error creating event'}`, 'error');
+            }
+        } catch (error) {
+            console.error('Error creating event:', error);
+            showStatus('❌ Error creating event. Please try again.', 'error');
+        } finally {
+            spinner.style.display = 'none';
+        }
+    }
+
+    // ==================== ENHANCED DELETE EVENT ====================
+
+    async function deleteEvent() {
+        const eventId = document.getElementById('eventId').value;
+        const eventName = document.getElementById('eventName').value;
+
+        if (!confirm(`⚠️ Are you sure you want to delete "${eventName}"?\n\nThis action cannot be undone.`)) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`${DELETE_EVENT_URL}/${eventId}`, {
+                method: 'DELETE'
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                showStatus('✅ Event deleted successfully!', 'success');
+
+                const calendarEvent = calendar.getEventById(eventId);
+                if (calendarEvent) {
+                    calendarEvent.remove();
+                }
+
+                closeModal();
+            } else {
+                showStatus(`❌ ${result.message || 'Error deleting event'}`, 'error');
+            }
+        } catch (error) {
+            console.error('Error deleting event:', error);
+            showStatus('❌ Error deleting event. Please try again.', 'error');
+        }
+    }
+
     // ==================== EVENT MODAL FUNCTIONS ====================
 
     function openEditModal(event) {
@@ -980,6 +1344,30 @@
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }
 
+    /**
+     * Converts datetime-local input value to server format
+     * Input: "2024-11-24T15:00" → Output: "2024-11-24T15:00:00"
+     */
+    function formatDateTimeForServer(datetimeLocalValue) {
+        if (!datetimeLocalValue) return null;
+        return datetimeLocalValue + ':00';  // Just add seconds
+    }
+
+    /**
+     * Formats Date object to server format without timezone conversion
+     * Input: Date object → Output: "2024-11-24T15:00:00"
+     */
+    function formatDateObjectForServer(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+    }
+
     async function saveEvent() {
         const form = document.getElementById('eventForm');
         if (!form.checkValidity()) {
@@ -992,8 +1380,8 @@
             id: parseInt(eventId),
             eventName: document.getElementById('eventName').value,
             eventDescription: document.getElementById('eventDescription').value,
-            startDateTime: new Date(document.getElementById('eventStart').value).toISOString(),
-            endDateTime: new Date(document.getElementById('eventEnd').value).toISOString(),
+            startDateTime: formatDateTimeForServer(document.getElementById('eventStart').value),
+            endDateTime: formatDateTimeForServer(document.getElementById('eventEnd').value),
             location: document.getElementById('eventLocation').value,
             isAllDay: document.getElementById('eventAllDay').checked,
             eventColor: document.getElementById('eventColor').value
@@ -1040,13 +1428,19 @@
         }
     }
 
-    async function updateEventDateTime(event) {
+        async function updateEventDateTime(event) {
+        const startDate = event.start;
+        const endDate = event.end || event.start;
+
+        const startStr = formatDateObjectForServer(startDate);
+        const endStr = formatDateObjectForServer(endDate);
+
         const eventData = {
             id: parseInt(event.id),
             eventName: event.title,
             eventDescription: event.extendedProps.description || '',
-            startDateTime: event.start.toISOString(),
-            endDateTime: (event.end || event.start).toISOString(),
+            startDateTime: formatDateObjectForServer(startDate),
+            endDateTime: formatDateObjectForServer(endDate),
             location: event.extendedProps.location || 'TBD',
             isAllDay: event.allDay || false,
             eventColor: event.backgroundColor || '#007bff'

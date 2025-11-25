@@ -295,6 +295,8 @@ namespace FinalProject.Services
             return events;
         }
 
+
+
         public async Task<SyllabusProcessResult> SaveCourseAsync(Course course)
         {
             var result = new SyllabusProcessResult();
@@ -350,6 +352,8 @@ namespace FinalProject.Services
                 return result;
             }
         }
+
+
 
         // ==================== HELPER METHODS ====================
 
@@ -460,6 +464,38 @@ namespace FinalProject.Services
             return text.ToString();
         }
 
+        private string FixMalformedJson(string json)
+        {
+            _logger.LogInformation("Attempting to fix malformed JSON");
+
+            // Count opening and closing brackets/braces
+            int openBraces = json.Count(c => c == '{');
+            int closeBraces = json.Count(c => c == '}');
+            int openBrackets = json.Count(c => c == '[');
+            int closeBrackets = json.Count(c => c == ']');
+
+            _logger.LogInformation("JSON structure - Braces: {Open}/{Close}, Brackets: {OpenBracket}/{CloseBracket}",
+                openBraces, closeBraces, openBrackets, closeBrackets);
+
+            // Add missing closing brackets first (for arrays)
+            while (openBrackets > closeBrackets)
+            {
+                json += "\n]";
+                closeBrackets++;
+                _logger.LogInformation("Added closing bracket");
+            }
+
+            // Then add missing closing braces (for objects)
+            while (openBraces > closeBraces)
+            {
+                json += "\n}";
+                closeBraces++;
+                _logger.LogInformation("Added closing brace");
+            }
+
+            return json;
+        }
+
         // ==================== GEMINI API PARSING ====================
 
         private async Task<GeminiSyllabusResult?> ParseFullSyllabusWithGeminiAsync(string syllabusText)
@@ -476,15 +512,20 @@ namespace FinalProject.Services
 
 CRITICAL RULES:
 1. Return ONLY valid JSON - no text before or after
-2. ONE course per syllabus
-3. Extract ALL assignments, quizzes, exams with due dates
-4. **Generate study blocks/events for ALL major items (exams, projects, quizzes)**
-5. **For each exam, create a study block 2-3 days BEFORE the exam**
-6. **For each project, create study blocks throughout the timeline**
-7. Use 'null' for unknown fields (as string, not bare null)
-8. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
-9. Event titles: max 30 characters
-10. Descriptions: max 200 characters
+2. Generate study blocks/events for ALL major items (assignments, exams, projects, quizzes)
+3. For each assignment, create study blocks before the assignment's due datetime
+4. For each exam, create a study block 2-3 days BEFORE the exam
+5. For each project, create study blocks throughout the timeline
+6. Make study block durations longer or shorter based on course difficulty
+7. Make sure no study block times overlap
+8. Make sure no study block times overlap with any other events
+9. Use 'null' for unknown fields (as string, not bare null)
+10. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
+11. Event titles: max 30 characters
+12. Descriptions: max 400 characters
+13. ALWAYS close all brackets and braces
+
+
 
 EXACT JSON STRUCTURE:
 {{
@@ -530,8 +571,12 @@ EXACT JSON STRUCTURE:
   ]
 }}
 
+IMPORTANT: Ensure the JSON is COMPLETE. Close all arrays with ] and all objects with }}
+
 Syllabus:
-{syllabusText}";
+{syllabusText}
+
+Return ONLY the complete JSON object:";
 
             var requestBody = new
             {
@@ -544,7 +589,8 @@ Syllabus:
                     temperature = 0.1,
                     maxOutputTokens = 8192,
                     //topK = 1,
-                    topP = 0.95
+                    topP = 0.95,
+                    stopSequences = new string[] { } // Ensure no premature stopping
                 }
             };
 
@@ -612,8 +658,10 @@ Syllabus:
                 cleanedText.Length > 500 ? cleanedText.Substring(0, 500) + "..." : cleanedText);
 
             // ==================== PARSE RESULT ====================
+            // ==================== PARSE RESULT ====================
             try
             {
+                // First attempt: try to parse as-is
                 var result = JsonSerializer.Deserialize<GeminiSyllabusResult>(
                     cleanedText,
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
@@ -630,18 +678,44 @@ Syllabus:
             }
             catch (JsonException ex)
             {
-                _logger.LogError(ex, "❌ JSON parsing failed. Content: {Content}", cleanedText);
+                _logger.LogWarning(ex, "First parse attempt failed, trying to fix JSON structure");
 
-                // Save to file for debugging
                 try
                 {
-                    var debugPath = Path.Combine(Path.GetTempPath(), $"gemini_error_{DateTime.Now:yyyyMMdd_HHmmss}.txt");
-                    File.WriteAllText(debugPath, $"Original:\n{generatedText}\n\nCleaned:\n{cleanedText}");
-                    _logger.LogError("Debug output saved to: {Path}", debugPath);
-                }
-                catch { }
+                    // Attempt to fix the JSON
+                    var fixedJson = FixMalformedJson(cleanedText);
 
-                throw new Exception("Could not parse Gemini JSON response. Check logs for details.", ex);
+                    _logger.LogInformation("Fixed JSON (last 300 chars): {Text}",
+                        fixedJson.Length > 300 ? "..." + fixedJson.Substring(fixedJson.Length - 300) : fixedJson);
+
+                    var result = JsonSerializer.Deserialize<GeminiSyllabusResult>(
+                        fixedJson,
+                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+                    );
+
+                    if (result == null || result.Course == null)
+                    {
+                        throw new Exception("Fixed JSON still contains invalid course data");
+                    }
+
+                    _logger.LogInformation("✅ Successfully parsed syllabus after fix: {CourseName}", result.Course.CourseName);
+                    return result;
+                }
+                catch (JsonException innerEx)
+                {
+                    _logger.LogError(innerEx, "❌ JSON parsing failed even after fix attempt");
+
+                    // Save to file for debugging
+                    try
+                    {
+                        var debugPath = Path.Combine(Path.GetTempPath(), $"gemini_error_{DateTime.Now:yyyyMMdd_HHmmss}.txt");
+                        File.WriteAllText(debugPath, $"Original:\n{generatedText}\n\nCleaned:\n{cleanedText}\n\nError:\n{innerEx.Message}");
+                        _logger.LogError("Debug output saved to: {Path}", debugPath);
+                    }
+                    catch { }
+
+                    throw new Exception($"Could not parse Gemini JSON response. Error at Line {innerEx.LineNumber}, Position {innerEx.BytePositionInLine}. Check logs for details.", innerEx);
+                }
             }
         }
 

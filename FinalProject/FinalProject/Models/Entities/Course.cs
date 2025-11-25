@@ -9,7 +9,7 @@ namespace FinalProject.Models.Entities
         public int Id { get; set; }
         [Required(ErrorMessage = "Course name is required"), MaxLength(50, ErrorMessage = "Course names must be less than 50 characters")]
         public string CourseName { get; set; }
-        [Required(ErrorMessage = "Course description is required"), MaxLength(200, ErrorMessage = "Course descriptions must be less than 200 characters")]
+        [Required(ErrorMessage = "Course description is required"), MaxLength(400, ErrorMessage = "Course descriptions must be less than 400 characters")]
         public string CourseDescription { get; set; }
         [Required(ErrorMessage = "Start date is required")]
         public DateOnly? StartDate { get; set; }
