@@ -513,17 +513,24 @@ namespace FinalProject.Services
 CRITICAL RULES:
 1. Return ONLY valid JSON - no text before or after
 2. Generate study blocks/events for ALL major items (assignments, exams, projects, quizzes)
-3. For each assignment, create study blocks before the assignment's due datetime
-4. For each exam, create a study block 2-3 days BEFORE the exam
-5. For each project, create study blocks throughout the timeline
-6. Make study block durations longer or shorter based on course difficulty
-7. Make sure no study block times overlap
-8. Make sure no study block times overlap with any other events
-9. Use 'null' for unknown fields (as string, not bare null)
-10. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
-11. Event titles: max 30 characters
-12. Descriptions: max 400 characters
-13. ALWAYS close all brackets and braces
+3. Base length of study blocks on course difficulty 
+4. For each assignment, create study blocks before the assignment's due datetime
+5. For each exam, create a study block 2-3 days BEFORE the exam
+6. For each project, create study blocks throughout the timeline
+7. Make study block durations longer or shorter based on course difficulty
+8. Make sure no study block times overlap
+9. Make sure no study block times overlap with any other events
+10. Use 'null' for unknown fields (as string, not bare null)
+11. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
+12. Event titles: max 30 characters
+13. Descriptions: max 400 characters
+14. ALWAYS close all brackets and braces
+15. Try to find course difficulty based on course number
+16. If course number is 100-199, set difficulty to 1
+17. If course number is 200-299, set difficulty to 2
+18. If course number is 300-399, set difficulty to 3
+19. If course number is 400-499, set difficulty to 4
+20. If course number is missing or unrecognized, set difficulty to null
 
 
 
@@ -539,6 +546,7 @@ EXACT JSON STRUCTURE:
     ""classEndTime"": ""11:45"",
     ""location"": ""Room 101"",
     ""courseColor"": ""#007bff""
+    ""DifficultyLevel"": 3
   }},
   ""assignments"": [
     {{

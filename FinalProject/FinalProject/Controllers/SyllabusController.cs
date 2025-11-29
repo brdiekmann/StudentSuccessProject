@@ -252,7 +252,8 @@ namespace FinalProject.Controllers
                             classEndTime = course.ClassEndTime?.ToString("HH:mm") ?? "",
                             course.Location,
                             course.CourseColor,
-                            course.IsActive
+                            course.IsActive,
+                            course.DifficultyLevel
                         },
 
                         parsedData = new
