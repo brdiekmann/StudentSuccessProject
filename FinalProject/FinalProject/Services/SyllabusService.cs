@@ -513,24 +513,28 @@ namespace FinalProject.Services
 CRITICAL RULES:
 1. Return ONLY valid JSON - no text before or after
 2. Generate study blocks/events for ALL major items (assignments, exams, projects, quizzes)
-3. Base length of study blocks on course difficulty 
-4. For each assignment, create study blocks before the assignment's due datetime
-5. For each exam, create a study block 2-3 days BEFORE the exam
-6. For each project, create study blocks throughout the timeline
-7. Make study block durations longer or shorter based on course difficulty
-8. Make sure no study block times overlap
-9. Make sure no study block times overlap with any other events
-10. Use 'null' for unknown fields (as string, not bare null)
-11. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
-12. Event titles: max 30 characters
-13. Descriptions: max 400 characters
-14. ALWAYS close all brackets and braces
-15. Try to find course difficulty based on course number
-16. If course number is 100-199, set difficulty to 1
-17. If course number is 200-299, set difficulty to 2
-18. If course number is 300-399, set difficulty to 3
-19. If course number is 400-499, set difficulty to 4
-20. If course number is missing or unrecognized, set difficulty to null
+3. Base length of study blocks on course difficulty
+4. Courses with higher difficulty get longer study blocks
+5. Projects should have longer study blocks spread out over time
+6. For each assignment, create study blocks before the assignment's due datetime
+7. For each exam, create a study block 2-3 days BEFORE the exam
+8. For each project, create study blocks throughout the timeline
+9. Make study block durations longer or shorter based on course difficulty
+10. Make sure no study block times overlap
+11. Make sure no study block times overlap with any other events
+12. Use 'null' for unknown fields (as string, not bare null)
+13. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
+14. Event titles: max 30 characters
+15. Descriptions: max 400 characters
+16. ALWAYS close all brackets and braces
+17. Try to find course difficulty based on course number
+18. If course number is 100-199, set difficulty to 1
+19. If course number is 200-299, set difficulty to 2
+20. If course number is 300-399, set difficulty to 3
+21. If course number is 400-499, set difficulty to 4
+22. If course number is missing or unrecognized, set difficulty to null
+23. DifficultyLevel field should be an integer from 1 to 4, or null if unknown
+24. Event types must be one of: 'study', 'exam', 'assignment', 'project', 'class', 'break', or 'other'
 
 
 

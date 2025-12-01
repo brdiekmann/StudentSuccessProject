@@ -12,6 +12,8 @@ namespace FinalProject.Models.Entities
         public string EventName { get; set; }
         [Required(ErrorMessage = "Event description is required"), MaxLength(200, ErrorMessage = "Event descriptions must be less than 200 characters")]
         public string EventDescription { get; set; }
+        [Required(ErrorMessage = "Event type is required"), MaxLength(30, ErrorMessage = "Event type must be less than 30 characters")]
+        public string EventType { get; set; }
         [Required(ErrorMessage = "Event start date and time is required")]
         public DateTime StartDateTime { get; set; }
         [Required(ErrorMessage = "Event end date and time is required")]

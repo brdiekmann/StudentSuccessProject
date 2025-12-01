@@ -64,6 +64,7 @@ namespace FinalProject.Controllers
                 {
                     EventName = eventData.EventName?.Substring(0, Math.Min(30, eventData.EventName.Length)),
                     EventDescription = eventData.EventDescription?.Substring(0, Math.Min(200, eventData.EventDescription.Length)),
+                    EventType = eventData.EventType?.Substring(0, Math.Min(30, eventData.EventType.Length)),
                     StartDateTime = eventData.StartDateTime,
                     EndDateTime = eventData.EndDateTime,
                     Location = eventData.Location?.Substring(0, Math.Min(50, eventData.Location.Length)),
@@ -106,6 +107,7 @@ namespace FinalProject.Controllers
                 // Update event properties
                 eventEntity.EventName = eventData.EventName?.Substring(0, Math.Min(30, eventData.EventName.Length)) ?? eventEntity.EventName;
                 eventEntity.EventDescription = eventData.EventDescription?.Substring(0, Math.Min(200, eventData.EventDescription.Length)) ?? eventEntity.EventDescription;
+                eventEntity.EventType = eventData.EventType ? .Substring(0, Math.Min(30,eventData.EventType.Length)) ?? eventEntity.EventType;
                 eventEntity.StartDateTime = eventData.StartDateTime;
                 eventEntity.EndDateTime = eventData.EndDateTime;
                 eventEntity.Location = eventData.Location?.Substring(0, Math.Min(50, eventData.Location.Length)) ?? eventEntity.Location;
@@ -148,6 +150,7 @@ namespace FinalProject.Controllers
                 {
                     EventName = TruncateString(request.EventName, 30),
                     EventDescription = TruncateString(request.EventDescription, 200),
+                    EventType = TruncateString(request.EventType, 30),
                     StartDateTime = request.StartDateTime,
                     EndDateTime = request.EndDateTime,
                     Location = TruncateString(request.Location, 50),
@@ -459,6 +462,7 @@ namespace FinalProject.Controllers
                             {
                                 EventName = TruncateString(block.Title ?? "Study Session", 30),
                                 EventDescription = TruncateString(block.Description ?? $"{block.EventType} event", 200),
+                                EventType = TruncateString (block.EventType ?? $"{block.EventType}", 30),
                                 StartDateTime = block.StartDate,
                                 EndDateTime = block.EndDate,
                                 Location = course.Location ?? "TBD",
@@ -522,6 +526,7 @@ namespace FinalProject.Controllers
                             {
                                 EventName = TruncateString($"{course.CourseName} Class", 30),
                                 EventDescription = TruncateString($"Class meeting for {course.CourseName}", 200),
+                                EventType = "class",
                                 StartDateTime = startDateTime,
                                 EndDateTime = endDateTime,
                                 Location = course.Location ?? "TBD",
@@ -572,6 +577,8 @@ namespace FinalProject.Controllers
                 "assignment" => "#ffc107",   // Yellow
                 "study" => "#28a745",        // Green
                 "project" => "#17a2b8",      // Cyan
+                "break" => "#6f42c1",        // Purple
+                "class" => "#FFA500",        // Orange
                 _ => "#007bff"               // Blue
             };
         }
@@ -611,6 +618,7 @@ namespace FinalProject.Controllers
                     end = e.EndDateTime,
                     allDay = e.IsAllDay,
                     color = e.EventColor,
+                    type = e.EventType,
                     description = e.EventDescription,
                     location = e.Location
                 })

@@ -4,6 +4,7 @@
     {
         public string EventName { get; set; }
         public string EventDescription { get; set; }
+        public string EventType { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public string Location { get; set; }

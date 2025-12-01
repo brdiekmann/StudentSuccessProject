@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using FinalProject.Models.Entities;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -118,5 +119,9 @@ Text:
 
             return await response.Content.ReadAsStringAsync();
         }
+
+        //Analyze Study Blocks and Breaks
+        
+
     }
 }
