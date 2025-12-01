@@ -14,7 +14,7 @@ Project Started: August 2025
 - **course and event type color coding**
 - **schedules history**
 
-### 🔧 In process Features
+### 🔧 In Process Features
 - user notifications for deadlines
 - reccurring events
 - deleting schedules
