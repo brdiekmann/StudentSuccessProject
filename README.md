@@ -9,21 +9,23 @@ Project Started: August 2025
 ### ⭐ Main Features
 - **course syllabus upload with AI parsing**    
 - **automatic calendar population for parsed events**  
-- **difficulty scaling system (5-point scale)** 
+- **difficulty scaling for course (5-point scale)** 
 - **view modes: Month, Week, Day, List**
+- **event moveable (click and drag)**
 - **course and event type color coding**
 - **schedules history**
 
 ### 🔧 In Process Features
-- user notifications for deadlines
-- reccurring events
 - deleting schedules
-- "hide" option for event types
+- AI-powered prioritization according to event difficulty
+- reccurring events such as work
 
-### 🌱 Optional Features
+### 🌱 Possible Features
+- "hide" option for event types
+- break creation (meals, leisure, sleep, commute)
+- user notifications for deadlines
 - natural language task creation  
 - AI-powered conflict detection
-- break creation (meals, leisure, sleep, commute)
 - cross-device sync  
 - mobile layout  
 
