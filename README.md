@@ -1,8 +1,7 @@
 Project Started: August 2025
 # 🎓 SyllaSmart (Prototype)
 
-**SyllaSmart** is a front-end–focused AI-assisted web app designed to help college students organize syllabus into a easily-readable schedule. The system uses Gemini 2.5 Flash to extract tasks from uploaded syllabi. This will automatically build a calendar that can be viewed from a monthly, weekly, daily and list perspective. The user can prioritize study sessions to improve academic success through our difficulty scaling system.
-
+**SyllaSmart** is an AI-assisted web app designed to help college students organize their class syllabus into an easily-readable schedule. The system uses Gemini 2.5 Flash to extract tasks from uploaded syllabi. This will automatically build a calendar that can be viewed from a monthly, weekly, daily and list perspective. Extracted events are rated by standard course level and type to adjust time priority.
 ---
 ## Core Features
 
@@ -19,6 +18,7 @@ Project Started: August 2025
 - deleting schedules
 - AI-powered prioritization according to event difficulty
 - reccurring events such as work
+- event repopulation for syllabi the same course ID
 
 ### 🌱 Possible Features
 - "hide" option for event types
