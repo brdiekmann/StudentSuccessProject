@@ -202,6 +202,8 @@ namespace FinalProject.Services
                     }
                 }
 
+
+
                 // Create recurring class meeting events
                 var classMeetingEvents = CreateRecurringClassEvents(course, userId, scheduleId);
                 foreach (var evt in classMeetingEvents)
@@ -236,8 +238,16 @@ namespace FinalProject.Services
         {
             var events = new List<Event>();
 
-            if (string.IsNullOrWhiteSpace(course.ClassMeetingDays))
+            // Validate required fields before creating events
+            if (string.IsNullOrWhiteSpace(course.ClassMeetingDays) ||
+                !course.StartDate.HasValue ||
+                !course.EndDate.HasValue ||
+                !course.ClassStartTime.HasValue ||
+                !course.ClassEndTime.HasValue)
+            {
+                _logger.LogWarning("Cannot create recurring class events - missing required course information");
                 return events;
+            }
 
             var meetingDays = course.ClassMeetingDays
                 .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
@@ -260,8 +270,11 @@ namespace FinalProject.Services
                 .Select(d => dayMap[d])
                 .ToList();
 
-            if (!validDays.Any() || !course.StartDate.HasValue || !course.EndDate.HasValue)
+            if (!validDays.Any())
+            {
+                _logger.LogWarning("No valid meeting days found in: {Days}", course.ClassMeetingDays);
                 return events;
+            }
 
             for (var date = course.StartDate.Value.ToDateTime(TimeOnly.MinValue);
                  date <= course.EndDate.Value.ToDateTime(TimeOnly.MinValue);
@@ -269,17 +282,17 @@ namespace FinalProject.Services
             {
                 if (validDays.Contains(date.DayOfWeek))
                 {
-                    var startDateTime = date.Add(course.ClassStartTime!.Value.ToTimeSpan());
-                    var endDateTime = date.Add(course.ClassEndTime!.Value.ToTimeSpan());
+                    var startDateTime = date.Add(course.ClassStartTime.Value.ToTimeSpan());
+                    var endDateTime = date.Add(course.ClassEndTime.Value.ToTimeSpan());
 
                     var classEvent = new Event
                     {
-                        EventName = TruncateString($"{course.CourseName} Class", 30),
-                        EventDescription = TruncateString($"Class meeting for {course.CourseName}", 200),
+                        EventName = TruncateString($"{course.CourseName ?? "Class"} Meeting", 30),
+                        EventDescription = TruncateString($"Class meeting for {course.CourseName ?? "course"}", 200),
                         StartDateTime = startDateTime,
                         EndDateTime = endDateTime,
-                        Location = course.Location ?? "TBD",
-                        EventColor = course.CourseColor,
+                        Location = !string.IsNullOrWhiteSpace(course.Location) ? course.Location : "TBD",
+                        EventColor = !string.IsNullOrWhiteSpace(course.CourseColor) ? course.CourseColor : "#007bff",
                         IsAllDay = false,
                         IsCancelled = false,
                         attachedToCourse = true,
@@ -292,6 +305,7 @@ namespace FinalProject.Services
                 }
             }
 
+            _logger.LogInformation("Created {Count} recurring class events", events.Count);
             return events;
         }
 
@@ -512,73 +526,67 @@ namespace FinalProject.Services
 
 CRITICAL RULES:
 1. Return ONLY valid JSON - no text before or after
-2. Generate study blocks/events for ALL major items (assignments, exams, projects, quizzes)
-3. Base length of study blocks on course difficulty
-4. Courses with higher difficulty get longer study blocks
-5. Projects should have longer study blocks spread out over time
+2. Find ALL assignments, exams, projects, quizzes, and due dates in the syllabus
+3. Look for keywords like: 'due', 'exam', 'test', 'quiz', 'project', 'assignment', 'midterm', 'final'
+4. Extract EVERY date mentioned with an associated task
+5. Create study blocks for each assignment/exam found
 6. For each assignment, create study blocks before the assignment's due datetime
 7. For each exam, create a study block 2-3 days BEFORE the exam
-8. For each project, create study blocks throughout the timeline
-9. Make study block durations longer or shorter based on course difficulty
-10. Make sure no study block times overlap
-11. Make sure no study block times overlap with any other events
-12. Use 'null' for unknown fields (as string, not bare null)
-13. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
-14. Event titles: max 30 characters
-15. Descriptions: max 400 characters
-16. ALWAYS close all brackets and braces
-17. Try to find course difficulty based on course number
-18. If course number is 100-199, set difficulty to 1
-19. If course number is 200-299, set difficulty to 2
-20. If course number is 300-399, set difficulty to 3
-21. If course number is 400-499, set difficulty to 4
-22. If course number is missing or unrecognized, set difficulty to null
-23. DifficultyLevel field should be an integer from 1 to 4, or null if unknown
-24. Event types must be one of: 'study', 'exam', 'assignment', 'project', 'class', 'break', or 'other'
+8. Base study block duration on course difficulty
+9. Make sure no study block times overlap
+10. Use 'null' for unknown fields (as string, not bare null)
+11. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
+12. Event titles: max 30 characters
+13. Descriptions: max 500 characters
+14. ALWAYS close all brackets and braces
+15. ALL datetime values MUST be in format: ""YYYY-MM-DDTHH:MM:SS"" (e.g., ""2025-11-15T23:59:00"")
+16. If no time is specified, use 23:59:00 as the default time
+17. DifficultyLevel should be 1-4 based on course number (100s=1, 200s=2, 300s=3, 400s=4)
 
-
+IMPORTANT: Extract EVERY assignment, exam, quiz, and project mentioned. Don't skip any!
 
 EXACT JSON STRUCTURE:
 {{
   ""course"": {{
-    ""courseName"": ""CIS 375"",
-    ""courseDescription"": ""System Analysis & Design"",
-    ""startDate"": ""2024-01-09"",
-    ""endDate"": ""2024-05-02"",
-    ""classMeetingDays"": ""Tuesday,Thursday"",
-    ""classStartTime"": ""10:30"",
-    ""classEndTime"": ""11:45"",
-    ""location"": ""Room 101"",
-    ""courseColor"": ""#007bff""
-    ""DifficultyLevel"": 3
+    ""courseName"": ""CS 101"",
+    ""courseDescription"": ""Introduction to Programming"",
+    ""startDate"": ""2025-08-25"",
+    ""endDate"": ""2025-12-15"",
+    ""classMeetingDays"": ""Monday,Wednesday,Friday"",
+    ""classStartTime"": ""10:00"",
+    ""classEndTime"": ""11:00"",
+    ""location"": ""TBD"",
+    ""courseColor"": ""#007bff"",
+    ""DifficultyLevel"": 1
   }},
   ""assignments"": [
     {{
-      ""assignmentName"": ""Chapter 1 Quiz"",
-      ""dueDate"": ""2024-01-18T23:59:00""
+      ""assignmentName"": ""Assignment 1"",
+      ""dueDate"": ""2025-11-01T23:59:00""
+    }},
+    {{
+      ""assignmentName"": ""Midterm Exam"",
+      ""dueDate"": ""2025-11-15T23:59:00""
+    }},
+    {{
+      ""assignmentName"": ""Final Project"",
+      ""dueDate"": ""2025-12-10T23:59:00""
     }}
   ],
   ""events"": [
     {{
-      ""title"": ""Study for Ch 1 Quiz"",
-      ""startDate"": ""2024-01-16T14:00:00"",
-      ""endDate"": ""2024-01-16T16:00:00"",
+      ""title"": ""Study for Assignment 1"",
+      ""startDate"": ""2025-10-30T14:00:00"",
+      ""endDate"": ""2025-10-30T16:00:00"",
       ""eventType"": ""study"",
-      ""description"": ""Review Ch 1 before quiz""
-    }},
-    {{
-      ""title"": ""Midterm Exam"",
-      ""startDate"": ""2024-03-15T10:30:00"",
-      ""endDate"": ""2024-03-15T11:45:00"",
-      ""eventType"": ""exam"",
-      ""description"": ""Midterm covering Ch 1-5""
+      ""description"": ""Prepare for Assignment 1""
     }},
     {{
       ""title"": ""Study for Midterm"",
-      ""startDate"": ""2024-03-13T14:00:00"",
-      ""endDate"": ""2024-03-13T17:00:00"",
+      ""startDate"": ""2025-11-13T14:00:00"",
+      ""endDate"": ""2025-11-13T17:00:00"",
       ""eventType"": ""study"",
-      ""description"": ""Review Ch 1-5""
+      ""description"": ""Review for midterm exam""
     }}
   ]
 }}

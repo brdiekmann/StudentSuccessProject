@@ -860,7 +860,6 @@ C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\n
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.pdb
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\FinalProject.genruntimeconfig.cache
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\ref\FinalProject.dll
-C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
 C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\compressed\aec63ga6k2-5u2yi1d2y3.gz
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\compressed\aec63ga6k2-5u2yi1d2y3.gz
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\rpswa.dswa.cache.json
@@ -869,3 +868,4 @@ C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\n
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\steel\CS483\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
+C:\Users\Brandon\source\repos\StudentSuccessProject\FinalProject\FinalProject\bin\Debug\net9.0\appsettings.json
