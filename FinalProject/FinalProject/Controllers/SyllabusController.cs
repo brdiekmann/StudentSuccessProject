@@ -501,7 +501,7 @@ namespace FinalProject.Controllers
                 { "Thursday", DayOfWeek.Thursday },
                 { "Friday", DayOfWeek.Friday },
                 { "Saturday", DayOfWeek.Saturday },
-                { "Sunday", DayOfWeek.Sunday }
+                { "Sunday", DayOfWeek.Sunday },
             };
 
                     var validDays = meetingDays
