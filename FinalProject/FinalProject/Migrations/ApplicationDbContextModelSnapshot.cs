@@ -77,7 +77,7 @@ namespace FinalProject.Migrations
 
                     b.Property<string>("CourseDescription")
                         .IsRequired()
-                        .HasMaxLength(500)
+                        .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
                     b.Property<string>("CourseName")

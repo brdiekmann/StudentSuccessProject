@@ -514,6 +514,7 @@ namespace FinalProject.Services
 
         private async Task<GeminiSyllabusResult?> ParseFullSyllabusWithGeminiAsync(string syllabusText)
         {
+            var schedule = new Schedule();
             using var httpClient = new HttpClient();
             httpClient.Timeout = TimeSpan.FromMinutes(2);
 
@@ -535,7 +536,7 @@ CRITICAL RULES:
 8. Base study block duration on course difficulty
 9. Make sure no study block times overlap
 10. Use 'null' for unknown fields (as string, not bare null)
-11. Only include dates AFTER {DateTime.Now:yyyy-MM-dd}
+11. Only include dates AFTER {schedule.StartDateTime}
 12. Event titles: max 30 characters
 13. Descriptions: max 500 characters
 14. ALWAYS close all brackets and braces
