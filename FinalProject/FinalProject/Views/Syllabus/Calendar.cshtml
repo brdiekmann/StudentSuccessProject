@@ -593,6 +593,28 @@
     </div>
 </div>
 
+html<style>
+        .form-check {
+            display: inline-flex;
+            align-items: center;
+            flex-direction: row-reverse; /* This reverses the order so label appears first visually */
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-check-label {
+            font-weight: normal;
+            font-size: 0.81rem;
+            margin-right: 0rem; /* Space between label and checkbox */
+            margin-left: 0; /* Remove default left margin */
+        }
+
+        .form-check-input {
+            margin-top: 0.2rem;
+            margin-left: 0; /* Remove default left margin */
+        }
+</style>
+
 <!-- Missing Course Details Modal -->
 <div id="missingCourseModal" class="modal">
     <div class="modal-content">
@@ -620,8 +642,31 @@
                     <input type="date" id="courseEndDate" required>
                 </div>
                 <div class="form-group">
-                    <label for="classMeetingDays">Class Meeting Days <span style="color:red">*</span></label>
-                    <input type="text" id="classMeetingDays" placeholder="Monday, Wednesday" required>
+                    <label>Class Meeting Days <span style="color:red">*</span></label>
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="form-check">
+                            <label class="form-check-label" for="Monday">Monday</label>
+                            <input class="form-check-input meeting-day" type="checkbox" value="Monday" id="monday">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="Tuesday">Tuesday</label>
+                            <input class="form-check-input meeting-day" type="checkbox" value="Tuesday" id="tuesday">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="Wednesday">Wednesday</label>
+                            <input class="form-check-input meeting-day" type="checkbox" value="Wednesday" id="wednesday">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="Thursday">Thursday</label>
+                            <input class="form-check-input meeting-day" type="checkbox" value="Thursday" id="thursday">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="Friday">Friday</label>
+                            <input class="form-check-input meeting-day" type="checkbox" value="Friday" id="friday">
+                        </div>
+                    </div>
+                    <!-- Hidden field to store the comma-separated string -->
+                    <input type="hidden" id="classMeetingDays" name="classMeetingDays">
                 </div>
                 <div class="form-group">
                     <label for="classStartTime">Class Start Time <span style="color:red">*</span></label>
@@ -657,6 +702,19 @@
         </div>
     </div>
 </div>
+
+<!--Script for checkboxes on MissingCourseDetails Modal-->
+<script>
+    // Update hidden field when checkboxes change
+    document.querySelectorAll('.meeting-day').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const selectedDays = Array.from(document.querySelectorAll('.meeting-day:checked'))
+                .map(cb => cb.value)
+                .join(', ');
+            document.getElementById('classMeetingDays').value = selectedDays;
+        });
+    });
+</script>
 
 <!-- Add Event Modal (NEW) -->
 <div id="addEventModal" class="modal">

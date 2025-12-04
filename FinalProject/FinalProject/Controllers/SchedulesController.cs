@@ -174,8 +174,8 @@ namespace FinalProject.Controllers
                     // Update only the properties that exist and should be editable
                     existing.Title = schedule.Title;
                     existing.ScheduleDescription = schedule.ScheduleDescription;
-                    existing.StartDateTime = schedule.StartDateTime;
-                    existing.EndDateTime = schedule.EndDateTime;
+                    existing.StartDateTime = existing.StartDateTime;
+                    existing.EndDateTime = existing.EndDateTime;
 
                     // DON'T update IsActive since it doesn't exist in database
 
@@ -202,6 +202,7 @@ namespace FinalProject.Controllers
         }
 
         // GET: Schedules/Delete/5
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             try
