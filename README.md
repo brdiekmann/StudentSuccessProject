@@ -15,7 +15,6 @@ Project Started: August 2025
 - **schedules history**
 
 ### 🔧 In Process Features
-- deleting schedules
 - AI-powered prioritization according to event difficulty
 - reccurring events such as work
 - event repopulation for syllabi the same course ID
