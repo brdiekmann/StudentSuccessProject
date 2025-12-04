@@ -393,6 +393,13 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")"
+                   asp-controller="Courses" asp-action="Index" data-tooltip="Courses">
+                    <i class="fas fa-university"></i>
+                    <span>Courses</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Privacy" ? "active" : "")"
                    asp-controller="Home" asp-action="Privacy" data-tooltip="Privacy">
                     <i class="fas fa-shield-alt"></i>

@@ -9,6 +9,7 @@ using iText.Kernel.Pdf.Canvas.Parser.Listener;
 using iText.Signatures;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace FinalProject.Services
@@ -156,6 +157,27 @@ namespace FinalProject.Services
                         result.CreatedAssignments.Add(assignment);
                     }
 
+                    // After creating assignments
+                    foreach (var assignment in result.CreatedAssignments)
+                    {
+                        var dueEvent = new Event
+                        {
+                            EventName = TruncateString($"{assignment.AssignmentName} Due", 30),
+                            EventDescription = "Assignment due date",
+                            StartDateTime = assignment.DueDate,
+                            EndDateTime = assignment.DueDate.AddHours(1),
+                            Location = course.Location ?? "TBD",
+                            EventColor = "#ffc107",
+                            IsAllDay = false,
+                            attachedToCourse = true,
+                            UserId = userId,
+                            ScheduleId = scheduleId,
+                            CourseId = course.Id
+                        };
+                        _context.Events.Add(dueEvent);
+                        result.Events.Add(dueEvent);
+                    }
+
                     if (result.CreatedAssignments.Any())
                     {
                         await _context.SaveChangesAsync();
@@ -217,6 +239,7 @@ namespace FinalProject.Services
                     await _context.SaveChangesAsync();
                     result.EventsCreated = result.Events.Count;
                 }
+
 
                 result.Success = true;
                 result.Message = $"Successfully created {result.CoursesCreated} course, {result.AssignmentsCreated} assignments, and {result.EventsCreated} events.";
@@ -396,16 +419,28 @@ namespace FinalProject.Services
         }
 
         private string GetColorForEventType(string? eventType)
-        {
-            return eventType?.ToLower() switch
-            {
-                "exam" => "#dc3545",
-                "assignment" => "#ffc107",
-                "study" => "#28a745",
-                "project" => "#17a2b8",
-                _ => "#007bff"
-            };
-        }
+{
+    if (string.IsNullOrWhiteSpace(eventType))
+        return "#007bff"; // Default blue
+
+    var type = eventType.ToLower().Trim();
+
+    // Check if the type contains these keywords
+    if (type.Contains("exam") || type.Contains("test") || type.Contains("midterm") || type.Contains("final"))
+        return "#dc3545"; // Red
+
+    if (type.Contains("assignment") || type.Contains("homework") || type.Contains("hw"))
+        return "#ffc107"; // Yellow
+
+    if (type.Contains("study") || type.Contains("review"))
+        return "#28a745"; // Green
+
+    if (type.Contains("project"))
+        return "#17a2b8"; // Cyan
+
+    // Default
+    return "#007bff";
+}
 
         // ==================== TEXT EXTRACTION ====================
 
@@ -544,7 +579,7 @@ CRITICAL RULES:
 16. If no time is specified, use 23:59:00 as the default time
 17. DifficultyLevel should be 1-4 based on course number (100s=1, 200s=2, 300s=3, 400s=4)
 
-IMPORTANT: Extract EVERY assignment, exam, quiz, and project mentioned. Don't skip any!
+IMPORTANT: Extract EVERY assignment, exam, quiz, project, and due date mentioned. Don't skip any!
 
 EXACT JSON STRUCTURE:
 {{
@@ -678,7 +713,6 @@ Return ONLY the complete JSON object:";
             _logger.LogInformation("Final cleaned JSON (first 500 chars): {Text}",
                 cleanedText.Length > 500 ? cleanedText.Substring(0, 500) + "..." : cleanedText);
 
-            // ==================== PARSE RESULT ====================
             // ==================== PARSE RESULT ====================
             try
             {

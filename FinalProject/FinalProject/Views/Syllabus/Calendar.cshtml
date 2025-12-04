@@ -450,7 +450,8 @@
         font-size: 12px;
         font-weight: bold;
         transition: background-color 0.2s;
-        z-index: 10;
+        z-index: 100;
+        pointer-events: auto;
     }
 
         .fc-list-hide-day-btn:hover {
@@ -465,10 +466,10 @@
                 background: #218838;
             }
 
-    .fc-list-day.day-hidden .fc-list-event-graphic,
-    .fc-list-day.day-hidden .fc-list-event-time,
-    .fc-list-day.day-hidden .fc-list-event-title {
-        display: none !important;
+    /* Optional: Add visual feedback that day is collapsed */
+    .fc-list-day.day-hidden .fc-list-day-cushion {
+        opacity: 0.7;
+        background-color: #f8f9fa;
     }
 
     .fc-list-day.day-hidden {
@@ -640,13 +641,13 @@
                 </div>
                 <div class="form-group">
                     <label for="DifficultyLevel">Difficulty Level</label>
-					<select id="DifficultyLevel">
-						<option value="1">Easy</option>
-						<option value="2">Moderate</option>
-						<option value="3">Moderately Hard</option>
+                    <select id="DifficultyLevel">
+                        <option value="1">Easy</option>
+                        <option value="2">Moderate</option>
+                        <option value="3">Moderately Hard</option>
                         <option value="4">Hard</option>
                         <option value="5">Very Hard</option>
-					</select>
+                    </select>
                 </div>
             </form>
         </div>
@@ -760,7 +761,7 @@
             endInput.type = 'datetime-local';
         }
     });
-            calendar = new FullCalendar.Calendar(calendarEl, {
+                calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         headerToolbar: {
             left: 'prev,next today',
@@ -784,29 +785,51 @@
             info.el.style.cursor = 'pointer';
         },
 
-        // ← ADD THIS NEW PROPERTY
+        // Trigger when view changes
         viewDidMount: function (info) {
             if (info.view.type === 'listWeek') {
                 addHideButtonsToListView();
             }
+        },
+
+        // NEW: Also trigger after events are loaded/rendered
+        eventsSet: function(events) {
+            const currentView = calendar.view.type;
+            if (currentView === 'listWeek') {
+                setTimeout(() => {
+                    addHideButtonsToListView();
+                }, 200);
+            }
+        },
+
+        datesSet: function(dateInfo) {
+        // Triggered when date range changes (navigation)
+        if (calendar.view.type === 'listWeek') {
+            setTimeout(() => {
+                addHideButtonsToListView();
+            }, 300);
         }
-        // ← END OF NEW PROPERTY
+    }
     });
 
         calendar.render();
 
     // ==================== LIST WEEK HIDE/SHOW FUNCTIONS ====================
 
-    /**
+        /**
      * Adds hide/show buttons to each day in the list week view
      */
     function addHideButtonsToListView() {
+        // Use longer timeout to ensure DOM is ready
         setTimeout(() => {
             const dayHeaders = document.querySelectorAll('.fc-list-day-cushion');
+
+            console.log('Found', dayHeaders.length, 'day headers'); // Debug log
 
             dayHeaders.forEach((header, index) => {
                 // Check if button already exists
                 if (header.querySelector('.fc-list-hide-day-btn')) {
+                    console.log('Button already exists for day', index);
                     return;
                 }
 
@@ -816,52 +839,113 @@
                 hideBtn.textContent = 'Hide';
                 hideBtn.setAttribute('data-day-index', index);
 
+                // Prevent any default behaviors
+                hideBtn.type = 'button';
+
                 // Add click handler
                 hideBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
                     e.stopPropagation();
+                    console.log('Hide button clicked for day', index); // Debug log
                     toggleDayVisibility(this);
                 });
 
                 // Append button to header
+                header.style.position = 'relative'; // Ensure positioning context
                 header.appendChild(hideBtn);
+
+                console.log('Added button for day', index); // Debug log
             });
-        }, 100);
+        }, 300); // Increased timeout
     }
 
-    /**
+     /**
      * Toggles visibility of events for a specific day
      */
     function toggleDayVisibility(button) {
         const dayIndex = button.getAttribute('data-day-index');
-        const dayElement = button.closest('.fc-list-day');
+        const dateAttr = button.closest('.fc-list-day').getAttribute('data-date');
 
-        if (!dayElement) return;
+        console.log('Toggling day', dayIndex, 'with date:', dateAttr);
 
-        // Toggle hidden class
-        dayElement.classList.toggle('day-hidden');
+        // Get the parent day header row
+        let dayElement = button.closest('.fc-list-day');
 
-        // Update button text and style
-        if (dayElement.classList.contains('day-hidden')) {
-            button.textContent = 'Show';
-            button.classList.add('hidden');
-        } else {
+        if (!dayElement) {
+            console.error('Could not find day element');
+            return;
+        }
+
+        // Find all event rows that come after this day header
+        // Events are siblings, not children
+        let eventRows = [];
+        let nextElement = dayElement.nextElementSibling;
+
+        // Collect all event rows until we hit another day header or end
+        while (nextElement && !nextElement.classList.contains('fc-list-day')) {
+            if (nextElement.classList.contains('fc-list-event')) {
+                eventRows.push(nextElement);
+            }
+            nextElement = nextElement.nextElementSibling;
+        }
+
+        console.log('Found', eventRows.length, 'event rows as siblings');
+
+        // Check current state
+        const isCurrentlyHidden = button.classList.contains('hidden');
+
+        if (isCurrentlyHidden) {
+            // Show events
+            eventRows.forEach(row => {
+                row.style.display = '';
+            });
+            dayElement.classList.remove('day-hidden');
             button.textContent = 'Hide';
             button.classList.remove('hidden');
+            button.style.backgroundColor = '#6c757d';
+            console.log('Showing', eventRows.length, 'events');
+        } else {
+            // Hide events
+            eventRows.forEach(row => {
+                row.style.display = 'none';
+            });
+            dayElement.classList.add('day-hidden');
+            button.textContent = 'Show';
+            button.classList.add('hidden');
+            button.style.backgroundColor = '#28a745';
+            console.log('Hiding', eventRows.length, 'events');
         }
     }
 
-    /**
+        /**
      * Shows all hidden days in list view
      */
     function showAllDays() {
-        const hiddenDays = document.querySelectorAll('.fc-list-day.day-hidden');
-        hiddenDays.forEach(day => {
-            day.classList.remove('day-hidden');
-            const btn = day.querySelector('.fc-list-hide-day-btn');
+        const dayHeaders = document.querySelectorAll('.fc-list-day');
+        dayHeaders.forEach(dayHeader => {
+            // Find events for this day
+            let eventRows = [];
+            let nextElement = dayHeader.nextElementSibling;
+
+            while (nextElement && !nextElement.classList.contains('fc-list-day')) {
+                if (nextElement.classList.contains('fc-list-event')) {
+                    eventRows.push(nextElement);
+                }
+                nextElement = nextElement.nextElementSibling;
+            }
+
+            // Show all events
+            eventRows.forEach(row => row.style.display = '');
+
+            // Update button if exists
+            const btn = dayHeader.querySelector('.fc-list-hide-day-btn');
             if (btn) {
                 btn.textContent = 'Hide';
                 btn.classList.remove('hidden');
+                btn.style.backgroundColor = '#6c757d';
             }
+
+            dayHeader.classList.remove('day-hidden');
         });
     }
 
@@ -869,14 +953,31 @@
      * Hides all days in list view
      */
     function hideAllDays() {
-        const allDays = document.querySelectorAll('.fc-list-day');
-        allDays.forEach(day => {
-            day.classList.add('day-hidden');
-            const btn = day.querySelector('.fc-list-hide-day-btn');
+        const dayHeaders = document.querySelectorAll('.fc-list-day');
+        dayHeaders.forEach(dayHeader => {
+            // Find events for this day
+            let eventRows = [];
+            let nextElement = dayHeader.nextElementSibling;
+
+            while (nextElement && !nextElement.classList.contains('fc-list-day')) {
+                if (nextElement.classList.contains('fc-list-event')) {
+                    eventRows.push(nextElement);
+                }
+                nextElement = nextElement.nextElementSibling;
+            }
+
+            // Hide all events
+            eventRows.forEach(row => row.style.display = 'none');
+
+            // Update button if exists
+            const btn = dayHeader.querySelector('.fc-list-hide-day-btn');
             if (btn) {
                 btn.textContent = 'Show';
                 btn.classList.add('hidden');
+                btn.style.backgroundColor = '#28a745';
             }
+
+            dayHeader.classList.add('day-hidden');
         });
     }
 

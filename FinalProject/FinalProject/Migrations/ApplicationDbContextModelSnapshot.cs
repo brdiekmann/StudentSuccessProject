@@ -146,9 +146,7 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("EventType")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsAllDay")
                         .HasColumnType("bit");

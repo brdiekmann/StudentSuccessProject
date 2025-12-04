@@ -249,6 +249,9 @@ namespace FinalProject.Controllers
 
                 if (schedule != null)
                 {
+                    _context.Events.RemoveRange(_context.Events.Where(e => e.ScheduleId == schedule.Id));
+                    _context.Assignments.RemoveRange(_context.Assignments.Where(a => a.course.ScheduleId == schedule.Id));
+                    _context.Courses.RemoveRange(_context.Courses.Where(c => c.ScheduleId == schedule.Id));
                     _context.Schedules.Remove(schedule);
                     await _context.SaveChangesAsync();
                     TempData["Success"] = "Schedule deleted successfully!";

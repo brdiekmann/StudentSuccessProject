@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FinalProject.Models.Entities.Course>
+
+<link rel="stylesheet" href="~/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    h2 {
+        color: white;
+    }
+</style>
+<h2>Your Courses</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="circular-add-button">+</a>
+</p>
+@foreach (var item in Model)
+{
+    <br />
+    <section class="tiles-container">
+        <div class="tile-schedule">
+
+            <p>Name: @item.CourseName</p>
+            <p>Description: @item.CourseDescription</p>
+            <p>Start Date: @item.StartDate</p>
+            <p>End Date: @item.EndDate</p>
+            <p>Meeting Days: @item.ClassMeetingDays</p>
+            <p>Start Time: @item.ClassStartTime</p>
+            <p>End Time: @item.ClassEndTime</p>
+            <p>Location: @item.Location</p>
+            <p>Difficulty: @item.DifficultyLevel</p>
+
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+
+        </div>
+    </section>
+}
+
